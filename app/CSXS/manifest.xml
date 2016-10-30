@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.zurongtech.Deguide" ExtensionBundleVersion="1.0.0"
+		ExtensionBundleName="Deguide" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="com.zurongtech.Deguide" Version="1.0" />
+		<HostList>
+			<Host name="PHXS" Port="8088"/>
+		</HostList>
+	</ExtensionList>
+	<Author>zurongChung</Author>
+	<ExecutionEnvironment>
+		<HostList>
+            <!-- Uncomment Host tags according to the apps you want your panel to support -->
+            <!-- Photoshop -->
+
+            <Host Name="PHXS" Version="[16.0,17.0.1]" />
+
+
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="7.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.zurongtech.Deguide">
+			<DispatchInfo >
+				<Resources>
+				<MainPath>./index.html</MainPath>
+				<ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Panel</Type>
+					<Menu>Deguide</Menu>
+					<Geometry>
+						<Size>
+							<Height>380</Height>
+							<Width>242.5</Width>
+						</Size>
+                    <!--<MinSize>
+                            <Height>550</Height>
+                            <Width>400</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>550</Height>
+                            <Width>400</Width>
+                        </MaxSize>-->
+                        
+					</Geometry>
+					<Icons>
+						<Icon Type="Normal">./icons/iconNormal.png</Icon>
+						<Icon Type="RollOver">./icons/iconRollover.png</Icon>
+						<Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+						<Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
+						<Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
+					</Icons>					
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>

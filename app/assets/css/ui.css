@@ -1,0 +1,156 @@
+input {
+  padding: 0px;
+  border: none;
+}
+
+svg.vector_icon {
+  width: 26px;
+  height: 26px;
+}
+
+g .cls-1 {
+  fill: #e0e0e0 !important;
+}
+
+svg#guidesBox {
+  pointer-events: none;
+}
+
+g#groupGuides {
+  stroke: #42aaec;
+  stroke-width: 1;
+  pointer-events: stroke;
+}
+
+g#groupGuides path.gline:hover {
+  stroke-width: 4;
+  cursor: move;
+}
+
+/***********
+ * common  *
+ ***********/
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+a {
+  display: block;
+}
+
+a.icon {
+  min-width: 26px;
+  min-height: 26px;
+  width: 26px;
+  height: 26px;
+}
+
+/*************
+ *  guides   *
+ *************/
+.guides-container {
+  position: absolute;
+  pointer-events: none;
+}
+
+.de-panel {
+  width: 222.49691px;
+  height: 360px;
+  max-width: 444.99382px;
+  max-height: 720px;
+  min-width: 111.24845px;
+  min-height: 180px;
+  padding: 0px 10px;
+  background-color: #2c2f32;
+}
+
+.de-panel .main-contents {
+  width: 222.49691px;
+}
+
+.de-panel .main-contents form {
+  display: flex;
+}
+
+.columns {
+  width: 101.24845px;
+  flex: 1 0 auto;
+}
+
+.icon-wrapper, .value-wrapper {
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.icon-wrapper {
+  order: 1;
+  min-width: 26px;
+  width: 23.37111%;
+}
+
+.value-wrapper {
+  order: 2;
+  margin-left: 10px;
+}
+
+.field-flex-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/***********
+ *  input  *
+ ***********/
+.valueField {
+  display: block;
+  width: 56.43634px;
+  height: 26px;
+  text-align: center;
+}
+
+/************
+ *  button  *
+ ************/
+#gen-btn {
+  cursor: pointer;
+  height: 45px;
+  background: #da7a61;
+  margin: 20px 0px;
+}
+
+/*******************
+ *  quick setting  *
+ *******************/
+.quick-setting {
+  width: 222.49691px;
+  height: 26px;
+  min-height: 26px;
+}
+
+.quick-setting ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.icon-horz-align {
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: 26px;
+  margin: 0 5px;
+}
+
+/*# sourceMappingURL=maps/ui.css.map */

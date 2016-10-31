@@ -35,6 +35,6 @@
       - qico = 0
       - for name in @quickGuideID do
         %li{:class => ['icon-vert-align', 'icon-horz-align']}
-          %a{:class => 'icon', :id => name}
+          %a{:class => ['icon', 'icon-horz'], :id => name}
             = @quickGuideIcons[qico]
             - qico += 1

@@ -4,34 +4,20 @@ input {
 }
 
 svg.vector_icon {
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
 }
 
 g .cls-1 {
   fill: #e0e0e0 !important;
 }
 
-svg#guidesBox {
-  pointer-events: none;
-}
-
-g#groupGuides {
-  stroke: #42aaec;
-  stroke-width: 1;
-  pointer-events: stroke;
-}
-
-g#groupGuides path.gline:hover {
-  stroke-width: 4;
-  cursor: move;
-}
-
 /***********
  * common  *
  ***********/
 html, body {
-  min-height: 100%;
+  width: 242.49691px;
+  height: 360px;
   margin: 0;
   padding: 0;
 }
@@ -50,18 +36,10 @@ a {
 }
 
 a.icon {
-  min-width: 26px;
-  min-height: 26px;
-  width: 26px;
-  height: 26px;
-}
-
-/*************
- *  guides   *
- *************/
-.guides-container {
-  position: absolute;
-  pointer-events: none;
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .de-panel {
@@ -89,14 +67,14 @@ a.icon {
 }
 
 .icon-wrapper, .value-wrapper {
-  height: 26px;
+  height: 20px;
   flex: 0 0 auto;
 }
 
 .icon-wrapper {
   order: 1;
-  min-width: 26px;
-  width: 23.37111%;
+  min-width: 20px;
+  width: 17.97778%;
 }
 
 .value-wrapper {
@@ -116,8 +94,8 @@ a.icon {
  ***********/
 .valueField {
   display: block;
-  width: 56.43634px;
-  height: 26px;
+  width: 60.93634px;
+  height: 20px;
   text-align: center;
 }
 
@@ -134,10 +112,16 @@ a.icon {
 /*******************
  *  quick setting  *
  *******************/
+.icon-horz-align:before, .icon-horz-align:after, .icon-horz-align a.icon-horz {
+  display: block;
+  position: absolute;
+  content: '';
+}
+
 .quick-setting {
   width: 222.49691px;
-  height: 26px;
-  min-height: 26px;
+  height: 40px;
+  min-height: 20px;
 }
 
 .quick-setting ul {
@@ -147,10 +131,33 @@ a.icon {
 }
 
 .icon-horz-align {
+  position: relative;
+  z-index: 100;
   cursor: pointer;
   flex: 0 0 auto;
-  width: 26px;
-  margin: 0 5px;
+  width: 20px;
+  padding: 2.5px;
+  margin: 0 2.5px;
+}
+
+.icon-horz-align:before {
+  z-index: -1;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(120deg, #3F3F3F 40%, #353535 50%);
+}
+
+.icon-horz-align:after {
+  z-index: -1;
+  top: 5px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-horz-align a.icon-horz {
+  top: 5px;
+  left: 4px;
 }
 
 /*# sourceMappingURL=maps/ui.css.map */

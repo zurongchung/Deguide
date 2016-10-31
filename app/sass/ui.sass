@@ -20,7 +20,8 @@ $accent: #da7a61
  * common  *
  ***********/
 html, body
-  min-height: 100%
+  width: $width + $pd *2
+  height: $height
   margin: 0
   padding: 0
 ul li 
@@ -35,12 +36,7 @@ a.icon
   min-height: $icon-size
   width: $icon-size
   height: $icon-size
-/*************
- *  guides   *
- *************/
-.guides-container
-  position: absolute
-  pointer-events: none
+
 .de-panel
   width: $width
   height: $height
@@ -50,7 +46,6 @@ a.icon
   min-height: $min-height
   padding: 0px $pd
   background-color: $primary
-  //border: 1px solid black
   .main-contents
     width: $width
     //height: pcent($height, .85)
@@ -99,18 +94,48 @@ a.icon
 /*******************
  *  quick setting  *
  *******************/
+%pos
+  display: block
+  position: absolute
+  content: ''
+  //border-radius: 50% 
 .quick-setting
   width: $width
-  height: $icon-size
+  height: $icon-size*2
   min-height: $icon-size
+  //background-color: #505050
   & ul
     display: flex
     flex-direction: row
     justify-content: center
     
 .icon-horz-align
+  position: relative
+  z-index: 100
   cursor: pointer
   flex: 0 0 auto
   width: $icon-size
-  margin: 0 $pd /2
+  //border-radius: 50%
+  padding: $pd /4
+  margin: 0 $pd /4
+  &:before
+    @extend %pos
+    z-index: -1
+    width: $icon-size + 4px
+    height: $icon-size + 4px
+    background: linear-gradient(120deg, #3F3F3F 40%, #353535 50%) 
+  &:after
+    @extend %pos
+    z-index: -1
+    top: 5px
+    left: 4px
+    width: $icon-size 
+    height: $icon-size
+    //background: black
+  a.icon-horz
+    @extend %pos
+    top: 5px
+    left: 4px 
+    
+
       

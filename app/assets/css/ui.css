@@ -20,6 +20,7 @@ html, body {
   height: 360px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 ul li {
@@ -50,7 +51,7 @@ a.icon {
   min-width: 111.24845px;
   min-height: 180px;
   padding: 0px 10px;
-  background-color: #2c2f32;
+  background-color: #282828;
 }
 
 .de-panel .main-contents {

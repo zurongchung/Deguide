@@ -1,27 +1,26 @@
 {
-  "name": "animate_name",
+  "name": "deguide",
   "version": "1.0.0",
-  "description": "Take whatever inputs from user and transform those letters into geometric shape look of letters and animating",
+  "description": "A photoshop HTML5/CSS/Js extension.",
   "main": "main.js",
   "scripts": {
     "build": "babel ES6 -d js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zurongchung/AnimateName.git"
+    "url": "git+https://github.com/zurongchung/Deguide.git"
   },
   "keywords": [
-    "Alphabet",
-    "animation",
-    "design",
-    "fonts"
+    "photoshop",
+    "extension",
+    "guides"
   ],
   "author": "zurong chung",
-  "license": "MIT",
+  "license": "Apache",
   "bugs": {
-    "url": "https://github.com/zurongchung/AnimateName/issues"
+    "url": "https://github.com/zurongchung/Deguide/issues"
   },
-  "homepage": "https://github.com/zurongchung/AnimateName#readme",
+  "homepage": "https://github.com/zurongchung/Deguide#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-preset-es2015": "^6.16.0",

@@ -11,11 +11,17 @@ gulp.task('transform', function() {
   var js = gulp.src("app/ES6/**/*.js")
     .pipe(babel())
     .pipe(gulp.dest("app/assets/js"));  
+  
+  var jquery = gulp.src("app/ES6/libs/*.js")
+    .pipe(babel())
+    .pipe(gulp.dest("app/assets/js/libs"));  
+    
+
   var jsx = gulp.src("app/ES6/host/*.jsx")
   .pipe(babel())
   .pipe(gulp.dest("app/assets/jsx"));
 
-  return [js, jsx];
+  return [js, jsx, jquery];
 
 });
 

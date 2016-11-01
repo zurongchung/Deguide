@@ -4,14 +4,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var AppSkin = new CSInterface();
-var hostEnv = AppSkin.getHostEnvironment();
-
 var Theme = function () {
   function Theme() {
     _classCallCheck(this, Theme);
 
-    this.skin = hostEnv.appSkinInfo.appBarBackgroundColor;
+    this.hostEnv = new CSInterface().getHostEnvironment();
+    this.skin = this.hostEnv.appSkinInfo.appBarBackgroundColor;
     this.red = this.skin.color.red;
     this.green = this.skin.color.green;
     this.blue = this.skin.color.blue;

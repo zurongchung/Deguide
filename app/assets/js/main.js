@@ -1,26 +1,25 @@
 'use strict';
 
-/**
- * When application is up and running
- * get application default units
- */
-
-if (csi.hostEnvironment.isAppOnline) {
+window.onload = function () {
+  /**
+   * When application is up and running
+   * get application default units
+   */
   csi.evalScript('units()', function (rulerUnits) {
     var ui = new UI(getUnit(rulerUnits));
     ui.attachListener();
   });
-  window.onload = function () {
-    /**
-     * set a listener watching for the change of 
-     * application's interface appearance
-     */
-    // not working
-    new CSInterface().addEventListener("com.adobe.csxs.events.ThemeColorChanged", themeChangeEventListener);
 
-    themeChangeEventListener();
-  };
-}
+  /**
+   * set a listener watching for the change of 
+   * application's interface appearance
+   */
+  // not working
+  new CSInterface().addEventListener("com.adobe.csxs.events.ThemeColorChanged", themeChangeEventListener);
+
+  themeChangeEventListener();
+};
+
 function getUnit(defaultUnit) {
   switch (defaultUnit) {
     case 'Units.PIXELS':
@@ -37,10 +36,10 @@ function getUnit(defaultUnit) {
       alert('unit impossible error');
   }
 };
-function themeChangeEventListener(event) {
+function themeChangeEventListener() {
   //let defaultColor = '#535353'; lighter
   //let defaultColor = '#444444'; slight lighter
-  var defaultColor = '#282828';
+  //let defaultColor = '#282828';
   var uicolor = new Theme().rgbHex;
   $('body').css('backgroundColor', uicolor);
   $('.de-panel').css('backgroundColor', uicolor);

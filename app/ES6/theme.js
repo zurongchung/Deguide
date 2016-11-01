@@ -1,8 +1,8 @@
-const AppSkin = new CSInterface();
-const hostEnv = AppSkin.getHostEnvironment();
+
 class Theme {
   constructor() {
-    this.skin   = hostEnv.appSkinInfo.appBarBackgroundColor;
+    this.hostEnv = new CSInterface().getHostEnvironment();
+    this.skin   = this.hostEnv.appSkinInfo.appBarBackgroundColor;
     this.red    = this.skin.color.red;
     this.green  = this.skin.color.green;
     this.blue   = this.skin.color.blue;

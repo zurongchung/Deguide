@@ -1,14 +1,14 @@
-/**
- * When application is up and running
- * get application default units
- */
 
-if (csi.hostEnvironment.isAppOnline) {
-  csi.evalScript('units()', rulerUnits => { 
-    const ui = new UI( getUnit(rulerUnits) );
-    ui.attachListener();
-  });
  window.onload = () => {
+   /**
+    * When application is up and running
+    * get application default units
+    */
+    csi.evalScript('units()', rulerUnits => { 
+      const ui = new UI( getUnit(rulerUnits) );
+      ui.attachListener();
+    });
+  
    /**
     * set a listener watching for the change of 
     * application's interface appearance
@@ -19,7 +19,7 @@ if (csi.hostEnvironment.isAppOnline) {
 
     themeChangeEventListener();
  };
-}
+
 function getUnit(defaultUnit) {
   switch (defaultUnit) {
     case 'Units.PIXELS':
@@ -36,12 +36,11 @@ function getUnit(defaultUnit) {
     alert('unit impossible error');
   }
 };
-function themeChangeEventListener(event) {
+function themeChangeEventListener() {
   //let defaultColor = '#535353'; lighter
   //let defaultColor = '#444444'; slight lighter
-  let defaultColor = '#282828';
+  //let defaultColor = '#282828';
   let uicolor = new Theme().rgbHex;
   $('body').css('backgroundColor', uicolor);
   $('.de-panel').css('backgroundColor', uicolor);
-  
 }

@@ -1,26 +1,58 @@
-input {
-  padding: 0px;
-  border: none;
+/***********************************************
+ * import before any file use these variables  *
+ ***********************************************/
+svg #logo_hexgon_frame {
+  fill: none;
+  stroke: #666666;
 }
 
-svg.vector_icon {
-  width: 20px;
-  height: 20px;
+svg #logo_text {
+  font-family: Futura, "Gill Sans", Arial;
+  font-size: 1.2em;
+  fill: #cccccc;
 }
 
-g .cls-1 {
-  fill: #e0e0e0 !important;
+/***************
+ *  navigation *
+ ***************/
+#g_logo_container {
+  width: 38px;
+  height: 38px;
+}
+
+nav.g_navigation {
+  overflow: hidden;
+  width: 38px;
+  height: 100%;
+  border-right: 2px solid #333333;
+  background-color: #242424;
+}
+
+#g_logo_container {
+  margin: 10px 0;
+}
+
+.logo_link {
+  padding: 0 4px;
 }
 
 /***********
  * common  *
  ***********/
 html, body {
-  width: 242.49691px;
-  height: 360px;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  width: 320px;
+  height: 400px;
+}
+
+html {
+  background: #1f1f1f;
+}
+
+body {
+  background-color: #292929;
 }
 
 ul li {
@@ -34,131 +66,8 @@ ul {
 
 a {
   display: block;
-}
-
-a.icon {
-  min-width: 20px;
-  min-height: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.de-panel {
-  width: 222.49691px;
-  height: 360px;
-  max-width: 444.99382px;
-  max-height: 720px;
-  min-width: 111.24845px;
-  min-height: 180px;
-  padding: 0px 10px;
-  background-color: #282828;
-}
-
-.de-panel .main-contents {
-  width: 222.49691px;
-}
-
-.de-panel .main-contents form {
-  display: flex;
-}
-
-.columns {
-  width: 101.24845px;
-  flex: 1 0 auto;
-}
-
-.icon-wrapper, .value-wrapper {
-  height: 20px;
-  flex: 0 0 auto;
-}
-
-.icon-wrapper {
-  order: 1;
-  min-width: 20px;
-  width: 17.97778%;
-}
-
-.value-wrapper {
-  order: 2;
-  margin-left: 10px;
-}
-
-.field-flex-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 20px;
-}
-
-/***********
- *  input  *
- ***********/
-.valueField {
-  display: block;
-  width: 60.93634px;
-  height: 20px;
-  text-align: center;
-}
-
-/************
- *  button  *
- ************/
-#gen-btn {
-  cursor: pointer;
-  height: 45px;
-  background: #da7a61;
-  margin: 20px 0px;
-}
-
-/*******************
- *  quick setting  *
- *******************/
-.icon-horz-align:before, .icon-horz-align:after, .icon-horz-align a.icon-horz {
-  display: block;
-  position: absolute;
-  content: '';
-}
-
-.quick-setting {
-  width: 222.49691px;
-  height: 40px;
-  min-height: 20px;
-}
-
-.quick-setting ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.icon-horz-align {
-  position: relative;
-  z-index: 100;
-  cursor: pointer;
-  flex: 0 0 auto;
-  width: 20px;
-  padding: 2.5px;
-  margin: 0 2.5px;
-}
-
-.icon-horz-align:before {
-  z-index: -1;
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(120deg, #3F3F3F 40%, #353535 50%);
-}
-
-.icon-horz-align:after {
-  z-index: -1;
-  top: 5px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
-}
-
-.icon-horz-align a.icon-horz {
-  top: 5px;
-  left: 4px;
+  text-decoration: none;
+  color: #666666;
 }
 
 /*# sourceMappingURL=maps/ui.css.map */

@@ -4,7 +4,8 @@ class HTML
   attr_accessor :input, :output, :hints, :svg_common
   def initialize()
     @main = '../../app/view/templates/application.html.haml'
-    @appUI  = '../../app/view/templates/deguideUI.html.haml'
+    @appForm  = '../../app/view/templates/form.html.haml'
+    @appNav  = '../../app/view/templates/nav.html.haml'
     @output = '../../app/public/index.html'
     @quickGuideID = ['left','row-mid','top', 'clear-btn',
     'bottom', 'col-mid', 'right']

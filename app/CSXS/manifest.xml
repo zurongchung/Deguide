@@ -40,17 +40,17 @@
 					<Geometry>
 						<Size>
 							<Height>380</Height>
-							<Width>242.5</Width>
+							<Width>242</Width>
 						</Size>
-                    <!--<MinSize>
-                            <Height>550</Height>
-                            <Width>400</Width>
-                        </MinSize>
-                        <MaxSize>
-                            <Height>550</Height>
-                            <Width>400</Width>
-                        </MaxSize>-->
-                        
+						<MinSize>
+							<Height>390</Height>
+							<Width>280</Width>
+						</MinSize>
+						<MaxSize>
+								<Height>400</Height>
+								<Width>320</Width>
+						</MaxSize>
+				        
 					</Geometry>
 					<Icons>
 						<Icon Type="Normal">./icons/iconNormal.png</Icon>

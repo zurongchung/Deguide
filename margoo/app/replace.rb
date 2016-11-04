@@ -44,7 +44,9 @@ class Rep
         FileUtils.cp HTML_SRC, HTML_DEST
       when 'man'
         FileUtils.cp MANIFEST_SRC, MANIFEST_DEST
-      when 'icon'
+      when 'hc'
+        FileUtils.cp HTML_SRC, HTML_DEST
+        FileUtils.cp CSS_SRC, CSS_DEST      
       else
         FileUtils.cp CSS_SRC, CSS_DEST
         FileUtils.cp JS_SRC, JS_DEST    

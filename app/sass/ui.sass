@@ -1,30 +1,23 @@
-@import 'partial/func/func'
-@import 'partial/inputTag'
+@import 'partial/variables'
+@import 'partial/colors'
+//@import 'partial/func/func'
+//@import 'partial/inputTag'
 @import 'partial/svg'
-$ratio: 1.618
-$multiplier: 2
-$height: 360px
-$width: $height / $ratio
-$max-width: $width * $multiplier
-$max-height: $height * $multiplier
-$min-width: $width / $multiplier
-$min-height: $height / $multiplier
-$pd: 10px
-
-
-// Themes
-$primary: #282828
-$accent: #da7a61
+@import 'partial/nav'
 
 /*********** 
  * common  *
  ***********/
 html, body
-  width: $width + $pd *2
-  height: $height
   margin: 0
   padding: 0
   overflow: hidden
+  width: $width
+  height: $height
+html
+  background: $gray-12 // develpment delete
+body
+  background-color: $gray-16
 ul li 
   list-style: none
 ul
@@ -32,111 +25,6 @@ ul
   margin: 0px
 a
   display: block
-a.icon
-  min-width: $icon-size
-  min-height: $icon-size
-  width: $icon-size
-  height: $icon-size
-
-.de-panel
-  width: $width
-  height: $height
-  max-width: $max-width
-  max-height: $max-height
-  min-width: $min-width
-  min-height: $min-height
-  padding: 0px $pd
-  background-color: $primary
-  .main-contents
-    width: $width
-    //height: pcent($height, .85)
-
-    form
-      display: flex
-
-.columns
-  width: ($width - $pd * 2) / 2 
-  flex: 1 0 auto
-
-.icon-wrapper, .value-wrapper
-  height: $icon-size
-  flex: 0 0 auto
-.icon-wrapper
-  order: 1
-  min-width: $icon-size
-  width: $icon-size / ($width / $multiplier) * 100%
-.value-wrapper
-  order: 2
-  margin-left: $pd
-.field-flex-box
-  display: flex
-  flex-direction: row
-  justify-content: center
-  padding-top: $pd * 2
-
-/***********
- *  input  *
- ***********/
-.valueField
-  display: block
-  width: (($width - $pd * 2) / 2 - $icon-size) * (3/4)
-  height: $icon-size
-  text-align: center
-
-/************
- *  button  *
- ************/
-#gen-btn
-  cursor: pointer
-  height: 45px
-  background: $accent
-  margin: $pd * 2 0px
-
-/*******************
- *  quick setting  *
- *******************/
-%pos
-  display: block
-  position: absolute
-  content: ''
-  //border-radius: 50% 
-.quick-setting
-  width: $width
-  height: $icon-size*2
-  min-height: $icon-size
-  //background-color: #505050
-  & ul
-    display: flex
-    flex-direction: row
-    justify-content: center
-    
-.icon-horz-align
-  position: relative
-  z-index: 100
-  cursor: pointer
-  flex: 0 0 auto
-  width: $icon-size
-  //border-radius: 50%
-  padding: $pd /4
-  margin: 0 $pd /4
-  &:before
-    @extend %pos
-    z-index: -1
-    width: $icon-size + 4px
-    height: $icon-size + 4px
-    background: linear-gradient(120deg, #3F3F3F 40%, #353535 50%) 
-  &:after
-    @extend %pos
-    z-index: -1
-    top: 5px
-    left: 4px
-    width: $icon-size 
-    height: $icon-size
-    //background: black
-  a.icon-horz
-    @extend %pos
-    top: 5px
-    left: 4px 
-    
-
-      
+  text-decoration: none
+  color: $gray-40
+   

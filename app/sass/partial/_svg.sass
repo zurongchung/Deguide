@@ -1,8 +1,61 @@
+@font-face
+  font-family: Futura, "Gill Sans", Arial
+  src: local('fonts/Futura.ttc'),local('fonts/GillSans.ttc'),local('fonts/Arial.ttf')        
 svg
   #logo_hexgon_frame
     fill: none
-    stroke: $gray-40
+    stroke: $accent
+    transition: stroke .15s ease 0s    
   #logo_text
     font-family: Futura, "Gill Sans", Arial
     font-size: 1.2em
-    fill: $gray-80
+    fill: $accent
+    stroke: hsla(0, 0%, 0%, 0)
+    stroke-width: 1px
+    transition: fill .15s ease 0s, stroke .15s ease 0s
+  .lines_container
+    stroke: $accent
+    stroke-width: 2px
+    fill: none
+//*************
+//* Animation *
+//*************
+#shrink_logo
+  transform-origin: center center
+  transform: translate(3px, 3px) 
+  transition: transform .15s ease-out 0s
+path.center_lines
+  transform-origin: 18px 18px
+  transition: transform .15s ease-in .15s
+
+$moveTo: ((-42px 0px) (0px -43px) (44px 0px) (0px 45px))
+$angle: -360deg, 270deg, 180deg, 90deg
+g.lines_container
+  @for $i from 1 through 4
+    path.lines:nth-child(#{$i})
+      transform: translate(nth(nth($moveTo, $i), 1), nth(nth($moveTo, $i), 2))
+  
+  g.draw_from_center
+    @for $i from 1 through 4
+      path.center_lines:nth-child(#{$i})
+        transform: rotateZ(nth($angle, $i))
+        opacity: 0
+    
+
+$guides: drawTopGuides, drawLeftGuides, drawBottomGuides, drawRightGuides  
+$rotation: full, three-quarter, half,  quarter
+a.logo_link:hover
+  #logo_hexgon_frame
+    stroke: $gray-40
+  #logo_text
+    fill: hsla(0, 0%, 0%, 0)
+    stroke: $gray-80
+  #shrink_logo
+    transform: scale(0.8,0.8) translate(1px, 2px)
+  @for $i from 1 through 4
+    path.lines:nth-child(#{$i})
+      animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running nth($guides, $i)
+  g.draw_from_center
+    @for $i from 1 through 4
+      path.center_lines:nth-child(#{$i})
+        animation: 1.5s ease-in-out $i*0.15+0.8s 1 normal forwards running nth($rotation, $i)

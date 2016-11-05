@@ -1,7 +1,17 @@
 %nav(class="g_navigation side_bar")
   %div(id="g_logo_container")
     %a(class="logo_link" href="#")
-      %svg{:version => '1.1', :baseProfile => 'full', 'viewBox' => '0,0,42.5,37.5',
-      :width => '34', :height => '30', :xmlns => 'http://www.w3.org/2000/svg'}
-        %polygon{:id => 'logo_hexgon_frame', 'stroke-width' => '2', :points => '8 1, 25 1, 33 15, 25 29, 8 29, 1 15'}
-        %text{:id => 'logo_text',:x => '8', :y => '22'} G
+      %svg{:version => '1.1', :baseProfile => 'full', 'viewBox' => '0,0,48,48',
+      :width => '38', :height => '38', :xmlns => 'http://www.w3.org/2000/svg'}
+        %g{:id => 'center_svgs', :transform => 'translate(4, 5)'}
+          %g{:class => "lines_container"}
+            -for coords in @logo_border_lines
+              %path{:class => 'lines', :d => "#{coords}"}
+            %g{:class => "draw_from_center"}
+              -for coords in @logo_center_lines
+                %path{:class => 'center_lines', :d => "#{coords}"}
+
+          %g{:id => 'shrink_logo', :transform => 'translate(3, 3)'}
+            %polygon{:id => 'logo_hexgon_frame', 'stroke-width' => '2', :points => '8 0, 25 0, 33 15, 25 30, 8 30, 0 15'}
+            %text{:id => 'logo_text',:x => '8', :y => '22'} G
+          

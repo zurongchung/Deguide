@@ -9,9 +9,25 @@
     <nav class='g_navigation side_bar'>
       <div id='g_logo_container'>
         <a class='logo_link' href='#'>
-          <svg baseProfile='full' height='30' version='1.1' viewBox='0,0,42.5,37.5' width='34' xmlns='http://www.w3.org/2000/svg'>
-            <polygon id='logo_hexgon_frame' points='8 1, 25 1, 33 15, 25 29, 8 29, 1 15' stroke-width='2'></polygon>
-            <text id='logo_text' x='8' y='22'>G</text>
+          <svg baseProfile='full' height='38' version='1.1' viewBox='0,0,48,48' width='38' xmlns='http://www.w3.org/2000/svg'>
+            <g id='center_svgs' transform='translate(4, 5)'>
+              <g class='lines_container'>
+                <path class='lines' d='M-2 4 H38'></path>
+                <path class='lines' d='M4 -5 V38'></path>
+                <path class='lines' d='M0 33 H42'></path>
+                <path class='lines' d='M33 -2 V43'></path>
+                <g class='draw_from_center'>
+                  <path class='center_lines' d='M18 18 V38'></path>
+                  <path class='center_lines' d='M18 18 H-1'></path>
+                  <path class='center_lines' d='M18 18 V-2'></path>
+                  <path class='center_lines' d='M18 18 H40'></path>
+                </g>
+              </g>
+              <g id='shrink_logo' transform='translate(3, 3)'>
+                <polygon id='logo_hexgon_frame' points='8 0, 25 0, 33 15, 25 30, 8 30, 0 15' stroke-width='2'></polygon>
+                <text id='logo_text' x='8' y='22'>G</text>
+              </g>
+            </g>
           </svg>
         </a>
       </div>

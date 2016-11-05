@@ -1,15 +1,258 @@
 /***********************************************
  * import before any file use these variables  *
  ***********************************************/
+@keyframes drawTopGuides {
+  0% {
+    transform: translate(-42px, 0px);
+  }
+  40% {
+    transform: translate(40px, 0px);
+  }
+  60% {
+    transform: translate(-20px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes drawLeftGuides {
+  0% {
+    transform: translate(0px, -43px);
+  }
+  40% {
+    transform: translate(0px, 14px);
+  }
+  60% {
+    transform: translate(0px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes drawBottomGuides {
+  0% {
+    transform: translate(44px, 0px);
+  }
+  40% {
+    transform: translate(-30px, 0px);
+  }
+  60% {
+    transform: translate(32px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes drawRightGuides {
+  0% {
+    transform: translate(0px, 45px);
+  }
+  40% {
+    transform: translate(0px, -60px);
+  }
+  60% {
+    transform: translate(0px, 12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes quarter {
+  0% {
+    opacity: 0;
+    transform: rotateZ(90deg);
+  }
+  40% {
+    opacity: .8;
+    transform: rotateZ(-12deg);
+  }
+  60% {
+    opacity: .35;
+    transform: rotateZ(12deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes half {
+  0% {
+    opacity: 0;
+    transform: rotateZ(180deg);
+  }
+  40% {
+    opacity: .8;
+    transform: rotateZ(-10deg);
+  }
+  60% {
+    opacity: .35;
+    transform: rotateZ(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes three-quarter {
+  0% {
+    opacity: 0;
+    transform: rotateZ(270deg);
+  }
+  40% {
+    opacity: .8;
+    transform: rotateZ(-5deg);
+  }
+  60% {
+    opacity: .35;
+    transform: rotateZ(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes full {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-360deg);
+  }
+  40% {
+    opacity: .8;
+    transform: rotateZ(-10deg);
+  }
+  60% {
+    opacity: .35;
+    transform: rotateZ(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+@font-face {
+  font-family: Futura, "Gill Sans", Arial;
+  src: local("fonts/Futura.ttc"), local("fonts/GillSans.ttc"), local("fonts/Arial.ttf");
+}
+
 svg #logo_hexgon_frame {
   fill: none;
-  stroke: #666666;
+  stroke: #009dff;
+  transition: stroke .15s ease 0s;
 }
 
 svg #logo_text {
   font-family: Futura, "Gill Sans", Arial;
   font-size: 1.2em;
-  fill: #cccccc;
+  fill: #009dff;
+  stroke: transparent;
+  stroke-width: 1px;
+  transition: fill .15s ease 0s, stroke .15s ease 0s;
+}
+
+svg .lines_container {
+  stroke: #009dff;
+  stroke-width: 2px;
+  fill: none;
+}
+
+#shrink_logo {
+  transform-origin: center center;
+  transform: translate(3px, 3px);
+  transition: transform .15s ease-out 0s;
+}
+
+path.center_lines {
+  transform-origin: 18px 18px;
+  transition: transform .15s ease-in .15s;
+}
+
+g.lines_container path.lines:nth-child(1) {
+  transform: translate(-42px, 0px);
+}
+
+g.lines_container path.lines:nth-child(2) {
+  transform: translate(0px, -43px);
+}
+
+g.lines_container path.lines:nth-child(3) {
+  transform: translate(44px, 0px);
+}
+
+g.lines_container path.lines:nth-child(4) {
+  transform: translate(0px, 45px);
+}
+
+g.lines_container g.draw_from_center path.center_lines:nth-child(1) {
+  transform: rotateZ(-360deg);
+  opacity: 0;
+}
+
+g.lines_container g.draw_from_center path.center_lines:nth-child(2) {
+  transform: rotateZ(270deg);
+  opacity: 0;
+}
+
+g.lines_container g.draw_from_center path.center_lines:nth-child(3) {
+  transform: rotateZ(180deg);
+  opacity: 0;
+}
+
+g.lines_container g.draw_from_center path.center_lines:nth-child(4) {
+  transform: rotateZ(90deg);
+  opacity: 0;
+}
+
+a.logo_link:hover #logo_hexgon_frame {
+  stroke: #666666;
+}
+
+a.logo_link:hover #logo_text {
+  fill: transparent;
+  stroke: #cccccc;
+}
+
+a.logo_link:hover #shrink_logo {
+  transform: scale(0.8, 0.8) translate(1px, 2px);
+}
+
+a.logo_link:hover path.lines:nth-child(1) {
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running drawTopGuides;
+}
+
+a.logo_link:hover path.lines:nth-child(2) {
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running drawLeftGuides;
+}
+
+a.logo_link:hover path.lines:nth-child(3) {
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running drawBottomGuides;
+}
+
+a.logo_link:hover path.lines:nth-child(4) {
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running drawRightGuides;
+}
+
+a.logo_link:hover g.draw_from_center path.center_lines:nth-child(1) {
+  animation: 1.5s ease-in-out 0.95s 1 normal forwards running full;
+}
+
+a.logo_link:hover g.draw_from_center path.center_lines:nth-child(2) {
+  animation: 1.5s ease-in-out 1.1s 1 normal forwards running three-quarter;
+}
+
+a.logo_link:hover g.draw_from_center path.center_lines:nth-child(3) {
+  animation: 1.5s ease-in-out 1.25s 1 normal forwards running half;
+}
+
+a.logo_link:hover g.draw_from_center path.center_lines:nth-child(4) {
+  animation: 1.5s ease-in-out 1.4s 1 normal forwards running quarter;
 }
 
 /***************
@@ -30,10 +273,6 @@ nav.g_navigation {
 
 #g_logo_container {
   margin: 10px 0;
-}
-
-.logo_link {
-  padding: 0 4px;
 }
 
 /***********

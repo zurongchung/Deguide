@@ -29,30 +29,48 @@ class Rep
   def cp(who)
     case who
       when 'css'
+        before = Time.now
+        target = 'css'
         FileUtils.cp CSS_SRC, CSS_DEST
       when 'js'
+        before = Time.now      
+        target = 'javascript'
         FileUtils.cp JS_SRC, JS_DEST
       when 'lib'
+        before = Time.now      
+        target = 'Library'
         FileUtils.cp LIB_SRC, LIB_DEST
       when 'jsx'
+        before = Time.now      
+        target = 'ExtendScript'        
         if(File.exist?(HOST_JS_DEST + "/hostscript.jsx"))
           File.delete(HOST_JS_DEST + "/hostscript.jsx");
         end
         FileUtils.cp HOST_JS_SRC, HOST_JS_DEST    
         File.rename(HOST_JS_DEST + '/hostscript.js', HOST_JS_DEST + "/hostscript.jsx");
       when 'html'
+        before = Time.now      
+        target = 'HTML'      
         FileUtils.cp HTML_SRC, HTML_DEST
       when 'man'
+        before = Time.now      
+        target = 'manifest'      
         FileUtils.cp MANIFEST_SRC, MANIFEST_DEST
       when 'hc'
+        before = Time.now      
+        target = 'HTML & CSS'      
         FileUtils.cp HTML_SRC, HTML_DEST
         FileUtils.cp CSS_SRC, CSS_DEST      
       else
+        before = Time.now      
+        target = 'all'      
         FileUtils.cp CSS_SRC, CSS_DEST
         FileUtils.cp JS_SRC, JS_DEST    
         FileUtils.cp HOST_JS_SRC, HOST_JS_DEST
         FileUtils.cp HTML_SRC, HTML_DEST            
     end
+    t = Time.now
+    p "Transport [#{target}] finished in [#{t-before}] seconds at #{t.hour}:#{t.min}:#{t.sec}"
   end
 end
 # specify which one to perform copying

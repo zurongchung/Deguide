@@ -5,7 +5,7 @@
   width: $side-bar
   height: $side-bar
 nav.g_navigation
-  overflow: hidden
+  //overflow: hidden
   width: $side-bar
   height: 100%
   border-right: $border-s2 solid $gray-20
@@ -14,5 +14,85 @@ nav.g_navigation
 #g_logo_container
   @extend %logo_size
   margin: $gap-10 0
-.logo_link
-  //padding: 0 4px
+
+%flip_hint
+  position: absolute
+  width: 48px
+  height: $menu_height
+  line-height: $menu_height
+  left: 40px
+  top: 0
+  content: 'form'
+  display: block
+  text-align: center
+  color: $gray-40
+  background-color: $gray-12
+  perspective-origin: 100% 50%
+  backface-visibility: hidden
+  transform-origin: left center
+  perspective: 20px
+  transform: rotateY(-180deg)
+  transition: transform .5s ease 0s
+%roll_in_hint
+  position: absolute
+  width: 1px
+  height: 1px
+  line-height: 28px
+  left: 40px
+  top: 0
+  display: none
+  text-align: center
+  letter-spacing: 0.5px
+  font-size: 0em
+  color: hsla(0, 0%, 0%, 0)
+  background-color: $accent
+  opacity: 0
+  perspective-origin: 100% 50%
+  perspective: 20px
+  backface-visibility: hidden
+  transform-origin: left center
+li.menu_item
+  position: relative 
+  width: $side-bar
+  height: $menu_height
+  margin-bottom: 1px
+  border-bottom: 1px solid $gray-12
+  box-shadow: 0 1px $gray-20 
+
+$menu_item_list: 'form', 'preset', 'modify'
+$emmit_point: (-15px -18px) (-15px -48px) (-15px -78px)
+@for $i from 1 through 3
+  li.menu_item:nth-child(#{$i})
+    &::after
+      @extend %roll_in_hint
+      content: nth($menu_item_list, $i)
+      transform: translate(nth(nth($emmit_point, $i), 1), nth(nth($emmit_point, $i), 2)) scale(12) rotate(270deg)
+      
+
+%falling_box
+  position: relative
+  right: -38px
+  top: -180px
+  display: block
+  width: $border-s2
+  height: $border-s2
+  content: ''
+  background-color: $accent
+  transform: scale(6)
+
+a.switch_panel
+  width: $side-bar
+  height: $menu_height
+  &::after
+    @extend %falling_box
+//*************
+//* animation *
+//*************
+li.menu_item:hover
+    //border-bottom-color: $accent
+    background-color: $gray-12
+    &::after
+      display: block 
+      animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running roll_in      
+    a.switch_panel::after
+      animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box

@@ -14,4 +14,8 @@
           %g{:id => 'shrink_logo', :transform => 'translate(3, 3)'}
             %polygon{:id => 'logo_hexgon_frame', 'stroke-width' => '2', :points => '8 0, 25 0, 33 15, 25 30, 8 30, 0 15'}
             %text{:id => 'logo_text',:x => '8', :y => '22'} G
-          
+  %div(class="menu_container")
+    %ul
+      - 3.times do
+        %li(class="menu_item")
+          %a(class="switch_panel" href="#")

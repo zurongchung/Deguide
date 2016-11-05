@@ -40,17 +40,19 @@ nav.g_navigation
   line-height: 28px
   left: 40px
   top: 0
+  opacity: 0
+  font-size: 0em
+  letter-spacing: 0.5px
+  color: hsla(0, 0%, 0%, 0)
   display: none
   text-align: center
-  letter-spacing: 0.5px
-  font-size: 0em
-  color: hsla(0, 0%, 0%, 0)
   background-color: $accent
-  opacity: 0
   perspective-origin: 100% 50%
   perspective: 20px
   backface-visibility: hidden
-  transform-origin: left center
+  transform-origin: right center
+  transform: translate(-20px, 14px) scale(1) rotateZ(-90deg)
+
 li.menu_item
   position: relative 
   width: $side-bar
@@ -60,13 +62,12 @@ li.menu_item
   box-shadow: 0 1px $gray-20 
 
 $menu_item_list: 'form', 'preset', 'modify'
-$emmit_point: (-15px -18px) (-15px -48px) (-15px -78px)
+
 @for $i from 1 through 3
   li.menu_item:nth-child(#{$i})
     &::after
       @extend %roll_in_hint
       content: nth($menu_item_list, $i)
-      transform: translate(nth(nth($emmit_point, $i), 1), nth(nth($emmit_point, $i), 2)) scale(12) rotate(270deg)
       
 
 %falling_box
@@ -85,6 +86,12 @@ a.switch_panel
   height: $menu_height
   &::after
     @extend %falling_box
+
+
+
+
+
+
 //*************
 //* animation *
 //*************
@@ -92,7 +99,7 @@ li.menu_item:hover
     //border-bottom-color: $accent
     background-color: $gray-12
     &::after
-      display: block 
-      animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running roll_in      
+      display: block
+      animation: 1s ease-out 2s 1 normal forwards running roll_in      
     a.switch_panel::after
       animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box

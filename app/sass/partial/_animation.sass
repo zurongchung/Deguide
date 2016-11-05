@@ -99,37 +99,27 @@
 //********
 @keyframes roll_in
   0%
-    width: 1px
-    height: 1px
     opacity: 0
-    color: hsla(0,0%,0%,0)
-    font-size: 0em
-    background-color: $accent
-    transform: translate(-15px, -78px) scale(12) rotateZ(270deg)
+    transform: translate(-20px, 14px) scale(1) rotateZ(-90deg)
   20%
+    opacity: 0.67
+    transform: translate(40px, 14px) scale(6) rotateZ(60deg)
+  80%
+    opacity: 1
     width: 1px
     height: 1px
-    opacity: 1
-    color: hsla(0,0%,0%,0)
+    color: hsla(0, 0%, 0%, 0)
     font-size: 0em
     background-color: $accent
-    transform: translate(25px, 20px) scale(4.8) rotateZ(0deg)
-  60%
-    width: 1px
-    height: 1px
-    opacity: .5
-    color: hsla(0,0%,0%,0)
-    font-size: 0em
-    background-color: $gray-12
-    transform: translate(0px, -8px) scale(6) rotateZ(-90deg)
+    transform: translate(70px, 14px) scale(8) rotateZ(166deg)  
   100%
+    opacity: 1
     width: 48px
     height: 28px
-    opacity: 1
     color: $gray-40
     font-size: 0.75em
     background-color: $gray-12
-    transform: translate(0, 0) scale(1) rotateZ(0deg)
+    transform: translate(0px, 0px) scale(1) rotateZ(0deg)
 @keyframes falling_box
   0%
     top: -180px

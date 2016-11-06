@@ -9,8 +9,7 @@ class HTML
     @output = '../../app/public/index.html'
     @quickGuideID = ['left','row-mid','top', 'clear-btn',
     'bottom', 'col-mid', 'right']
-    @colLeftID = ['height', 'rows', 'margin_top', 'margin_bottom', 'vert_gutters']
-    @colRightID = ['width', 'columns', 'margin_left', 'margin_right', 'horiz_gutters']    
+    @value_list_hint = ['height', 'width', 'rows', 'columns','gutters', 'gutters'] 
     @colRightIcons = [Svg.icon_width, Svg.icon_columns,Svg.icon_marginLeft,  Svg.icon_marginRight, 
     Svg.icon_HGutter]
     @colLeftIcons = [Svg.icon_height, Svg.icon_rows, Svg.icon_marginTop, 

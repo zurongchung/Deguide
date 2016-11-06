@@ -13,7 +13,7 @@ main#form_container
   overflow: hidden
   div.value_layout
     @extend %outter_layout
-    height: 40%
+    height: 35%
     order: 0
   div.margin_layout
     @extend %outter_layout
@@ -63,7 +63,7 @@ div.clear_button_layout
     width: 50px
     height: 50px
     transform-origin: center center
-    transform: translate(95px, 20px)
+    transform: translate(95px, 28px)
     span.text_on_btn
       @extend %text_on_btn_style
       font-size: .75em
@@ -71,7 +71,7 @@ div.clear_button_layout
   .strip
     position: absolute
     right: 0
-    bottom: 10px
+    bottom: 0
     width: 100%
     height: $component-size
     background: $gray-20
@@ -81,14 +81,34 @@ div.clear_button_layout
 //* clear btn *
 //*************
 
-div.value_layout
-  display: flex
-  flex-direction: row
-  align-items: center
-  ul:nth-child(1)
-    flex: 0 0 auto
-    order: 0
-  ul:nth-child(2)
-    flex: 0 0 auto
-    order: 1
-  
+%icon_position
+  position: absolute
+  top: 0
+  display: block
+  content: ''
+  width: $component-size
+  height: $component-size
+  background-color: $gray-20
+  border-radius: $gap-10 /2
+
+div.value_layout 
+  margin-top: $gap-10
+  ul
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+li.value_list
+  position: relative
+  flex: 0 0 auto
+  margin: 0 $gap-10
+  margin-bottom: $gap-10
+  & > div
+    @extend %icon_position
+li.value_list
+  &:nth-child(2n) 
+    div
+      right: -32px -$gap-10
+  &:nth-child(2n+1) 
+    div
+      left: -32px -$gap-10

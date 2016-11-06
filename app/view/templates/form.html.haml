@@ -1,9 +1,10 @@
 %main(id="form_container")
   .value_columns.value_layout
     %ul
-      -6.times do
+      -for hint in @value_list_hint
         %li(class="value_list")
-          %input(class="guide_value" name="guide_value" type="text" autocomplete="off" placeholder="bottom")    
+          %div(class="guide_icon")
+          %input(class="guide_value" name="guide_value" type="text" autocomplete="off" placeholder="#{hint}")    
   .trigger.margin_layout.value_columns
     .left.margin
       %input(id="top" class="under_border" name="margin_top" type="text" autocomplete="off" placeholder="top")

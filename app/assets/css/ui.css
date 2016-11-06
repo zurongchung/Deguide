@@ -189,12 +189,25 @@
   }
 }
 
+@keyframes dropDown {
+  0% {
+    transform: translateY(-40px);
+  }
+  30% {
+    transform: translateY(0px);
+  }
+  53% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 input {
   display: block;
   padding: 0px;
   border: none;
-  width: 64px;
-  height: 32px;
   line-height: 32px;
   text-align: center;
   color: #999999;
@@ -202,6 +215,8 @@ input {
 }
 
 .under_border {
+  width: 45px;
+  height: 32px;
   border-bottom: 2px solid #333333;
 }
 
@@ -214,7 +229,12 @@ input {
   border-top: 2px solid #333333;
 }
 
+#left, #right {
+  transform: translateY(-16px);
+}
+
 .guide_value {
+  width: 73px;
   background-color: #333333;
   border-radius: 5px;
 }
@@ -348,6 +368,14 @@ a.logo_link:hover g.draw_from_center path.center_lines:nth-child(3) {
 
 a.logo_link:hover g.draw_from_center path.center_lines:nth-child(4) {
   animation: 1.5s ease-in-out 1.4s 1 normal forwards running quarter;
+}
+
+li.set_guide:hover path {
+  transform-origin: bottom center;
+}
+
+li.set_guide:hover path#left_guide, li.set_guide:hover path#right_guide, li.set_guide:hover path#perpendicular_guide {
+  animation: 1s ease 0s normal forwards running dropdown;
 }
 
 /***************
@@ -530,36 +558,37 @@ main#form_container div.value_layout {
 }
 
 main#form_container div.margin_layout {
-  height: 40%;
+  height: 45%;
   order: 1;
 }
 
 main#form_container div.clear_button_layout {
-  height: 20%;
+  height: 15%;
   order: 2;
 }
 
-div.left_right {
+div.left_right_layout {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
-div.left_right .left, div.left_right .gen-btn, div.left_right .right {
+div.left_right_layout .left, div.left_right_layout .gen-btn, div.left_right_layout .right {
   flex: 0 0 auto;
 }
 
-div.left_right .left {
+div.left_right_layout .left {
   order: 0;
 }
 
-div.left_right .gen-btn {
+div.left_right_layout .gen-btn {
   width: 112px;
-  height: 96px;
+  height: 116px;
   order: 1;
 }
 
-div.left_right .right {
+div.left_right_layout .right {
   order: 2;
 }
 
@@ -575,7 +604,7 @@ div.gen-btn {
 }
 
 div.gen-btn span.text_on_btn {
-  transform: translate(39px, 39px);
+  transform: translate(40px, 51px);
 }
 
 div.clear_button_layout .clear_btn {
@@ -584,7 +613,7 @@ div.clear_button_layout .clear_btn {
   width: 50px;
   height: 50px;
   transform-origin: center center;
-  transform: translate(95px, 28px);
+  transform: translate(95px, 8px);
 }
 
 div.clear_button_layout .clear_btn span.text_on_btn {
@@ -602,17 +631,6 @@ div.clear_button_layout .strip {
   border-radius: 5px;
 }
 
-li.value_list > div {
-  position: absolute;
-  top: 0;
-  display: block;
-  content: '';
-  width: 32px;
-  height: 32px;
-  background-color: #333333;
-  border-radius: 5px;
-}
-
 div.value_layout {
   margin-top: 10px;
 }
@@ -625,25 +643,33 @@ div.value_layout ul {
 }
 
 li.value_list {
+  width: 115px;
   position: relative;
   flex: 0 0 auto;
-  margin: 0 10px;
   margin-bottom: 10px;
 }
 
-li.value_list:nth-child(2n) div {
-  right: -42px;
+li.value_list:nth-child(2n+1) {
+  margin-right: 10px;
 }
 
-li.value_list:nth-child(2n+1) div {
-  left: -42px;
+div.icon_value_layout {
+  display: flex;
+  flex-direction: row;
+}
+
+div.icon_value_layout > div {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  background-color: #333333;
+  margin-right: 10px;
 }
 
 /***********
  * common  *
  ***********/
 html, body {
-  margin: 0;
   padding: 0;
   overflow: hidden;
   width: 320px;

@@ -17,27 +17,28 @@ main#form_container
     order: 0
   div.margin_layout
     @extend %outter_layout
-    height: 40%
+    height: 45%
     order: 1
   div.clear_button_layout
     @extend %outter_layout
-    height: 20%
+    height: 15%
     order: 2
 
 //********************
 //* gen-btn | margin *
 //********************
-div.left_right
+div.left_right_layout
   display: flex
   flex-direction: row
   align-items: center
+  justify-content: center
   .left, .gen-btn, .right
     flex: 0 0 auto
   .left
     order: 0
   .gen-btn
     width: 240px - $component-size * 4
-    height: 160- $component-size *2
+    height: 180- $component-size *2
     order: 1
   .right
     order: 2
@@ -51,7 +52,7 @@ div.gen-btn
   position: relative
   span.text_on_btn
     @extend %text_on_btn_style
-    transform: translate(39px, 39px)
+    transform: translate(40px, 51px)
 
 //*************
 //* clear btn *
@@ -63,7 +64,7 @@ div.clear_button_layout
     width: 50px
     height: 50px
     transform-origin: center center
-    transform: translate(95px, 28px)
+    transform: translate(95px, 8px)
     span.text_on_btn
       @extend %text_on_btn_style
       font-size: .75em
@@ -77,15 +78,13 @@ div.clear_button_layout
     background: $gray-20
     border-radius: 5px
 
-//*************
-//* clear btn *
-//*************
+//**************
+//* value list *
+//**************
 
 %icon_position
-  position: absolute
+  position: relative
   top: 0
-  display: block
-  content: ''
   width: $component-size
   height: $component-size
   background-color: $gray-20
@@ -99,16 +98,20 @@ div.value_layout
     flex-wrap: wrap
     justify-content: center
 li.value_list
+  width: (240 - $gap-10) /2
   position: relative
   flex: 0 0 auto
-  margin: 0 $gap-10
   margin-bottom: $gap-10
-  & > div
-    @extend %icon_position
 li.value_list
-  &:nth-child(2n) 
-    div
-      right: -32px -$gap-10
-  &:nth-child(2n+1) 
-    div
-      left: -32px -$gap-10
+  &:nth-child(2n+1)
+    margin-right: $gap-10
+div.icon_value_layout
+  display: flex
+  flex-direction: row
+  & > div
+    width: $component-size
+    height: $component-size
+    border-radius: $gap-10 /2
+    background-color: $gray-20
+    margin-right: $gap-10
+  & > input

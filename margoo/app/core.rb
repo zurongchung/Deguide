@@ -1,5 +1,6 @@
 require  'haml'
 require '../../app/view/svgIcons/svg'
+require '../../app/view/svgIcons/toolSet'
 class HTML
   attr_accessor :input, :output, :hints, :svg_common
   def initialize()
@@ -7,17 +8,19 @@ class HTML
     @appForm  = '../../app/view/templates/form.html.haml'
     @appNav  = '../../app/view/templates/nav.html.haml'
     @output = '../../app/public/index.html'
-    @quickGuideID = ['left','row-mid','top', 'clear-btn',
-    'bottom', 'col-mid', 'right']
-    @value_list_hint = ['height', 'width', 'rows', 'columns','gutters', 'gutters'] 
-    @colRightIcons = [Svg.icon_width, Svg.icon_columns,Svg.icon_marginLeft,  Svg.icon_marginRight, 
-    Svg.icon_HGutter]
-    @colLeftIcons = [Svg.icon_height, Svg.icon_rows, Svg.icon_marginTop, 
-    Svg.icon_marginBottom, Svg.icon_VGutter]
+    @value_list_hint = ['height', 'width', 'rows', 'columns','gutters', 'gutters']
     @quickGuideIcons = [Svg.icon_leftBorder, Svg.icon_columnMidPoint, Svg.icon_rightBorder, Svg.icon_topBorder, Svg.icon_rowMidPoint, 
     Svg.icon_bottomBorder]
     @logo_border_lines = ['M-2 4 H38', 'M4 -5 V38', 'M0 33 H42', 'M33 -2 V43']
     @logo_center_lines = ['M18 18 V38', 'M18 18 H-1', 'M18 18 V-2',  'M18 18 H40']
+    @quick_border = {left_guide: 'rotate(0)', right_guide: 'rotate(180,60,60)', top_guide: 'rotate(90,60,60)', bottom_guide: 'rotate(-90,60,60)'}
+    @quick_center = {perpendicular_guide: {viewbox: "0 0 104 120", rotate: "rotate(0)"}, cross_guide: {viewbox: "0 0 120 104", rotate: 'rotate(90, 60, 60)'}}
+  end
+  def icon_for_toolSet_border(position, angle)
+    SVGTOOL.border position, angle
+  end
+  def icon_for_toolSet_center(position, change)
+    SVGTOOL.center position, change
   end
   def hexgon(width, height, frame_cls, hexgon_cls)
     Svg.hexgon_button width, height, frame_cls, hexgon_cls

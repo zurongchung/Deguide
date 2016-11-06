@@ -73,3 +73,13 @@ a.logo_link:hover
     @for $i from 1 through 4
       path.center_lines:nth-child(#{$i})
         animation: 1.5s ease-in-out $i*0.15+0.8s 1 normal forwards running nth($rotation, $i)
+
+//***************
+//* quick guide *
+//***************
+li.set_guide:hover
+  path
+    transform-origin: bottom center
+    &#left_guide, &#right_guide, &#perpendicular_guide
+      animation: 1s ease 0s normal forwards running dropdown
+    &#top_guide, &#bottom_guide, &#cross_guide

@@ -198,17 +198,18 @@ module Svg
     }
   end
   def Svg.icon_leftBorder
-    return %Q{ #{viewport(300, 300)}
-      <g id="Layer_2" data-name="Layer 2">
-        <path class="cls-1" d="M130 169.2v-7.55l30-6.85v-10.28l-30-6.85v-6.87a1.3 1.3 0 0 0-2-1.15l-21.38 19.2a1.33 1.33 0 0 0 0 2.3l21.38 19.2a1.31 1.31 0 0 0 2-1.15zM0 0h20v300H0z" id="Layer_1-2" data-name="Layer 1"/>
-      </g>
-    </svg>
-    }
+    return %Q{#{viewport()}
+        <path d="M0 0h20v300H0z" class="st0"/>
+        <path d="M232.5 57.1l53.6 92.9-53.6 92.9H125.3L71.6 150l53.6-92.9h107.3m6.9-12H118.3L57.8 150l60.6 104.9h121.1L300 150 239.4 45.1z" class="st0"/>
+      </svg>
+
+
+      }
   end
   def Svg.icon_rightBorder
     return %Q{#{viewport(160, 300)}
       <g id="Layer_2" data-name="Layer 2">
-        <path class="cls-1" d="M30 169.2v-7.55L0 154.8v-10.28l30-6.85v-6.87a1.3 1.3 0 0 1 1.95-1.15l21.37 19.2a1.33 1.33 0 0 1 0 2.3L32 170.35a1.3 1.3 0 0 1-2-1.15zM140 0h20v300h-20z" id="Layer_1-2" data-name="Layer 1"/>
+        <path class="cls-1" d="M30 169.2v-7.55L0 154.8v-10.28l30-6.85v-6.87a1.3 1.3 0 0 1 1.95-1.15l21.37 19.2a1.33 1.33 0 0 1 0 2.3L32 170.35a1.3 1.3 0 0 1-2-1.15zM140 0h20v300h-20z" data-name="Layer 1"/>
       </g>
     </svg>
 

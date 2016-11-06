@@ -2,23 +2,25 @@ input
   display: block
   padding: 0px
   border: none
-  width: $component-size * 2
-  height: $component-size
   line-height: $component-size
   text-align: center
   color: $gray-60
   background: transparent
 .under_border
+  width: $input_size
+  height: $component-size
   border-bottom: $border-s2 solid $gray-20
 #top, #bottom
   margin: 0 auto
 #bottom
   border-bottom: 0
   border-top: 2px solid $gray-20 
-
+#left, #right
+  transform: translateY(-16px)
 //**************************
 //* type 2 with background *
 //**************************
 .guide_value
+  width: (240 -$gap-10) /2 -$gap-10 -$component-size
   background-color: $gray-20
   border-radius: $gap-10/2

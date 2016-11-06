@@ -15,10 +15,13 @@ class HTML
     Svg.icon_HGutter]
     @colLeftIcons = [Svg.icon_height, Svg.icon_rows, Svg.icon_marginTop, 
     Svg.icon_marginBottom, Svg.icon_VGutter]
-    @quickGuideIcons = [Svg.icon_leftBorder, Svg.icon_rowMidPoint, Svg.icon_topBorder,
-    Svg.icon_clear, Svg.icon_bottomBorder, Svg.icon_columnMidPoint, Svg.icon_rightBorder]
+    @quickGuideIcons = [Svg.icon_leftBorder, Svg.icon_columnMidPoint, Svg.icon_rightBorder, Svg.icon_topBorder, Svg.icon_rowMidPoint, 
+    Svg.icon_bottomBorder]
     @logo_border_lines = ['M-2 4 H38', 'M4 -5 V38', 'M0 33 H42', 'M33 -2 V43']
     @logo_center_lines = ['M18 18 V38', 'M18 18 H-1', 'M18 18 V-2',  'M18 18 H40']
+  end
+  def hexgon(width, height, frame_cls, hexgon_cls)
+    Svg.hexgon_button width, height, frame_cls, hexgon_cls
   end
   def render
     contents = File.read(@main)

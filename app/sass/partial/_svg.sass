@@ -17,6 +17,20 @@ svg
     stroke: $accent
     stroke-width: 2px
     fill: none
+
+//*****************
+//* hexgon button *
+//*****************
+%resize
+  transform-origin: center center
+  transform: scale(.8)
+g.gen_hexgon_group
+  @extend %resize
+path.clear_hexgon, path.gen_hexgon
+  @extend %resize
+  fill: $gray-40
+path.clear_hexgon_frame, path.gen_hexgon_frame
+  fill: $gray-40
 //*************
 //* Animation *
 //*************

@@ -17,5 +17,17 @@
   %div(class="menu_container")
     %ul
       - 3.times do
-        %li(class="menu_item")
+        %li(class="menu_item divide")
           %a(class="switch_panel" href="#")
+  %div(id="guide_tool" class="menu_container")
+    %ul
+      - index = 0
+      - for icon in @quickGuideIcons do
+      - cls = ''
+      - cls = 'left' if index == 0
+      - cls = 'right' if index == 2
+        %li(class="set_guide menu_item")
+          %a(class="one_click_border switch_panel")
+            %div{:class => "#{cls} svg_container"}
+              =icon
+        - index += 1

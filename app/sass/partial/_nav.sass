@@ -4,16 +4,10 @@
 %logo_size
   width: $side-bar
   height: $side-bar
-nav.g_navigation
-  //overflow: hidden
-  width: $side-bar
-  height: 100%
-  border-right: $border-s2 solid $gray-20
-  background-color: $gray-14 
-
-#g_logo_container
-  @extend %logo_size
-  margin: $gap-10 0
+%divide_line
+  margin-bottom: 1px
+  border-bottom: 1px solid $gray-12
+  box-shadow: 0 1px $gray-20
 
 %flip_hint
   position: absolute
@@ -53,53 +47,107 @@ nav.g_navigation
   transform-origin: right center
   transform: translate(-20px, 14px) scale(1) rotateZ(-90deg)
 
-li.menu_item
-  position: relative 
-  width: $side-bar
-  height: $menu_height
-  margin-bottom: 1px
-  border-bottom: 1px solid $gray-12
-  box-shadow: 0 1px $gray-20 
-
-$menu_item_list: 'form', 'preset', 'modify'
-
-@for $i from 1 through 3
-  li.menu_item:nth-child(#{$i})
-    &::after
-      @extend %roll_in_hint
-      content: nth($menu_item_list, $i)
-      
-
 %falling_box
-  position: relative
-  right: -38px
-  top: -180px
+  position: absolute
+  top: -400px
+  left: 38px  
   display: block
   width: $border-s2
   height: $border-s2
   content: ''
   background-color: $accent
   transform: scale(6)
+%hitting_ball
+  position: absolute
+  display: block
+  width: $side-bar
+  height: $side-bar
+  border-radius: 50%
+  content: ''
+  background-color: $accent
+  opacity: 0
+  transform-origin: center center
+  transform: translate(-3%, -11%) scale(.3)
 
+nav.g_navigation
+  width: $side-bar
+  height: $height
+  border-right: $border-s2 solid $gray-20
+  background-color: $gray-14 
+
+#g_logo_container
+  @extend %logo_size
+  margin-bottom: $gap-10
+  
+li.menu_item
+  position: relative 
+  width: $side-bar
+  height: $menu_height
+li.divide
+  @extend %divide_line
+
+$menu_item_list: 'form', 'preset', 'modify'
+$tool_name_list: 'left', 'center', 'right', 'top', 'center', 'bottom'
+@for $i from 1 through 3
+  li.divide:nth-child(#{$i})
+    &::after
+      @extend %roll_in_hint
+      content: nth($menu_item_list, $i)
+@for $i from 1 through 6
+  li.set_guide:nth-child(#{$i})
+    &::after
+      @extend %roll_in_hint
+      content: nth($tool_name_list, $i)
+ 
 a.switch_panel
   width: $side-bar
   height: $menu_height
+  &::before
+    @extend %hitting_ball
   &::after
     @extend %falling_box
+div.svg_container
+  
+//***************
+//* quick guide *
+//***************
 
+#guide_tool
+  margin-top: 74px
 
-
-
-
-
+a.one_click_border
+  div.svg_container
+    width: $side-bar / 2
+    height: $menu_height / 2
+    transform-origin: center center
+    transform: translate(50%, 50%)
+  div.left
+    transform: translate(90%, 50%)
+  div.right
+    transform: translate(30%, 50%)
+  path
+    fill: $gray-40
 //*************
 //* animation *
 //*************
+%menu_hint_animation
+  display: block
+  animation: 1s ease-out 2s 1 normal forwards running roll_in      
+
+%falling_box_animation
+  animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box
+  
 li.menu_item:hover
-    //border-bottom-color: $accent
-    background-color: $gray-12
+  //border-bottom-color: $accent
+  background-color: $gray-12
+  &::after
+    @extend %menu_hint_animation
+  a.switch_panel
+    &::before
+      //animation: 0.5s ease 0s 1 normal forwards running hitting_ball
     &::after
-      display: block
-      animation: 1s ease-out 2s 1 normal forwards running roll_in      
-    a.switch_panel::after
-      animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box
+      @extend %falling_box_animation
+
+li.set_guide:hover
+  path
+    fill: $accent

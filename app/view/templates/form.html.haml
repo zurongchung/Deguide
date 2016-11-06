@@ -1,0 +1,24 @@
+%main(id="form_container")
+  .value_columns.value_layout
+    %ul
+      -6.times do
+        %li(class="value_list")
+          %input(class="guide_value" name="guide_value" type="text" autocomplete="off" placeholder="bottom")    
+  .trigger.margin_layout.value_columns
+    .left.margin
+      %input(id="top" class="under_border" name="margin_top" type="text" autocomplete="off" placeholder="top")
+    .left_right.margin
+      .left
+        %input(id="left" class="under_border" name="margin_left" type="text" autocomplete="off" placeholder="left")        
+      .gen-btn
+        = hexgon(112, 96, "gen_hexgon_frame", "gen_hexgon")
+        %span(class="text_on_btn") RUN        
+      .right
+        %input(id="right" class="under_border" name="margin_right" type="text" autocomplete="off" placeholder="right")          
+    .bottom.margin
+      %input(id="bottom" class="under_border" name="margin_bottom" type="text" autocomplete="off" placeholder="bottom")    
+  .clear_button_layout
+    .clear_btn.hexgon_frame
+      = hexgon(50,50, "clear_hexgon_frame", "clear_hexgon")
+      %span(class="text_on_btn") clear
+    .strip

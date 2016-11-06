@@ -1,18 +1,16 @@
 module Svg
   COMCLS = 'svg_icon'
   def Svg.viewport(w=300, h=300)
-    return %Q{<svg class= 'vector_icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{w} #{h}">}
+    return %Q{<svg class= 'vector_icon' width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{w} #{h}">}
   end
-  def Svg.icon_clear
-    return %Q{ #{viewport}
-      <defs> 
-        <style>.cls-1{fill:none;stroke:#adadad;stroke-miterlimit:10;stroke-width:20px;}</style>
-      </defs>
-      <g class="#{COMCLS} clear">
-        <path class="cls-1" d="M150,10A140,140,0,0,0,49.66,247.62l198-198A139.53,139.53,0,0,0,150,10Z"/>
-        <path class="cls-1" d="M247.62,49.66l-198,198a140,140,0,1,0,198-198Z"/>
+  def Svg.hexgon_button(width, height, frame_cls, hexgon_cls)
+    return %Q{<svg width= "#{width}" height="#{height}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.99 342.94">
+      <g class="#{hexgon_cls}_group">
+        <path class="#{hexgon_cls}" d="M297,0H99L0,171.47,99,342.94H297l99-171.47Z"/>
+        <path class="#{frame_cls}" d="M293.53,6l95.53,165.47L293.53,336.94H102.46L6.93,171.47,102.46,6H293.53M297,0H99L0,171.47,99,342.94H297l99-171.47L297,0Z"/>
       </g>
-      </svg>}
+      </svg>
+      }
   end
   def Svg.icon_height
     return %Q{ #{viewport(300, 240)}
@@ -200,75 +198,52 @@ module Svg
     }
   end
   def Svg.icon_leftBorder
-    return %Q{#{viewport(84)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} left-border">
-          <path class="cls-1" d="M54,169.2v-7.55l30-6.85V144.52l-30-6.85V130.8a1.3,1.3,0,0,0-2-1.15l-21.38,19.2a1.33,1.33,0,0,0,0,2.3L52,170.35A1.31,1.31,0,0,0,54,169.2Z"/>
-          <rect class="cls-1" width="20" height="300"/>
+    return %Q{ #{viewport(300, 300)}
+      <g id="Layer_2" data-name="Layer 2">
+        <path class="cls-1" d="M130 169.2v-7.55l30-6.85v-10.28l-30-6.85v-6.87a1.3 1.3 0 0 0-2-1.15l-21.38 19.2a1.33 1.33 0 0 0 0 2.3l21.38 19.2a1.31 1.31 0 0 0 2-1.15zM0 0h20v300H0z" id="Layer_1-2" data-name="Layer 1"/>
       </g>
     </svg>
     }
   end
   def Svg.icon_rightBorder
-    return %Q{#{viewport(84)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} right-border">
-          <path class="cls-1" d="M30,169.2v-7.55L0,154.8V144.52l30-6.85V130.8a1.3,1.3,0,0,1,1.95-1.15l21.37,19.2a1.33,1.33,0,0,1,0,2.3L32,170.35A1.3,1.3,0,0,1,30,169.2Z"/>
-          <rect class="cls-1" x="64" width="20" height="300"/>
+    return %Q{#{viewport(160, 300)}
+      <g id="Layer_2" data-name="Layer 2">
+        <path class="cls-1" d="M30 169.2v-7.55L0 154.8v-10.28l30-6.85v-6.87a1.3 1.3 0 0 1 1.95-1.15l21.37 19.2a1.33 1.33 0 0 1 0 2.3L32 170.35a1.3 1.3 0 0 1-2-1.15zM140 0h20v300h-20z" id="Layer_1-2" data-name="Layer 1"/>
       </g>
     </svg>
+
     }
   end
   def Svg.icon_rowMidPoint
-    return %Q{#{viewport(300, 148)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} row-mid-point">
-          <path class="cls-1" d="M130.8,30h7.55L145.2,0h10.28l6.85,30h6.87a1.3,1.3,0,0,1,1.15,1.95l-19.2,21.37a1.33,1.33,0,0,1-2.3,0L129.65,32A1.3,1.3,0,0,1,130.8,30Z"/>
-          <path class="cls-1" d="M130.8,118h7.55l6.85,30h10.28l6.85-30h6.87a1.3,1.3,0,0,0,1.15-2l-19.2-21.38a1.33,1.33,0,0,0-2.3,0L129.65,116A1.31,1.31,0,0,0,130.8,118Z"/>
-          <rect class="cls-1" x="140" y="-76" width="20" height="300" transform="translate(224 -76) rotate(90)"/>
+    return %Q{#{viewport}
+      <g id="Layer_2" data-name="Layer 2">
+        <path class="cls-1" d="M130.8 30h7.55l6.85-30h10.28l6.85 30h6.87a1.3 1.3 0 0 1 1.15 1.95l-19.2 21.37a1.33 1.33 0 0 1-2.3 0L129.65 32a1.3 1.3 0 0 1 1.15-2zm0 240h7.55l6.85 30h10.28l6.85-30h6.87a1.3 1.3 0 0 0 1.15-2l-19.2-21.38a1.33 1.33 0 0 0-2.3 0L129.65 268a1.31 1.31 0 0 0 1.15 2zM300 140v20H0v-20z" id="Layer_1-2" data-name="Layer 1"/>
       </g>
     </svg>
     }
   end
   def Svg.icon_columnMidPoint
-    return %Q{#{viewport(148)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} col-mid-point">
-          <path class="cls-1" d="M30,169.2v-7.55L0,154.8V144.52l30-6.85V130.8a1.3,1.3,0,0,1,1.95-1.15l21.37,19.2a1.33,1.33,0,0,1,0,2.3L32,170.35A1.3,1.3,0,0,1,30,169.2Z"/>
-          <path class="cls-1" d="M118,169.2v-7.55l30-6.85V144.52l-30-6.85V130.8a1.3,1.3,0,0,0-2-1.15l-21.38,19.2a1.33,1.33,0,0,0,0,2.3L116,170.35A1.31,1.31,0,0,0,118,169.2Z"/>
-          <rect class="cls-1" x="64" width="20" height="300"/>
+    return %Q{#{viewport}
+      <g id="Layer_2" data-name="Layer 2">
+        <path class="cls-1" d="M30 169.2v-7.55L0 154.8v-10.28l30-6.85v-6.87a1.3 1.3 0 0 1 1.95-1.15l21.37 19.2a1.33 1.33 0 0 1 0 2.3L32 170.35a1.3 1.3 0 0 1-2-1.15zm240 0v-7.55l30-6.85v-10.28l-30-6.85v-6.87a1.3 1.3 0 0 0-2-1.15l-21.38 19.2a1.33 1.33 0 0 0 0 2.3l21.38 19.2a1.31 1.31 0 0 0 2-1.15zM140 0h20v300h-20z" id="Layer_1-2" data-name="Layer 1"/>
       </g>
     </svg>
     }
   end
   def Svg.icon_topBorder
-    return %Q{#{viewport(300, 84)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} top-border">
-          <path class="cls-1" d="M130.8,54h7.55l6.85,30h10.28l6.85-30h6.87a1.3,1.3,0,0,0,1.15-2l-19.2-21.38a1.33,1.33,0,0,0-2.3,0L129.65,52A1.31,1.31,0,0,0,130.8,54Z"/>
-          <rect class="cls-1" x="140" y="-140" width="20" height="300" transform="translate(160 -140) rotate(90)"/>
+    return %Q{#{viewport(300, 160)}
+      
+      <g id="Layer_2" data-name="Layer 2">
+        <path id="Layer_1-2" d="M130.8 130h7.55l6.85 30h10.28l6.85-30h6.87a1.3 1.3 0 0 0 1.15-2l-19.2-21.38a1.33 1.33 0 0 0-2.3 0L129.65 128a1.31 1.31 0 0 0 1.15 2zM300 0v20H0V0z" class="cls-1" data-name="Layer 1"/>
       </g>
     </svg>
+
     }
   end
   def Svg.icon_bottomBorder
-    return %Q{#{viewport(300, 84)}
-      <defs>
-        <style>.cls-1{fill:#adadad;}</style>
-      </defs>
-      <g class="#{COMCLS} bottom-border">
-        <path class="cls-1" d="M130.8,30h7.55L145.2,0h10.28l6.85,30h6.87a1.3,1.3,0,0,1,1.15,1.95l-19.2,21.37a1.33,1.33,0,0,1-2.3,0L129.65,32A1.3,1.3,0,0,1,130.8,30Z"/>
-        <rect class="cls-1" x="140" y="-76" width="20" height="300" transform="translate(224 -76) rotate(90)"/>
+    return %Q{#{viewport(300, 160)}
+      <g id="Layer_2" data-name="Layer 2">
+        <path id="Layer_1-2" d="M130.8 30h7.55l6.85-30h10.28l6.85 30h6.87a1.3 1.3 0 0 1 1.15 1.95l-19.2 21.37a1.33 1.33 0 0 1-2.3 0L129.65 32a1.3 1.3 0 0 1 1.15-2zM300 140v20H0v-20z" class="cls-1" data-name="Layer 1"/>
       </g>
     </svg>
     }

@@ -1,0 +1,94 @@
+// outter most
+%outter_layout
+  width: 100%
+  position: relative
+  flex: 0 0 auto
+main#form_container
+  width: $width - $side-bar - $border-s2 - 2*$gap-double
+  height: $height
+  display: flex
+  flex-direction: column
+  margin: 0 $gap-double
+  align-items: center
+  overflow: hidden
+  div.value_layout
+    @extend %outter_layout
+    height: 40%
+    order: 0
+  div.margin_layout
+    @extend %outter_layout
+    height: 40%
+    order: 1
+  div.clear_button_layout
+    @extend %outter_layout
+    height: 20%
+    order: 2
+
+//********************
+//* gen-btn | margin *
+//********************
+div.left_right
+  display: flex
+  flex-direction: row
+  align-items: center
+  .left, .gen-btn, .right
+    flex: 0 0 auto
+  .left
+    order: 0
+  .gen-btn
+    width: 240px - $component-size * 4
+    height: 160- $component-size *2
+    order: 1
+  .right
+    order: 2
+
+%text_on_btn_style
+  color: $gray-80
+  position: absolute
+  left: 0
+  transform-origin: center center
+div.gen-btn
+  position: relative
+  span.text_on_btn
+    @extend %text_on_btn_style
+    transform: translate(39px, 39px)
+
+//*************
+//* clear btn *
+//*************
+div.clear_button_layout
+  .clear_btn
+    position: absolute
+    z-index: 1
+    width: 50px
+    height: 50px
+    transform-origin: center center
+    transform: translate(95px, 20px)
+    span.text_on_btn
+      @extend %text_on_btn_style
+      font-size: .75em
+      transform: translate(13px, 18px)
+  .strip
+    position: absolute
+    right: 0
+    bottom: 10px
+    width: 100%
+    height: $component-size
+    background: $gray-20
+    border-radius: 5px
+
+//*************
+//* clear btn *
+//*************
+
+div.value_layout
+  display: flex
+  flex-direction: row
+  align-items: center
+  ul:nth-child(1)
+    flex: 0 0 auto
+    order: 0
+  ul:nth-child(2)
+    flex: 0 0 auto
+    order: 1
+  

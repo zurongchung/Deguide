@@ -1,0 +1,26 @@
+=animation($contents)
+  -webkit-animation: $contents
+  animation:         $contents
+=transition($contents...)
+  -webkit-transition: $contents
+  transition:         $contents
+=transform($contents)
+  -webkit-transform:  $contents
+  transform:          $contents
+=transform-origin($contents)
+  -webkit-transform-origin: $contents
+  transform-origin:         $contents
+=backface-visibility($type)
+  -webkit-backface-visibility:  $type
+  backface-visibility:          $type
+=perspective($val)
+  -webkit-perspective:  $val
+  perspective:          $val
+=perspective-origin($val)
+  -webkit-perspective-origin: $val
+  perspective-origin:         $val 
+=keyframes($animationName)
+  @-webkit-keyframes #{$animationName}
+    @content
+  @keyframes #{$animationName}
+    @content

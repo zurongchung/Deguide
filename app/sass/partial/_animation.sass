@@ -6,104 +6,104 @@
 //* logo *
 //********
 
-@keyframes drawTopGuides
++keyframes(drawTopGuides)
   0%
-    transform: translate(-42px, 0px)
+    +transform(translate(-42px, 0px))
   40%
-    transform: translate(40px, 0px)
+    +transform(translate(40px, 0px))
   60%
-    transform: translate(-20px, 0px)      
+    +transform(translate(-20px, 0px))      
   100%
-    transform: translate(0px, 0px)    
-@keyframes drawLeftGuides
+    +transform(translate(0px, 0px))    
++keyframes(drawLeftGuides)
   0%
-    transform: translate(0px, -43px)
+    +transform(translate(0px, -43px))
   40%
-    transform: translate(0px, 14px)
+    +transform(translate(0px, 14px))
   60%
-    transform: translate(0px, -12px) 
+    +transform(translate(0px, -12px)) 
   100%
-    transform: translate(0px, 0px)    
-@keyframes drawBottomGuides
+    +transform(translate(0px, 0px))    
++keyframes(drawBottomGuides)
   0%
-    transform: translate(44px, 0px)
+    +transform(translate(44px, 0px))
   40%
-    transform: translate(-30px, 0px)
+    +transform(translate(-30px, 0px))
   60%
-    transform: translate(32px, 0px) 
+    +transform(translate(32px, 0px)) 
   100%
-    transform: translate(0px, 0px)    
-@keyframes drawRightGuides
+    +transform(translate(0px, 0px))    
++keyframes(drawRightGuides)
   0%
-    transform: translate(0px, 45px)
+    +transform(translate(0px, 45px))
   40%
-    transform: translate(0px, -60px)
+    +transform(translate(0px, -60px))
   60%
-    transform: translate(0px, 12px) 
+    +transform(translate(0px, 12px)) 
   100%
-    transform: translate(0px, 0px)
-@keyframes quarter
-  0%
-    opacity: 0
-    transform: rotateZ(90deg)
-  40%
-    opacity: .8
-    transform: rotateZ(-12deg)
-  60%
-    opacity: .35
-    transform: rotateZ(12deg)
-  100%
-    opacity: 1
-    transform: rotateZ(0deg)    
-@keyframes half
+    +transform(translate(0px, 0px))
++keyframes(quarter)
   0%
     opacity: 0
-    transform: rotateZ(180deg)
+    +transform(rotateZ(90deg))
   40%
     opacity: .8
-    transform: rotateZ(-10deg)
+    +transform(rotateZ(-12deg))
   60%
     opacity: .35
-    transform: rotateZ(10deg)
+    +transform(rotateZ(12deg))
   100%
     opacity: 1
-    transform: rotateZ(0deg)
-@keyframes three-quarter
+    +transform(rotateZ(0deg))    
++keyframes(half)
   0%
     opacity: 0
-    transform: rotateZ(270deg)
+    +transform(rotateZ(180deg))
   40%
     opacity: .8
-    transform: rotateZ(-5deg)
+    +transform(rotateZ(-10deg))
   60%
     opacity: .35
-    transform: rotateZ(20deg)
+    +transform(rotateZ(10deg))
   100%
     opacity: 1
-    transform: rotateZ(0deg)
-@keyframes full
+    +transform(rotateZ(0deg))
++keyframes(three-quarter)
   0%
     opacity: 0
-    transform: rotateZ(-360deg)
+    +transform(rotateZ(270deg))
   40%
     opacity: .8
-    transform: rotateZ(-10deg)
+    +transform(rotateZ(-5deg))
   60%
     opacity: .35
-    transform: rotateZ(10deg)
+    +transform(rotateZ(20deg))
   100%
     opacity: 1
-    transform: rotateZ(0deg)
+    +transform(rotateZ(0deg))
++keyframes(full)
+  0%
+    opacity: 0
+    +transform(rotateZ(-360deg))
+  40%
+    opacity: .8
+    +transform(rotateZ(-10deg))
+  60%
+    opacity: .35
+    +transform(rotateZ(10deg))
+  100%
+    opacity: 1
+    +transform(rotateZ(0deg))
 //********
 //* menu *
 //********
-@keyframes roll_in
++keyframes(roll_in)
   0%
     opacity: 0
-    transform: translate(-20px, 14px) scale(1) rotateZ(-90deg)
+    +transform(translate(-20px, 14px) scale(1) rotateZ(-90deg))
   20%
     opacity: 0.67
-    transform: translate(40px, 14px) scale(6) rotateZ(60deg)
+    +transform(translate(40px, 14px) scale(6) rotateZ(60deg))
   80%
     opacity: 1
     width: 1px
@@ -111,7 +111,7 @@
     color: hsla(0, 0%, 0%, 0)
     font-size: 0em
     background-color: $accent
-    transform: translate(70px, 14px) scale(8) rotateZ(166deg)  
+    +transform(translate(70px, 14px) scale(8) rotateZ(166deg))  
   100%
     opacity: 1
     width: 48px
@@ -119,86 +119,87 @@
     color: $gray-40
     font-size: 0.75em
     background-color: $gray-12
-    transform: translate(0px, 0px) scale(1) rotateZ(0deg)
-@keyframes falling_box
+    +transform(translate(0px, 0px) scale(1) rotateZ(0deg))
++keyframes(falling_box)
   0%
     top: -300px
     height: 2px
-    transform: scale(6)
+    +transform(scale(6))
   20%
     top: 28px
     height: 2px
-    transform: scale(.8)
+    +transform(scale(.8))
   80%
     top: -10px
     height: 2px
-    transform: scale(2)
+    +transform(scale(2))
   100%
     top: 0
     height: 28px
-    transform: scale(1)     
-@keyframes dropDown
+    +transform(scale(1))     
++keyframes(dropDown)
   0%
-    transform: translateY(-80px)
+    +transform(translateY(-80px))
   30%
-    transform: translateY(0px)  
+    +transform(translateY(0px))  
   53%
-    transform: translateY(-40px)  
+    +transform(translateY(-40px))  
   100%
-    transform: translateY(0px)
-@keyframes signaling
+    +transform(translateY(0px))
++keyframes(signaling)
   0%
     opacity: 1
     stroke: $gray-60
     stroke-width: 12px 
-    transform: scale(.8)
+    +transform(scale(.8))
   100%
     opacity: .5
     stroke: $gray-60    
     stroke-width: 0px
-    transform: scale(1)
-@keyframes expand_size_down
+    +transform(scale(1))
+
++keyframes(expand_size_down)
   0%
-    transform: translateY(-40px)
+    +transform(translateY(-40px))
   50%
-    transform: translateY(0)
+    +transform(translateY(0))
   84%
-    transform: translateY(-8px)  
+    +transform(translateY(-8px))  
   100%
-    transform: translateY(0)  
-@keyframes expand_size_up
+    +transform(translateY(0))  
++keyframes(expand_size_up)
   0%
-    transform: translateY(40px)
+    +transform(translateY(40px))
   50%
-    transform: translateY(0)
+    +transform(translateY(0))
   84%
-    transform: translateY(8px)
+    +transform(translateY(8px))
   100%
-    transform: translateY(0)
-@keyframes expand_gap
+    +transform(translateY(0))
++keyframes(expand_gap)
   0%
-    transform: translateX(14px)
+    +transform(translateX(14px))
   50%
-    transform: translateX(-20px)
+    +transform(translateX(-20px))
   84%
-    transform: translateX(12px)
+    +transform(translateX(12px))
   100%
-    transform: translateX(0)
-@keyframes expand_gap_opposite
+    +transform(translateX(0))
++keyframes(expand_gap_opposite)
   0%
-    transform: translateX(-14px)
+    +transform(translateX(-14px))
   50%
-    transform: translateX(20px)
+    +transform(translateX(20px))
   84%
-    transform: translateX(-12px)
+    +transform(translateX(-12px))
   100%
-    transform: translateX(0)
-@keyframes expand_gap_scale
+    +transform(translateX(0))
++keyframes(expand_gap_scale)
   0%
-    transform: translateY(40px)
+    +transform(translateY(40px))
   50%
-    transform: translateY(0)
+    +transform(translateY(0))
   84%
-    transform: translateY(8px)
+    +transform(translateY(8px))
   100%
-    transform: translateY(0)
+    +transform(translateY(0))

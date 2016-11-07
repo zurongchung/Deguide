@@ -21,12 +21,12 @@
   text-align: center
   color: $gray-40
   background-color: $gray-12
-  perspective-origin: 100% 50%
-  backface-visibility: hidden
-  transform-origin: left center
-  perspective: 20px
-  transform: rotateY(-180deg)
-  transition: transform .5s ease 0s
+  +perspective-origin(100% 50%)
+  +backface-visibility(hidden)
+  +transform-origin(left center)
+  +perspective(20px)
+  +transform(rotateY(-180deg))
+  +transition(transform .5s ease 0s)
 %roll_in_hint
   position: absolute
   width: 1px
@@ -41,11 +41,11 @@
   display: none
   text-align: center
   background-color: $accent
-  perspective-origin: 100% 50%
-  perspective: 20px
-  backface-visibility: hidden
-  transform-origin: right center
-  transform: translate(-20px, 14px) scale(1) rotateZ(-90deg)
+  +perspective-origin(100% 50%)
+  +perspective(20px)
+  +backface-visibility(hidden)
+  +transform-origin(right center)
+  +transform(translate(-20px, 14px) scale(1) rotateZ(-90deg))
 
 %falling_box
   position: absolute
@@ -56,7 +56,7 @@
   height: $border-s2
   content: ''
   background-color: $accent
-  transform: scale(6)
+  +transform(scale(6))
 %hitting_ball
   position: absolute
   display: block
@@ -66,8 +66,8 @@
   content: ''
   background-color: $accent
   opacity: 0
-  transform-origin: center center
-  transform: translate(-3%, -11%) scale(.3)
+  +transform-origin(center center)
+  +transform(translate(-3%, -11%) scale(.3))
 
 nav.g_navigation
   position: relative
@@ -128,25 +128,25 @@ a.one_click_border
   div.svg_container
     width: $component-size / 2
     height: $component-size / 2
-    transform-origin: center center
-    transform: translate(11px, 6px)
+    +transform-origin(center center)
+    +transform(translate(11px, 6px))
   div.left
-    transform: translate(90%, 50%)
+    +transform(translate(90%, 50%))
   div.right
-    transform: translate(30%, 50%)
+    +transform(translate(30%, 50%))
   path
     fill: $gray-40
   path.anim_guide
-    transform-origin: bottom center
+    +transform-origin(bottom center)
 //*************
 //* animation *
 //*************
 %menu_hint_animation
   display: block
-  animation: 1s ease-out 2s 1 normal forwards running roll_in      
+  +animation(1s ease-out 2s 1 normal forwards running roll_in)      
 
 %falling_box_animation
-  animation: 1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box
+  +animation(1.5s cubic-bezier(0.2, -1.2, 0.43, 1.2) 0s 1 normal forwards running falling_box)
   
 li.menu_item:hover
   //border-bottom-color: $accent
@@ -163,6 +163,6 @@ li.set_guide:hover
   path.anim_guide
     fill: $accent
   path#left_guide,path#right_guide, path#perpendicular_guide
-    animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown
+    +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown)
   path#top_guide, path#bottom_guide, path#cross_guide
-    animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown  
+    +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown)  

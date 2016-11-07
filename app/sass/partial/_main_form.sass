@@ -48,12 +48,13 @@ div.left_right_layout
   color: $gray-80
   position: absolute
   left: 0
-  transform-origin: center center
+  top: 0
+  +transform-origin(center center)
 div.gen_btn
   position: relative
   span.text_on_btn
     @extend %text_on_btn_style
-    transform: translate(40px, 51px)
+    +transform(translate(40px, 51px))
 
 //*************
 //* clear btn *
@@ -64,12 +65,12 @@ div.clear_button_layout
     z-index: 1
     width: 50px
     height: 50px
-    transform-origin: center center
-    transform: translate(95px, 8px)
+    +transform-origin(center center)
+    +transform(translate(95px, 8px))
     span.text_on_btn
       @extend %text_on_btn_style
       font-size: .75em
-      transform: translate(13px, 18px)
+      +transform(translate(13px, 18px))
   .strip
     position: absolute
     right: 0
@@ -121,10 +122,10 @@ div.icon_value_layout
     width: $component-size
     height: $component-size
     border-radius: $gap-10 /2
-    //background-color: $gray-20
+    //background-color: $gray-12
     svg
-      transform-origin: center center
-      transform: translate(5px, 5px)
+      +transform-origin(center center)
+      +transform(translate(5px, 5px))
   & > input
     flex: 0 0 auto
 input:focus
@@ -146,8 +147,8 @@ span.text_on_btn
 //* animation *
 //*************
 %signaling
-  transform-origin: center center
-  animation: .6s cubic-bezier(0.12, -1.2, 0.46, 1.5) 0s infinite normal none running signaling
+  +transform-origin(center center)
+  +animation(.6s cubic-bezier(0.12, -1.2, 0.46, 1.5) 0s infinite normal none running signaling)
 path.gen_hexgon:hover
   & + polygon.gen_hexgon_frame
     @extend %signaling

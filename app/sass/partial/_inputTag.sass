@@ -2,9 +2,10 @@ input
   display: block
   padding: 0px
   border: none
+  outline: none
   line-height: $component-size
   text-align: center
-  color: $gray-60
+  color: $gray-40
   background: transparent
 .under_border
   width: $input_size
@@ -16,7 +17,7 @@ input
   border-bottom: 0
   border-top: 2px solid $gray-20 
 #left, #right
-  transform: translateY(-16px)
+  +transform(translateY(-16px))
 //**************************
 //* type 2 with background *
 //**************************

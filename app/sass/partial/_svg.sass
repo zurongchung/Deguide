@@ -5,14 +5,14 @@ svg
   #logo_hexgon_frame
     fill: none
     stroke: $accent
-    transition: stroke .15s ease 0s    
+    +transition(stroke .15s ease 0s)
   #logo_text
     font-family: Futura, "Gill Sans", Arial
     font-size: 1.2em
     fill: $accent
     stroke: hsla(0, 0%, 0%, 0)
     stroke-width: 1px
-    transition: fill .15s ease 0s, stroke .15s ease 0s
+    +transition(fill .15s ease 0s, stroke .15s ease 0s)
   .lines_container
     stroke: $accent
     stroke-width: 2px
@@ -30,14 +30,15 @@ div.guide_icon
 //* hexgon button *
 //*****************
 %resize
-  transform-origin: center center
-  transform: scale(.8)
+  +transform-origin(center center)
+  +transform(scale(.8))
 g.gen_hexgon_group
-  @extend %resize
+  //@extend %resize
 path.clear_hexgon, path.gen_hexgon
   @extend %resize
   fill: $gray-40
 polygon.clear_hexgon_frame, polygon.gen_hexgon_frame
+  +transform-origin(center center)
   fill: none
   stroke: $gray-40
   stroke-width: 8px
@@ -45,24 +46,24 @@ polygon.clear_hexgon_frame, polygon.gen_hexgon_frame
 //* Animation *
 //*************
 #shrink_logo
-  transform-origin: center center
-  transform: translate(3px, 3px) 
-  transition: transform .15s ease-out 0s
+  +transform-origin(center center)
+  +transform(translate(3px, 3px)) 
+  +transition(transform .15s ease-out 0s)
 path.center_lines
-  transform-origin: 18px 18px
-  transition: transform .15s ease-in .15s
+  +transform-origin(18px 18px)
+  +transition(transform .15s ease-in .15s)
 
 $moveTo: ((-42px 0px) (0px -43px) (44px 0px) (0px 45px))
 $angle: -360deg, 270deg, 180deg, 90deg
 g.lines_container
   @for $i from 1 through 4
     path.lines:nth-child(#{$i})
-      transform: translate(nth(nth($moveTo, $i), 1), nth(nth($moveTo, $i), 2))
+      +transform(translate(nth(nth($moveTo, $i), 1), nth(nth($moveTo, $i), 2)))
   
   g.draw_from_center
     @for $i from 1 through 4
       path.center_lines:nth-child(#{$i})
-        transform: rotateZ(nth($angle, $i))
+        +transform(rotateZ(nth($angle, $i)))
         opacity: 0
     
 
@@ -75,33 +76,33 @@ a.logo_link:hover
     fill: hsla(0, 0%, 0%, 0)
     stroke: $gray-80
   #shrink_logo
-    transform: scale(0.8,0.8) translate(1px, 2px)
+    +transform(scale(0.8,0.8) translate(1px, 2px))
   @for $i from 1 through 4
     path.lines:nth-child(#{$i})
-      animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running nth($guides, $i)
+      +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running nth($guides, $i))
   g.draw_from_center
     @for $i from 1 through 4
       path.center_lines:nth-child(#{$i})
-        animation: 1.5s ease-in-out $i*0.15+0.8s 1 normal forwards running nth($rotation, $i)
+        +animation(1.5s ease-in-out $i*0.15+0.8s 1 normal forwards running nth($rotation, $i))
 
 //**************
 //* form icons *
 //**************
 %expand
-  transform-origin: center center
+  +transform-origin(center center)
 div.guide_icon:hover
   .cls-1
     fill: $accent
   .expand_down
     @extend %expand
-    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_size_down
+    +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_size_down)
   .expand_up
     @extend %expand
-    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_size_up
+    +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_size_up)
   .expand_gap
     @extend %expand  
-    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_gap
+    +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap)
   .expand_gap_opposite
     @extend %expand  
-    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_gap_opposite
+    +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_opposite)
   

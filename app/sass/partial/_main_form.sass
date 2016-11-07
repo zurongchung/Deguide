@@ -1,4 +1,4 @@
-// outter most
+
 %outter_layout
   width: 100%
   position: relative
@@ -25,18 +25,19 @@ main#form_container
     order: 2
 
 //********************
-//* gen-btn | margin *
+//* gen_btn | margin *
 //********************
+
 div.left_right_layout
   display: flex
   flex-direction: row
   align-items: center
   justify-content: center
-  .left, .gen-btn, .right
+  .left, .gen_btn, .right
     flex: 0 0 auto
   .left
     order: 0
-  .gen-btn
+  .gen_btn
     width: 240px - $component-size * 4
     height: 180- $component-size *2
     order: 1
@@ -48,7 +49,7 @@ div.left_right_layout
   position: absolute
   left: 0
   transform-origin: center center
-div.gen-btn
+div.gen_btn
   position: relative
   span.text_on_btn
     @extend %text_on_btn_style
@@ -82,14 +83,6 @@ div.clear_button_layout
 //* value list *
 //**************
 
-%icon_position
-  position: relative
-  top: 0
-  width: $component-size
-  height: $component-size
-  background-color: $gray-20
-  border-radius: $gap-10 /2
-
 div.value_layout 
   margin-top: $gap-10
   ul
@@ -97,21 +90,67 @@ div.value_layout
     flex-direction: row
     flex-wrap: wrap
     justify-content: center
+
 li.value_list
   width: (240 - $gap-10) /2
   position: relative
   flex: 0 0 auto
   margin-bottom: $gap-10
-li.value_list
   &:nth-child(2n+1)
     margin-right: $gap-10
+    div.icon_value_layout
+      & > div
+        order: 1
+        margin-right: $gap-10
+      & > input
+        order: 2
+
+  &:nth-child(2n)
+    div.icon_value_layout
+      & > div
+        order: 2
+        margin-left: $gap-10
+      & > input
+        order: 1
+    
 div.icon_value_layout
   display: flex
   flex-direction: row
   & > div
+    flex: 0 0 auto  
     width: $component-size
     height: $component-size
     border-radius: $gap-10 /2
-    background-color: $gray-20
-    margin-right: $gap-10
+    //background-color: $gray-20
+    svg
+      transform-origin: center center
+      transform: translate(5px, 5px)
   & > input
+    flex: 0 0 auto
+input:focus
+    color: $gray-80  
+div.icon_value_layout
+  & > input:focus
+    box-shadow: 0 0 0 1px $accent
+div.margin
+  input:focus
+    border-bottom-color: $accent
+  input#bottom:focus
+    border-top-color: $accent
+
+path.gen_hexgon, path.clear_hexgon
+  cursor: pointer
+span.text_on_btn
+  pointer-events: none
+//*************
+//* animation *
+//*************
+%signaling
+  transform-origin: center center
+  animation: .6s cubic-bezier(0.12, -1.2, 0.46, 1.5) 0s infinite normal none running signaling
+path.gen_hexgon:hover
+  & + polygon.gen_hexgon_frame
+    @extend %signaling
+.clear_btn:hover
+  polygon.clear_hexgon_frame
+    @extend %signaling

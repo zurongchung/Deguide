@@ -17,6 +17,14 @@ svg
     stroke: $accent
     stroke-width: 2px
     fill: none
+//**************
+//* form icons *
+//**************
+div.guide_icon
+  .cls-1
+    fill: $gray-40
+  .cls-2
+    fill: $gray-12
 
 //*****************
 //* hexgon button *
@@ -29,8 +37,10 @@ g.gen_hexgon_group
 path.clear_hexgon, path.gen_hexgon
   @extend %resize
   fill: $gray-40
-path.clear_hexgon_frame, path.gen_hexgon_frame
-  fill: $gray-40
+polygon.clear_hexgon_frame, polygon.gen_hexgon_frame
+  fill: none
+  stroke: $gray-40
+  stroke-width: 8px
 //*************
 //* Animation *
 //*************
@@ -74,12 +84,24 @@ a.logo_link:hover
       path.center_lines:nth-child(#{$i})
         animation: 1.5s ease-in-out $i*0.15+0.8s 1 normal forwards running nth($rotation, $i)
 
-//***************
-//* quick guide *
-//***************
-li.set_guide:hover
-  path
-    transform-origin: bottom center
-    &#left_guide, &#right_guide, &#perpendicular_guide
-      animation: 1s ease 0s normal forwards running dropdown
-    &#top_guide, &#bottom_guide, &#cross_guide
+//**************
+//* form icons *
+//**************
+%expand
+  transform-origin: center center
+div.guide_icon:hover
+  .cls-1
+    fill: $accent
+  .expand_down
+    @extend %expand
+    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_size_down
+  .expand_up
+    @extend %expand
+    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_size_up
+  .expand_gap
+    @extend %expand  
+    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_gap
+  .expand_gap_opposite
+    @extend %expand  
+    animation: .8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal forwards running expand_gap_opposite
+  

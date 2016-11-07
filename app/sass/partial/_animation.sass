@@ -139,10 +139,66 @@
     transform: scale(1)     
 @keyframes dropDown
   0%
-    transform: translateY(-40px)
+    transform: translateY(-80px)
   30%
     transform: translateY(0px)  
   53%
-    transform: translateY(-20px)  
+    transform: translateY(-40px)  
   100%
-    transform: translateY(0px)  
+    transform: translateY(0px)
+@keyframes signaling
+  0%
+    opacity: 1
+    stroke: $gray-60
+    stroke-width: 12px 
+    transform: scale(.8)
+  100%
+    opacity: .5
+    stroke: $gray-60    
+    stroke-width: 0px
+    transform: scale(1)
+@keyframes expand_size_down
+  0%
+    transform: translateY(-40px)
+  50%
+    transform: translateY(0)
+  84%
+    transform: translateY(-8px)  
+  100%
+    transform: translateY(0)  
+@keyframes expand_size_up
+  0%
+    transform: translateY(40px)
+  50%
+    transform: translateY(0)
+  84%
+    transform: translateY(8px)
+  100%
+    transform: translateY(0)
+@keyframes expand_gap
+  0%
+    transform: translateX(14px)
+  50%
+    transform: translateX(-20px)
+  84%
+    transform: translateX(12px)
+  100%
+    transform: translateX(0)
+@keyframes expand_gap_opposite
+  0%
+    transform: translateX(-14px)
+  50%
+    transform: translateX(20px)
+  84%
+    transform: translateX(-12px)
+  100%
+    transform: translateX(0)
+@keyframes expand_gap_scale
+  0%
+    transform: translateY(40px)
+  50%
+    transform: translateY(0)
+  84%
+    transform: translateY(8px)
+  100%
+    transform: translateY(0)

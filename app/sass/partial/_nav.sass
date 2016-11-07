@@ -70,6 +70,8 @@
   transform: translate(-3%, -11%) scale(.3)
 
 nav.g_navigation
+  position: relative
+  z-index: 1
   width: $side-bar
   height: $height
   border-right: $border-s2 solid $gray-20
@@ -106,27 +108,36 @@ a.switch_panel
     @extend %hitting_ball
   &::after
     @extend %falling_box
-div.svg_container
   
 //***************
 //* quick guide *
 //***************
-
+$order: 1 3 4 6 2 5
 #guide_tool
   margin-top: 74px
+  & > ul
+    display: flex
+    flex-direction: column
+  @for $i from 1 through 6
+    li.set_guide:nth-child(#{$i})
+      cursor: pointer
+      flex: 0 0 auto
+      order: nth($order, $i)
 
 a.one_click_border
   div.svg_container
-    width: $side-bar / 2
-    height: $menu_height / 2
+    width: $component-size / 2
+    height: $component-size / 2
     transform-origin: center center
-    transform: translate(50%, 50%)
+    transform: translate(11px, 6px)
   div.left
     transform: translate(90%, 50%)
   div.right
     transform: translate(30%, 50%)
   path
     fill: $gray-40
+  path.anim_guide
+    transform-origin: bottom center
 //*************
 //* animation *
 //*************
@@ -149,5 +160,9 @@ li.menu_item:hover
       @extend %falling_box_animation
 
 li.set_guide:hover
-  path
+  path.anim_guide
     fill: $accent
+  path#left_guide,path#right_guide, path#perpendicular_guide
+    animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown
+  path#top_guide, path#bottom_guide, path#cross_guide
+    animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown  

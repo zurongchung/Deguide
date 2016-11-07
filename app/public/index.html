@@ -53,7 +53,7 @@
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
                       <g transform="rotate(0)">
                         <path class="cls-1" d="M91.23 19.77L114.46 60l-23.23 40.23H44.77L21.54 60l23.23-40.23h46.46M94 15H42L16 60l26 45h52l26-45-26-45z"/>
-                        <path id= "left_guide" class="cls-1" d="M0 0h16v120H0z"/>
+                        <path id= "left_guide" class="anim_guide" d="M0 0h16v120H0z"/>
                       </g>
                     </svg>
               </div>
@@ -64,9 +64,9 @@
               <div class='svg_container'>
                 
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-                      <g transform="rotate(180,60,60)">
+                      <g transform="rotate(-180,60,60)">
                         <path class="cls-1" d="M91.23 19.77L114.46 60l-23.23 40.23H44.77L21.54 60l23.23-40.23h46.46M94 15H42L16 60l26 45h52l26-45-26-45z"/>
-                        <path id= "right_guide" class="cls-1" d="M0 0h16v120H0z"/>
+                        <path id= "right_guide" class="anim_guide" d="M0 0h16v120H0z"/>
                       </g>
                     </svg>
               </div>
@@ -79,7 +79,7 @@
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
                       <g transform="rotate(90,60,60)">
                         <path class="cls-1" d="M91.23 19.77L114.46 60l-23.23 40.23H44.77L21.54 60l23.23-40.23h46.46M94 15H42L16 60l26 45h52l26-45-26-45z"/>
-                        <path id= "top_guide" class="cls-1" d="M0 0h16v120H0z"/>
+                        <path id= "top_guide" class="anim_guide" d="M0 0h16v120H0z"/>
                       </g>
                     </svg>
               </div>
@@ -92,7 +92,7 @@
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
                       <g transform="rotate(-90,60,60)">
                         <path class="cls-1" d="M91.23 19.77L114.46 60l-23.23 40.23H44.77L21.54 60l23.23-40.23h46.46M94 15H42L16 60l26 45h52l26-45-26-45z"/>
-                        <path id= "bottom_guide" class="cls-1" d="M0 0h16v120H0z"/>
+                        <path id= "bottom_guide" class="anim_guide" d="M0 0h16v120H0z"/>
                       </g>
                     </svg>
               </div>
@@ -105,7 +105,7 @@
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 120">
                         <g transform="rotate(0)">
                           <path class="cls-1" d="M75.23 19.77L98.46 60l-23.23 40.23H28.77L5.54 60l23.23-40.23h46.46M78 15H26L0 60l26 45h52l26-45-26-45z"/>
-                          <path id= "perpendicular_guide"  class="cls-1" d="M44 0h16v120H44z"/>
+                          <path id= "perpendicular_guide"  class="anim_guide" d="M44 0h16v120H44z"/>
                         </g>
                       </svg>
               </div>
@@ -116,9 +116,9 @@
               <div class='svg_container'>
                 
                       <svg width='16' heigh='16' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 104">
-                        <g transform="rotate(90, 60, 60)">
+                        <g transform="rotate(-90, 52, 52)">
                           <path class="cls-1" d="M75.23 19.77L98.46 60l-23.23 40.23H28.77L5.54 60l23.23-40.23h46.46M78 15H26L0 60l26 45h52l26-45-26-45z"/>
-                          <path id= "cross_guide"  class="cls-1" d="M44 0h16v120H44z"/>
+                          <path id= "cross_guide"  class="anim_guide" d="M44 0h16v120H44z"/>
                         </g>
                       </svg>
               </div>
@@ -132,38 +132,114 @@
         <ul>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="height" transform="rotate(0)">
+                          <path class="cls-2 expand_down" d="M120 8v32H0V8z"/>
+                          <path class="cls-2 expand_up" d="M120 80v32H0V80z"/>
+                          <path class="cls-1" d="M120 0v8H0V0z"/>
+                          <path class="cls-1 expand_down" d="M120 40v8H0v-8z"/>
+                          <path class="cls-1 expand_up" d="M120 72v8H0v-8z"/>
+                          <path class="cls-1" d="M120 112v8H0v-8z"/>
+                        </g>
+                      </svg>
+              </div>
               <input autocomplete='off' class='guide_value' name='guide_value' placeholder='height' type='text'>
             </div>
           </li>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="width" transform="rotate(90, 60,60)">
+                          <path class="cls-2 expand_down" d="M120 8v32H0V8z"/>
+                          <path class="cls-2 expand_up" d="M120 80v32H0V80z"/>
+                          <path class="cls-1" d="M120 0v8H0V0z"/>
+                          <path class="cls-1 expand_down" d="M120 40v8H0v-8z"/>
+                          <path class="cls-1 expand_up" d="M120 72v8H0v-8z"/>
+                          <path class="cls-1" d="M120 112v8H0v-8z"/>
+                        </g>
+                      </svg>
+              </div>
               <input autocomplete='off' class='guide_value' name='guide_value' placeholder='width' type='text'>
             </div>
           </li>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="rows" transform="rotate(90,60,60)">
+                          <path class="cls-1" d="M0 0h8v120H0z"/>
+                          <path class="cls-1" d="M28 0h8v120h-8z"/>
+                          <path class="cls-1" d="M56 0h8v120h-8z"/>
+                          <path class="cls-1" d="M84 0h8v120h-8z"/>
+                          <path class="cls-1" d="M112 0h8v120h-8z"/>
+                          <circle class="cls-1" cx="18" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="46" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="74" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="102" cy="60" r="6.4"/>
+                        </g>
+                      </svg>
+              </div>
               <input autocomplete='off' class='guide_value' name='guide_value' placeholder='rows' type='text'>
             </div>
           </li>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="columns" transform="rotate(0)">
+                          <path class="cls-1" d="M0 0h8v120H0z"/>
+                          <path class="cls-1" d="M28 0h8v120h-8z"/>
+                          <path class="cls-1" d="M56 0h8v120h-8z"/>
+                          <path class="cls-1" d="M84 0h8v120h-8z"/>
+                          <path class="cls-1" d="M112 0h8v120h-8z"/>
+                          <circle class="cls-1" cx="18" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="46" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="74" cy="60" r="6.4"/>
+                          <circle class="cls-1" cx="102" cy="60" r="6.4"/>
+                        </g>
+                      </svg>
+              </div>
               <input autocomplete='off' class='guide_value' name='guide_value' placeholder='columns' type='text'>
             </div>
           </li>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
-              <input autocomplete='off' class='guide_value' name='guide_value' placeholder='gutters' type='text'>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="rowGutters" transform="rotate(90, 60,60)">
+                          <rect class="cls-2 expand_gap_scale" x="48" width="24" height="120"/>
+                          <rect class="cls-1" width="8" height="120"/>
+                          <rect class="cls-1 expand_gap" x="40" width="8" height="120"/>
+                          <rect class="cls-1 expand_gap_opposite" x="72" width="8" height="120"/>
+                          <rect class="cls-1" x="112" width="8" height="120"/>
+                        </g>
+                      </svg>
+              </div>
+              <input autocomplete='off' class='guide_value' name='guide_value' placeholder='rowGutters' type='text'>
             </div>
           </li>
           <li class='value_list'>
             <div class='icon_value_layout'>
-              <div class='guide_icon'></div>
-              <input autocomplete='off' class='guide_value' name='guide_value' placeholder='gutters' type='text'>
+              <div class='guide_icon'>
+                
+                      <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+                        <g id="colGutters" transform="rotate(0)">
+                          <rect class="cls-2 expand_gap_scale" x="48" width="24" height="120"/>
+                          <rect class="cls-1" width="8" height="120"/>
+                          <rect class="cls-1 expand_gap" x="40" width="8" height="120"/>
+                          <rect class="cls-1 expand_gap_opposite" x="72" width="8" height="120"/>
+                          <rect class="cls-1" x="112" width="8" height="120"/>
+                        </g>
+                      </svg>
+              </div>
+              <input autocomplete='off' class='guide_value' name='guide_value' placeholder='colGutters' type='text'>
             </div>
           </li>
         </ul>
@@ -176,11 +252,11 @@
           <div class='left'>
             <input autocomplete='off' class='under_border' id='left' name='margin_left' placeholder='left' type='text'>
           </div>
-          <div class='gen-btn'>
+          <div class='gen_btn'>
             <svg width= "112" height="116" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.99 342.94">
                   <g class="gen_hexgon_group">
-                    <path class="gen_hexgon" d="M297,0H99L0,171.47,99,342.94H297l99-171.47Z"/>
-                    <path class="gen_hexgon_frame" d="M293.53,6l95.53,165.47L293.53,336.94H102.46L6.93,171.47,102.46,6H293.53M297,0H99L0,171.47,99,342.94H297l99-171.47L297,0Z"/>
+                    <path class="gen_hexgon" d="M279.6 30.1H116.4L34.7 171.5l81.7 141.4h163.2l81.7-141.4z"/>
+                    <polygon class="gen_hexgon_frame" points="279.6,30.1 116.4,30.1 34.7,171.5 116.4,312.9 279.6,312.9 361.3,171.5"/>
                   </g>
                   </svg>
             <span class='text_on_btn'>RUN</span>
@@ -197,8 +273,8 @@
         <div class='clear_btn hexgon_frame'>
           <svg width= "50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.99 342.94">
                 <g class="clear_hexgon_group">
-                  <path class="clear_hexgon" d="M297,0H99L0,171.47,99,342.94H297l99-171.47Z"/>
-                  <path class="clear_hexgon_frame" d="M293.53,6l95.53,165.47L293.53,336.94H102.46L6.93,171.47,102.46,6H293.53M297,0H99L0,171.47,99,342.94H297l99-171.47L297,0Z"/>
+                  <path class="clear_hexgon" d="M279.6 30.1H116.4L34.7 171.5l81.7 141.4h163.2l81.7-141.4z"/>
+                  <polygon class="clear_hexgon_frame" points="279.6,30.1 116.4,30.1 34.7,171.5 116.4,312.9 279.6,312.9 361.3,171.5"/>
                 </g>
                 </svg>
           <span class='text_on_btn'>clear</span>

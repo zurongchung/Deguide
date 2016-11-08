@@ -22,9 +22,9 @@ svg
 //**************
 div.guide_icon
   .cls-1
-    fill: $gray-40
+    fill: $gray-60
   .cls-2
-    fill: $gray-12
+    fill: $gray-35
 
 //*****************
 //* hexgon button *
@@ -39,6 +39,7 @@ path.clear_hexgon, path.gen_hexgon
   fill: $gray-40
 polygon.clear_hexgon_frame, polygon.gen_hexgon_frame
   +transform-origin(center center)
+  +transform(scale(1))
   fill: none
   stroke: $gray-40
   stroke-width: 8px
@@ -90,8 +91,23 @@ a.logo_link:hover
 //**************
 %expand
   +transform-origin(center center)
+div.guide_icon
+  // Initial state
+  .expand_down, .expand_up,
+    @extend %expand
+    +transform(translateY(0))
+  .expand_gap, .expand_gap_opposite  
+    @extend %expand
+    +transform(translateX(0))
+  .expand_gap_scale
+    @extend %expand
+    +transform(scaleX(1))  
+  g#columns, g#rows
+    path, circle
+      @extend %expand
+      +transform(translateY(0))
 div.guide_icon:hover
-  .cls-1
+  .cls-1:not(circle)
     fill: $accent
   .expand_down
     @extend %expand
@@ -105,4 +121,13 @@ div.guide_icon:hover
   .expand_gap_opposite
     @extend %expand  
     +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_opposite)
+  .expand_gap_scale
+    @extend %expand  
+    +animation(.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_scale)
+  g#columns, g#rows
+    path, circle
+      @extend %expand
+    @for $i from 0 through 4
+      path:nth-child(#{$i+1})    
+        +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) $i*0.12s 1 normal none running dropDown)
   

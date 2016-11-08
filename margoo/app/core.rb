@@ -10,7 +10,7 @@ class HTML
     @output = '../../app/public/index.html'
     @value_list_hint = ['height', 'width', 'rows', 'columns','gutters', 'gutters']
     @icon_for_form = {height: 'rotate(0)', width: 'rotate(90, 60,60)', 
-    rows: 'rotate(90,60,60)', columns: 'rotate(0)',
+    rows: 'rotate(270,60,60)', columns: 'rotate(0)',
     rowGutters: 'rotate(90, 60,60)', colGutters: 'rotate(0)'}
     @logo_border_lines = ['M-2 4 H38', 'M4 -5 V38', 'M0 33 H42', 'M33 -2 V43']
     @logo_center_lines = ['M18 18 V38', 'M18 18 H-1', 'M18 18 V-2',  'M18 18 H40']

@@ -13,7 +13,7 @@
             <!-- Uncomment Host tags according to the apps you want your panel to support -->
             <!-- Photoshop -->
 
-            <Host Name="PHXS" Version="[16.0,17.0.1]" />
+            <Host Name="PHXS" Version="[16.0,18.0.0]" />
 
 
 		</HostList>
@@ -39,9 +39,10 @@
 					<Menu>Deguide</Menu>
 					<Geometry>
 						<Size>
-							<Height>380</Height>
-							<Width>242</Width>
+							<Height>400</Height>
+							<Width>320</Width>
 						</Size>
+						<!-->
 						<MinSize>
 							<Height>390</Height>
 							<Width>280</Width>
@@ -50,7 +51,7 @@
 								<Height>400</Height>
 								<Width>320</Width>
 						</MaxSize>
-				        
+				    <-->
 					</Geometry>
 					<Icons>
 						<Icon Type="Normal">./icons/iconNormal.png</Icon>

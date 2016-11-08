@@ -137,7 +137,9 @@ a.one_click_border
   path
     fill: $gray-40
   path.anim_guide
+    +transform(translateY(0))
     +transform-origin(bottom center)
+    
 //*************
 //* animation *
 //*************
@@ -158,11 +160,10 @@ li.menu_item:hover
       //animation: 0.5s ease 0s 1 normal forwards running hitting_ball
     &::after
       @extend %falling_box_animation
-
+%drop_down_animation
+  +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown)  
 li.set_guide:hover
   path.anim_guide
     fill: $accent
-  path#left_guide,path#right_guide, path#perpendicular_guide
-    +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown)
-  path#top_guide, path#bottom_guide, path#cross_guide
-    +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown)  
+    @extend %drop_down_animation
+

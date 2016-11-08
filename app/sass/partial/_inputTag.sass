@@ -5,17 +5,19 @@ input
   outline: none
   line-height: $component-size
   text-align: center
-  color: $gray-40
+  color: #ffffff
   background: transparent
+  &[placeholder]
+    +placeholder($gray-40)
 .under_border
   width: $input_size
   height: $component-size
-  border-bottom: $border-s2 solid $gray-20
+  border-bottom: $border-s2 solid $gray-35
 #top, #bottom
   margin: 0 auto
 #bottom
   border-bottom: 0
-  border-top: 2px solid $gray-20 
+  border-top: 2px solid $gray-35
 #left, #right
   +transform(translateY(-16px))
 //**************************

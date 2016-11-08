@@ -459,8 +459,8 @@
 
 @-webkit-keyframes dropDown {
   0% {
-    -webkit-transform: translateY(-80px);
-    transform: translateY(-80px);
+    -webkit-transform: translateY(-120px);
+    transform: translateY(-120px);
   }
   30% {
     -webkit-transform: translateY(0px);
@@ -478,8 +478,8 @@
 
 @keyframes dropDown {
   0% {
-    -webkit-transform: translateY(-80px);
-    transform: translateY(-80px);
+    -webkit-transform: translateY(-120px);
+    transform: translateY(-120px);
   }
   30% {
     -webkit-transform: translateY(0px);
@@ -683,39 +683,39 @@
 
 @-webkit-keyframes expand_gap_scale {
   0% {
-    -webkit-transform: translateY(40px);
-    transform: translateY(40px);
+    -webkit-transform: scaleX(0.3);
+    transform: scaleX(0.3);
   }
   50% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: scaleX(3);
+    transform: scaleX(3);
   }
   84% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
   }
   100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
   }
 }
 
 @keyframes expand_gap_scale {
   0% {
-    -webkit-transform: translateY(40px);
-    transform: translateY(40px);
+    -webkit-transform: scaleX(0.3);
+    transform: scaleX(0.3);
   }
   50% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: scaleX(3);
+    transform: scaleX(3);
   }
   84% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
   }
   100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
   }
 }
 
@@ -726,14 +726,22 @@ input {
   outline: none;
   line-height: 32px;
   text-align: center;
-  color: #666666;
+  color: #ffffff;
   background: transparent;
+}
+
+input[placeholder]::-webkit-input-placeholder {
+  color: #666666;
+}
+
+input[placeholder]::-moz-placeholder {
+  color: #666666;
 }
 
 .under_border {
   width: 45px;
   height: 32px;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #595959;
 }
 
 #top, #bottom {
@@ -742,7 +750,7 @@ input {
 
 #bottom {
   border-bottom: 0;
-  border-top: 2px solid #333333;
+  border-top: 2px solid #595959;
 }
 
 #left, #right {
@@ -785,11 +793,11 @@ svg .lines_container {
 }
 
 div.guide_icon .cls-1 {
-  fill: #666666;
+  fill: #999999;
 }
 
 div.guide_icon .cls-2 {
-  fill: #1f1f1f;
+  fill: #595959;
 }
 
 path.clear_hexgon, path.gen_hexgon {
@@ -806,6 +814,8 @@ path.clear_hexgon, path.gen_hexgon {
 polygon.clear_hexgon_frame, polygon.gen_hexgon_frame {
   -webkit-transform-origin: center center;
   transform-origin: center center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
   fill: none;
   stroke: #666666;
   stroke-width: 8px;
@@ -925,12 +935,32 @@ a.logo_link:hover g.draw_from_center path.center_lines:nth-child(4) {
   animation: 1.5s ease-in-out 1.4s 1 normal forwards running quarter;
 }
 
-div.guide_icon:hover .expand_down, div.guide_icon:hover .expand_up, div.guide_icon:hover .expand_gap, div.guide_icon:hover .expand_gap_opposite {
+div.guide_icon .expand_down, div.guide_icon .expand_up, div.guide_icon .expand_gap, div.guide_icon .expand_gap_opposite, div.guide_icon .expand_gap_scale, div.guide_icon g#columns path, div.guide_icon g#columns circle, div.guide_icon g#rows path, div.guide_icon g#rows circle, div.guide_icon:hover .expand_down, div.guide_icon:hover .expand_up, div.guide_icon:hover .expand_gap, div.guide_icon:hover .expand_gap_opposite, div.guide_icon:hover .expand_gap_scale, div.guide_icon:hover g#columns path, div.guide_icon:hover g#columns circle, div.guide_icon:hover g#rows path, div.guide_icon:hover g#rows circle {
   -webkit-transform-origin: center center;
   transform-origin: center center;
 }
 
-div.guide_icon:hover .cls-1 {
+div.guide_icon .expand_down, div.guide_icon .expand_up {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+div.guide_icon .expand_gap, div.guide_icon .expand_gap_opposite {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+div.guide_icon .expand_gap_scale {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+div.guide_icon g#columns path, div.guide_icon g#columns circle, div.guide_icon g#rows path, div.guide_icon g#rows circle {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+div.guide_icon:hover .cls-1:not(circle) {
   fill: #009dff;
 }
 
@@ -952,6 +982,36 @@ div.guide_icon:hover .expand_gap {
 div.guide_icon:hover .expand_gap_opposite {
   -webkit-animation: 0.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_opposite;
   animation: 0.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_opposite;
+}
+
+div.guide_icon:hover .expand_gap_scale {
+  -webkit-animation: 0.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_scale;
+  animation: 0.8s cubic-bezier(0.15, -0.5, 0.55, 1.8) 0s 1 normal none running expand_gap_scale;
+}
+
+div.guide_icon:hover g#columns path:nth-child(1), div.guide_icon:hover g#rows path:nth-child(1) {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
+}
+
+div.guide_icon:hover g#columns path:nth-child(2), div.guide_icon:hover g#rows path:nth-child(2) {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.12s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.12s 1 normal none running dropDown;
+}
+
+div.guide_icon:hover g#columns path:nth-child(3), div.guide_icon:hover g#rows path:nth-child(3) {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.24s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.24s 1 normal none running dropDown;
+}
+
+div.guide_icon:hover g#columns path:nth-child(4), div.guide_icon:hover g#rows path:nth-child(4) {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.36s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.36s 1 normal none running dropDown;
+}
+
+div.guide_icon:hover g#columns path:nth-child(5), div.guide_icon:hover g#rows path:nth-child(5) {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.48s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0.48s 1 normal none running dropDown;
 }
 
 /***************
@@ -1151,6 +1211,8 @@ a.one_click_border path {
 }
 
 a.one_click_border path.anim_guide {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
   -webkit-transform-origin: bottom center;
   transform-origin: bottom center;
 }
@@ -1171,17 +1233,12 @@ li.menu_item:hover {
 }
 
 li.set_guide:hover path.anim_guide {
+  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
+  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
+}
+
+li.set_guide:hover path.anim_guide {
   fill: #009dff;
-}
-
-li.set_guide:hover path#left_guide, li.set_guide:hover path#right_guide, li.set_guide:hover path#perpendicular_guide {
-  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown;
-  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown;
-}
-
-li.set_guide:hover path#top_guide, li.set_guide:hover path#bottom_guide, li.set_guide:hover path#cross_guide {
-  -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown;
-  animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal forwards running dropDown;
 }
 
 main#form_container div.value_layout, main#form_container div.margin_layout, main#form_container div.clear_button_layout {
@@ -1335,6 +1392,7 @@ div.icon_value_layout > div {
   width: 32px;
   height: 32px;
   border-radius: 5px;
+  background-color: #333333;
 }
 
 div.icon_value_layout > div svg {

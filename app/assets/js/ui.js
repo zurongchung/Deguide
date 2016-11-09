@@ -14,12 +14,9 @@ var UI = function () {
   function UI() {
     _classCallCheck(this, UI);
 
-    //this.elements = this.getValueFieldElements();
-    //this.pathParent = $('#groupGuides').self;
     this.appUnit = 'px';
-    this.againstNaN = /[^\d]/;
-    this.againstNumbers = /\d/;
-    this.values = [];
+    this.valueIsNaN = /[^\d]/;
+    this.valueIsNum = /\d/;
     var _ref = [0, 0];
     this.docWidth = _ref[0];
     this.docHeight = _ref[1];
@@ -121,86 +118,23 @@ var UI = function () {
       this.appThemeWasDark = true;
     }
   }, {
-    key: 'getValueFieldElements',
-    value: function getValueFieldElements() {
+    key: 'guide_value_listener',
+    value: function guide_value_listener() {
       var _this = this;
 
-      var node = [];
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
+      var elemLists = $('input[name="guide_value"]').self;
 
-      try {
-        var _loop = function _loop() {
-          var target = _step3.value;
-
-          var input_tag = $('#' + target).self;
-          node.push(input_tag);
-          $('#' + target).blur(function (e) {
-            if (!_this.againstNaN.test(input_tag.value) && input_tag.value != '') {
-              input_tag.value += _this.unit;
-            }
-          });
-        };
-
-        for (var _iterator3 = this.IDs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          _loop();
-        }
-      } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
+      var _loop = function _loop(i) {
+        elemLists[i].addEventListener('blur', function (e) {
+          if (!_this.valueIsNaN.test(elemLists[i].value) && elemLists[i].value != '') {
+            elemLists[i].value += _this.appUnit;
           }
-        } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
-          }
-        }
+        }, false);
+      };
+
+      for (var i = 0; i < elemLists.length; i++) {
+        _loop(i);
       }
-
-      return node;
-    }
-    /**
-     * Have values from UI panel
-     */
-
-  }, {
-    key: 'getValues',
-    value: function getValues() {
-      this.values = [];
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
-
-      try {
-        for (var _iterator4 = this.elements[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var node = _step4.value;
-
-          var value = 0;
-          if (this.againstNumbers.test(node.value)) {
-            value = parseInt(node.value);
-          }
-          this.values.push(value);
-        }
-      } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
-          }
-        } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
-          }
-        }
-      }
-
-      return this.values;
     }
   }, {
     key: 'createGuides',
@@ -211,57 +145,57 @@ var UI = function () {
       var columns = guide.coordinatesVerticleGuides;
 
       if (typeof rows != 'undefined') {
-        var _iteratorNormalCompletion5 = true;
-        var _didIteratorError5 = false;
-        var _iteratorError5 = undefined;
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
 
         try {
-          for (var _iterator5 = rows[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-            var dy = _step5.value;
+          for (var _iterator3 = rows[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var dy = _step3.value;
 
             CSLibrary.evalScript('horizontal(' + dy + ')', function () {
               return console.log('h +1');
             });
           }
         } catch (err) {
-          _didIteratorError5 = true;
-          _iteratorError5 = err;
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-              _iterator5.return();
+            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+              _iterator3.return();
             }
           } finally {
-            if (_didIteratorError5) {
-              throw _iteratorError5;
+            if (_didIteratorError3) {
+              throw _iteratorError3;
             }
           }
         }
       }
       if (typeof columns != 'undefined') {
-        var _iteratorNormalCompletion6 = true;
-        var _didIteratorError6 = false;
-        var _iteratorError6 = undefined;
+        var _iteratorNormalCompletion4 = true;
+        var _didIteratorError4 = false;
+        var _iteratorError4 = undefined;
 
         try {
-          for (var _iterator6 = columns[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-            var dx = _step6.value;
+          for (var _iterator4 = columns[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var dx = _step4.value;
 
             CSLibrary.evalScript('vertical(' + dx + ')', function () {
               return console.log('v +1');
             });
           }
         } catch (err) {
-          _didIteratorError6 = true;
-          _iteratorError6 = err;
+          _didIteratorError4 = true;
+          _iteratorError4 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion6 && _iterator6.return) {
-              _iterator6.return();
+            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+              _iterator4.return();
             }
           } finally {
-            if (_didIteratorError6) {
-              throw _iteratorError6;
+            if (_didIteratorError4) {
+              throw _iteratorError4;
             }
           }
         }
@@ -297,9 +231,7 @@ var UI = function () {
   }, {
     key: 'attachListener',
     value: function attachListener() {
-      this.gen();
-      this.clear();
-      this.quickGuide();
+      this.guide_value_listener();
     }
   }, {
     key: 'unit',

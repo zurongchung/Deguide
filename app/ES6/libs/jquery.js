@@ -43,7 +43,7 @@ class Selector{
    * Bubbles up behavior is false by default
    */
   blur(callback, bubbles=false) {
-    this.self.addEventListener('blur', callback, bubbles);
+    this.self.addEventListener('blur', callback, bubbles);      
   }
   /******************
    * HTML Attribute *

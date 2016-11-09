@@ -1,12 +1,9 @@
 const CSLibrary = new CSInterface();
 class UI {
   constructor() {
-    //this.elements = this.getValueFieldElements();
-    //this.pathParent = $('#groupGuides').self;
     this.appUnit = 'px';    
-    this.againstNaN = /[^\d]/;
-    this.againstNumbers = /\d/;
-    this.values = [];
+    this.valueIsNaN = /[^\d]/;
+    this.valueIsNum = /\d/;
     [this.docWidth, this.docHeight] = [0, 0];
     this.theme_class = new Map([
       ['nav', 'ps_light_nav'],
@@ -65,32 +62,15 @@ class UI {
   set unit(unit) {
     this.appUnit = unit;
   }
-  getValueFieldElements() {
-    let node = [];
-    for (let target of this.IDs) {
-      let input_tag = $(`#${target}`).self;
-      node.push(input_tag);
-      $(`#${target}`).blur(e => {
-        if (!(this.againstNaN.test(input_tag.value)) && input_tag.value != '') {
-          input_tag.value += this.unit;
+  guide_value_listener() {
+    const elemLists = $('input[name="guide_value"]').self;
+    for (let i=0; i < elemLists.length; i++) {      
+      elemLists[i].addEventListener('blur', e => {
+        if (!this.valueIsNaN.test(elemLists[i].value) && elemLists[i].value != '') {
+          elemLists[i].value += this.appUnit;
         }
-      });
+      }, false);
     }
-    return node;
-  }
-  /**
-   * Have values from UI panel
-   */
-  getValues() {
-    this.values = [];
-    for (let node of this.elements) {
-      let value = 0;
-      if (this.againstNumbers.test(node.value)) {
-        value = parseInt(node.value);
-      }
-      this.values.push(value);
-    }
-    return this.values;
   }
   createGuides(canvasWidth, canvasHeight) {
     let guideProp = this.getValues();
@@ -129,8 +109,6 @@ class UI {
   }
   
   attachListener() {
-    this.gen();
-    this.clear();
-    this.quickGuide();
+    this.guide_value_listener();
   }
 } 

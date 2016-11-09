@@ -7,10 +7,9 @@ window.onload = function () {
    */
   var extensionUI = new UI();
   extensionUI.initialTheme();
+  extensionUI.attachListener();
 
-  CSLibrary.evalScript('units()', function (rulerUnits) {
-    //extensionUI.attachListener();
-  });
+  CSLibrary.evalScript('units()', function (rulerUnits) {});
   // listen application UI theme change event
   CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged", function () {
     extensionUI.syncThemeListener();

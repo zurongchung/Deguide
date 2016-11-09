@@ -6,9 +6,9 @@
     */
     const extensionUI = new UI();
     extensionUI.initialTheme();
+    extensionUI.attachListener();
 
     CSLibrary.evalScript('units()', rulerUnits => { 
-      //extensionUI.attachListener();
     });
     // listen application UI theme change event
    CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged",

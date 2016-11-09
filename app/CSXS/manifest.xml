@@ -42,16 +42,16 @@
 							<Height>400</Height>
 							<Width>320</Width>
 						</Size>
-						<!-->
+						
 						<MinSize>
-							<Height>390</Height>
-							<Width>280</Width>
+							<Height>400</Height>
+							<Width>320</Width>
 						</MinSize>
 						<MaxSize>
 								<Height>400</Height>
 								<Width>320</Width>
 						</MaxSize>
-				    <-->
+				    
 					</Geometry>
 					<Icons>
 						<Icon Type="Normal">./icons/iconNormal.png</Icon>

@@ -7,8 +7,8 @@ class UI {
     this.IDs = ['width','columns', 'margin_bottom', 
     'margin_right', 'horiz_gutters','height', 'rows', 
     'margin_top', 'margin_left', 'vert_gutters'];
-    this.elements = this.getValueFieldElements();
-    this.pathParent = $('#groupGuides').self;
+    //this.elements = this.getValueFieldElements();
+    //this.pathParent = $('#groupGuides').self;
     this.againstNaN = /[^\d]/;
     this.againstNumbers = /\d/;
     this.values = [];

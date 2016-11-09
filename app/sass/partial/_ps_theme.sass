@@ -1,0 +1,59 @@
+$light_nav: #E6E3E3
+$light_nav_border_right: #D8D8D8
+$light_nav_menu_item_hover: #fff
+$light_divide_border: #b7b7b7
+$light_divide_shadow: #fff
+$light_guide_icon: #fff
+$light_guide_value: #fff
+$light_icon_cls2_fill: #CCC
+$light_strip_bg: #CCC
+$light_button: #969696
+//**********
+//  input
+//**********
+input
+  &.ps_light_guide_value
+    color: $gray-20 !important
+    &:focus
+      color: $gray-60 !important
+  &.ps_light_guide_value_input
+    background-color: $light_guide_value !important
+  &.ps_light_margin_under_border
+    border-bottom-color: $light_strip_bg !important
+  &.ps_light_margin_under_border_top  
+    border-top-color: $light_strip_bg !important  
+
+div.ps_light_guide_icon
+  background-color: $light_guide_value !important
+  .ps_light_icon_cls2_fill
+    fill: $light_icon_cls2_fill !important
+//**********
+//  nav
+//**********
+%menu_hint_animation
+  display: block
+  +animation(1s ease-out 2s 1 normal forwards running light_roll_in)   
+nav.ps_light_nav
+  background-color: $light_nav !important
+  border-right-color: $light_nav_border_right !important
+  li
+    &.ps_light_divide
+      border-bottom-color: $light_divide_border !important
+      box-shadow: 0 1px $light_divide_shadow !important
+    &.ps_light_nav_menu_item
+      &:hover
+        background-color: $light_nav_menu_item_hover !important
+        &::after
+          @extend %menu_hint_animation
+//*************
+//  button
+//*************
+.ps_light_hexgon_btn_theme
+  fill: $light_button !important
+.ps_light_hexgon_btn_frame_theme
+  stroke: $light_button !important
+span.ps_light_text_on_btn 
+  color: $gray-16 !important
+div.ps_light_strip
+  background: $light_strip_bg !important
+  

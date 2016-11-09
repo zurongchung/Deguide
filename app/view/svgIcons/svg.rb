@@ -2,8 +2,8 @@ module SVG
   def SVG.hexgon_button(width, height, frame_cls, hexgon_cls)
     return %Q{<svg width= "#{width}" height="#{height}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.99 342.94">
       <g class="#{hexgon_cls}_group">
-        <path class="#{hexgon_cls}" d="M279.6 30.1H116.4L34.7 171.5l81.7 141.4h163.2l81.7-141.4z"/>
-        <polygon class="#{frame_cls}" points="279.6,30.1 116.4,30.1 34.7,171.5 116.4,312.9 279.6,312.9 361.3,171.5"/>
+        <path class="#{hexgon_cls} hexgon_btn_theme" d="M279.6 30.1H116.4L34.7 171.5l81.7 141.4h163.2l81.7-141.4z"/>
+        <polygon class="#{frame_cls} hexgon_btn_frame_theme" points="279.6,30.1 116.4,30.1 34.7,171.5 116.4,312.9 279.6,312.9 361.3,171.5"/>
       </g>
       </svg>
       }

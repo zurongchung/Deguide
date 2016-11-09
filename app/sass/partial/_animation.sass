@@ -120,6 +120,29 @@
     font-size: 0.75em
     background-color: $gray-12
     +transform(translate(0px, 0px) scale(1) rotateZ(0deg))
++keyframes(light_roll_in)
+  0%
+    opacity: 0
+    +transform(translate(-20px, 14px) scale(1) rotateZ(-90deg))
+  20%
+    opacity: 0.67
+    +transform(translate(40px, 14px) scale(6) rotateZ(60deg))
+  80%
+    opacity: 1
+    width: 1px
+    height: 1px
+    color: hsla(0, 0%, 0%, 0)
+    font-size: 0em
+    background-color: $accent
+    +transform(translate(70px, 14px) scale(8) rotateZ(166deg))  
+  100%
+    opacity: 1
+    width: 48px
+    height: 28px
+    color: $gray-40
+    font-size: 0.75em
+    background-color: #fff
+    +transform(translate(0px, 0px) scale(1) rotateZ(0deg))
 +keyframes(falling_box)
   0%
     top: -300px

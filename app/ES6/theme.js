@@ -13,6 +13,10 @@ class Theme {
     this.b      = this.skin.color.blue;
     this.alpha  = this.skin.color.alpha;
   }
+  get isLightTheme() {
+    if (this.red > 83) return true;
+    return false;
+  }
   get init() {
     this.r = this.red;
     this.g = this.green;

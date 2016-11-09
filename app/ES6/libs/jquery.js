@@ -52,7 +52,6 @@ class Selector{
     return this.self.classList;
   }
   addClass(newClass) {
-    
     if (this.isNodeList){
       for (let i =0; i < this.self.length; i++) {
         if (newClass instanceof Array) {
@@ -70,6 +69,27 @@ class Selector{
       }else {
         this.self.classList.add(newClass);
         console.log(newClass);
+      }
+    }
+  }
+  removeClass(existsClass) {
+    if (this.isNodeList) {
+      for (let i =0; i < this.self.length; i++) {
+        if (existsClass instanceof Array) {
+          this.self[i].classList.remove(...existsClass);
+          console.log(...existsClass);
+        }else {
+          this.self[i].classList.remove(existsClass);
+          console.log(existsClass);        
+        }
+      }
+    }else {
+      if (existsClass instanceof Array) {
+        this.self.classList.remove(...existsClass);
+        console.log(...existsClass);        
+      }else {
+        this.self.classList.remove(existsClass);
+        console.log(existsClass);
       }
     }
   }

@@ -807,7 +807,7 @@ input[placeholder]::-moz-placeholder {
 .under_border {
   width: 45px;
   height: 32px;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #404040;
 }
 
 #top, #bottom {
@@ -816,7 +816,7 @@ input[placeholder]::-moz-placeholder {
 
 #bottom {
   border-bottom: 0;
-  border-top: 2px solid #333333;
+  border-top: 2px solid #404040;
 }
 
 #left, #right {
@@ -826,7 +826,7 @@ input[placeholder]::-moz-placeholder {
 
 .guide_value {
   width: 73px;
-  background-color: #333333;
+  background-color: #404040;
   border-radius: 5px;
 }
 
@@ -1404,7 +1404,7 @@ div.clear_button_layout .strip {
   bottom: 0;
   width: 100%;
   height: 32px;
-  background: #333333;
+  background: #404040;
   border-radius: 5px;
 }
 
@@ -1458,7 +1458,7 @@ div.icon_value_layout > div {
   width: 32px;
   height: 32px;
   border-radius: 5px;
-  background-color: #333333;
+  background-color: #404040;
 }
 
 div.icon_value_layout > div svg {
@@ -1578,12 +1578,8 @@ html, body {
   height: 400px;
 }
 
-html {
-  background: #1f1f1f;
-}
-
 body {
-  background-color: #292929;
+  background-color: #333333;
   display: flex;
   flex-direction: row;
 }

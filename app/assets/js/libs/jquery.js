@@ -72,7 +72,6 @@ var Selector = function () {
   }, {
     key: 'addClass',
     value: function addClass(newClass) {
-
       if (this.isNodeList) {
         for (var i = 0; i < this.self.length; i++) {
           if (newClass instanceof Array) {
@@ -94,6 +93,33 @@ var Selector = function () {
         } else {
           this.self.classList.add(newClass);
           console.log(newClass);
+        }
+      }
+    }
+  }, {
+    key: 'removeClass',
+    value: function removeClass(existsClass) {
+      if (this.isNodeList) {
+        for (var i = 0; i < this.self.length; i++) {
+          if (existsClass instanceof Array) {
+            var _self$i$classList2, _console3;
+
+            (_self$i$classList2 = this.self[i].classList).remove.apply(_self$i$classList2, _toConsumableArray(existsClass));
+            (_console3 = console).log.apply(_console3, _toConsumableArray(existsClass));
+          } else {
+            this.self[i].classList.remove(existsClass);
+            console.log(existsClass);
+          }
+        }
+      } else {
+        if (existsClass instanceof Array) {
+          var _self$classList2, _console4;
+
+          (_self$classList2 = this.self.classList).remove.apply(_self$classList2, _toConsumableArray(existsClass));
+          (_console4 = console).log.apply(_console4, _toConsumableArray(existsClass));
+        } else {
+          this.self.classList.remove(existsClass);
+          console.log(existsClass);
         }
       }
     }

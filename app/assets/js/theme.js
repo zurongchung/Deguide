@@ -35,6 +35,12 @@ var Theme = function () {
       return Math.round(value);
     }
   }, {
+    key: "isLightTheme",
+    get: function get() {
+      if (this.red > 83) return true;
+      return false;
+    }
+  }, {
     key: "init",
     get: function get() {
       this.r = this.red;

@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 window.onload = function () {
   /**
    * When application is up and running
@@ -8,17 +10,16 @@ window.onload = function () {
   var extensionUI = new UI();
   extensionUI.initialTheme();
   extensionUI.attachListener();
-
-  CSLibrary.evalScript('units()', function (rulerUnits) {});
   // listen application UI theme change event
   CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged", function () {
     extensionUI.syncThemeListener();
   });
+  CSLibrary.evalScript('units()', function (_rst) {
+    alert(typeof _rst === 'undefined' ? 'undefined' : _typeof(_rst));
+  });
 };
 function getUnit(defaultUnit) {
   switch (defaultUnit) {
-    case 'Units.PIXELS':
-      return 'px';
     case 'Units.INCHES':
       return 'in';
     case 'Units.POINTS':
@@ -28,6 +29,6 @@ function getUnit(defaultUnit) {
     case 'Units.MM':
       return 'mm';
     default:
-      alert('unit impossible error');
+      return 'px';
   }
 }

@@ -56,10 +56,9 @@ var UI = function () {
 
       try {
         for (var _iterator = this.theme_class[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _step$value = _slicedToArray(_step.value, 2);
-
-          var elem = _step$value[0];
-          var attr = _step$value[1];
+          var _step$value = _slicedToArray(_step.value, 2),
+              elem = _step$value[0],
+              attr = _step$value[1];
 
           $(elem).addClass(attr);
         }
@@ -91,10 +90,9 @@ var UI = function () {
 
       try {
         for (var _iterator2 = this.theme_class[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var _step2$value = _slicedToArray(_step2.value, 2);
-
-          var elem = _step2$value[0];
-          var attr = _step2$value[1];
+          var _step2$value = _slicedToArray(_step2.value, 2),
+              elem = _step2$value[0],
+              attr = _step2$value[1];
 
           $(elem).removeClass(attr);
         }

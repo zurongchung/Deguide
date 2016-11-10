@@ -14,7 +14,7 @@ gulp.task('transform', function() {
   
   var jquery = gulp.src("app/ES6/libs/*.js")
     .pipe(babel())
-    .pipe(gulp.dest("app/assets/js/libs"));  
+    .pipe(gulp.dest("app/assets/libs"));  
     
 
   var jsx = gulp.src("app/ES6/host/*.jsx")

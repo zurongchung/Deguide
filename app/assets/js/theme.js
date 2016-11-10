@@ -51,10 +51,10 @@ var Theme = function () {
   }, {
     key: "rgbHex",
     get: function get() {
-      var _ref = [this.getHue(this.r), this.getHue(this.g), this.getHue(this.b)];
-      var r = _ref[0];
-      var g = _ref[1];
-      var b = _ref[2];
+      var _ref = [this.getHue(this.r), this.getHue(this.g), this.getHue(this.b)],
+          r = _ref[0],
+          g = _ref[1],
+          b = _ref[2];
 
       return "#" + r.toString(16) + g.toString(16) + b.toString(16);
     }

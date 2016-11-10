@@ -29,7 +29,7 @@
 			<DispatchInfo >
 				<Resources>
 				<MainPath>./index.html</MainPath>
-				<ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+				<ScriptPath>./jsx/ps.jsx</ScriptPath>
 				</Resources>
 				<Lifecycle>
 					<AutoVisible>true</AutoVisible>

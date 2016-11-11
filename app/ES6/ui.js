@@ -22,40 +22,7 @@ class UI {
     this.appThemeWasLight = false;
     this.appThemeWasDark = true;
   }
-  initialTheme() {
-    let appTheme = new Theme();
-    $('body').css('backgroundColor', appTheme.rgbHex);
-    // else use default dark theme
-    if (appTheme.isLightTheme) {
-      this.lightTheme();
-    }
-  }
-  syncThemeListener() {
-    let appTheme = new Theme();
-    $('body').css('backgroundColor', appTheme.rgbHex);
-    if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) {
-      this.lightTheme();
-    }else if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) {
-      this.darkTheme();
-    }
 
-  }
-  lightTheme() {
-    for (let [elem, attr] of this.theme_class) {
-        $(elem).addClass(attr);
-      }
-    console.log('using light theme');
-    this.appThemeWasLight = true;
-    this.appThemeWasDark = false;
-  }
-  darkTheme() {
-    for (let [elem, attr] of this.theme_class) {
-        $(elem).removeClass(attr);
-    }
-    console.log('using dark theme');
-    this.appThemeWasLight = false;
-    this.appThemeWasDark = true;    
-  }
   get unit() {
     return this.appUnit;
   }
@@ -100,9 +67,9 @@ class UI {
       });
     });
   }
-  clear() {
-    $('#clear-btn').click(e => {
-      // Code to remove all guides
+  clearButtonListener() {
+    $('.clear_btn').click(e => {
+      CSLibrary.evalScript('clearSelectedArtboardGuides()', ()=>{alert('success')});
     });
   }
   quickGuide() {
@@ -110,5 +77,40 @@ class UI {
   
   attachListener() {
     this.guide_value_listener();
+    this.clearButtonListener();
+  }
+    initialTheme() {
+    let appTheme = new Theme();
+    $('body').css('backgroundColor', appTheme.rgbHex);
+    // else use default dark theme
+    if (appTheme.isLightTheme) {
+      this.lightTheme();
+    }
+  }
+  syncThemeListener() {
+    let appTheme = new Theme();
+    $('body').css('backgroundColor', appTheme.rgbHex);
+    if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) {
+      this.lightTheme();
+    }else if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) {
+      this.darkTheme();
+    }
+
+  }
+  lightTheme() {
+    for (let [elem, attr] of this.theme_class) {
+        $(elem).addClass(attr);
+      }
+    console.log('using light theme');
+    this.appThemeWasLight = true;
+    this.appThemeWasDark = false;
+  }
+  darkTheme() {
+    for (let [elem, attr] of this.theme_class) {
+        $(elem).removeClass(attr);
+    }
+    console.log('using dark theme');
+    this.appThemeWasLight = false;
+    this.appThemeWasDark = true;    
   }
 } 

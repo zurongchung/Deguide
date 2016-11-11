@@ -1,7 +1,5 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 window.onload = function () {
   /**
    * When application is up and running
@@ -15,7 +13,7 @@ window.onload = function () {
     extensionUI.syncThemeListener();
   });
   CSLibrary.evalScript('units()', function (_rst) {
-    alert(typeof _rst === 'undefined' ? 'undefined' : _typeof(_rst));
+    alert('action ' + _rst);
   });
 };
 function getUnit(defaultUnit) {

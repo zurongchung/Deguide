@@ -19,6 +19,7 @@ class Selector{
     this.elem = element;
   }
   get self() {
+    if (this.isNodeList) return this.elem[0];
     return this.elem;
   }
   get isNodeList() {

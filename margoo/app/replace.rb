@@ -15,7 +15,7 @@ JS_DEST   = PREFIX + 'js'
 LIB_SRC   = SRC + 'assets/libs/.'
 LIB_DEST   = PREFIX + 'js/libs'
 
-HOST_JS_SRC  = SRC + 'assets/jsx/hostscript.js'
+HOST_JS_SRC  = SRC + 'assets/jsx/ps.js'
 HOST_JS_DEST = PREFIX + 'jsx'
 
 HTML_SRC  = SRC + 'public/index.html'
@@ -56,11 +56,11 @@ class Rep
       when 'jsx'
         @before = Time.now      
         @target = 'ExtendScript'        
-        if(File.exist?(HOST_JS_DEST + "/hostscript.jsx"))
-          File.delete(HOST_JS_DEST + "/hostscript.jsx");
+        if(File.exist?(HOST_JS_DEST + "/ps.jsx"))
+          File.delete(HOST_JS_DEST + "/ps.jsx");
         end
         FileUtils.cp HOST_JS_SRC, HOST_JS_DEST    
-        File.rename(HOST_JS_DEST + '/hostscript.js', HOST_JS_DEST + "/hostscript.jsx");
+        File.rename(HOST_JS_DEST + '/ps.js', HOST_JS_DEST + "/ps.jsx");
       when 'html'
         @before = Time.now      
         @target = 'HTML'      

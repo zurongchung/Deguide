@@ -10,8 +10,9 @@
     // listen application UI theme change event
    CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged",
     () => {extensionUI.syncThemeListener();});
-    CSLibrary.evalScript('units()', _rst => {alert(typeof _rst)});
-
+    CSLibrary.evalScript('units()', _rst => {
+      alert('action '+ _rst);
+      });
  };
 function getUnit(defaultUnit) {
   switch (defaultUnit) {

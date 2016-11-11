@@ -193,7 +193,6 @@ var Selector = function () {
   }, {
     key: 'self',
     get: function get() {
-      if (this.isNodeList) return this.elem[0];
       return this.elem;
     }
   }, {

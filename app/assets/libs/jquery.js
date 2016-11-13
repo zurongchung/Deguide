@@ -7,14 +7,16 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var $ = function $(identifier) {
+  var all = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
   /******************************
    * Select element with and ID *
    * ****************************/
   var elem = new Object();
   if (/^#/.test(identifier)) {
-    elem = document.querySelector(identifier);
+    elem = document.getElementById(identifier);
   } else {
-    elem = document.querySelectorAll(identifier);
+    elem = all === 'all' ? document.querySelectorAll(identifier) : document.querySelector(identifier);
   }
   if (elem == null) {
     alert('Element => ' + identifier + ': no such element on this page');

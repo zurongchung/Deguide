@@ -21,7 +21,7 @@ gulp.task('transform', function() {
   .pipe(babel())
   .pipe(gulp.dest("app/assets/jsx"));
 
-  return [js, jsx, jquery];
+  return [js, jquery, jsx];
 
 });
 

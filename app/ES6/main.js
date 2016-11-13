@@ -11,7 +11,7 @@
    CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged",
     () => {extensionUI.syncThemeListener();});
     CSLibrary.evalScript('units()', _rst => {
-      alert('action '+ _rst);
+      //alert('action '+ _rst);
       });
  };
 function getUnit(defaultUnit) {

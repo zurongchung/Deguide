@@ -15,6 +15,7 @@ JS_DEST   = PREFIX + 'js'
 LIB_SRC   = SRC + 'assets/libs/.'
 LIB_DEST   = PREFIX + 'js/libs'
 
+#HOST_JS_SRC  = SRC + 'ES6/host/ps.jsx'
 HOST_JS_SRC  = SRC + 'assets/jsx/ps.js'
 HOST_JS_DEST = PREFIX + 'jsx'
 
@@ -45,6 +46,15 @@ class Rep
     @target = 'Library'
     FileUtils.cp_r LIB_SRC, LIB_DEST
   end
+  def jsx
+    @before = Time.now      
+    @target = 'ExtendScript'
+    if File.exist?(HOST_JS_DEST + '/ps.jsx')
+      File.delete(HOST_JS_DEST + '/ps.jsx')
+    end
+    FileUtils.cp HOST_JS_SRC, HOST_JS_DEST
+    File.rename HOST_JS_DEST + '/ps.js', HOST_JS_DEST + '/ps.jsx'
+  end
   def cp(who)
     case who
       when 'css'
@@ -54,13 +64,7 @@ class Rep
       when 'lib'
         lib
       when 'jsx'
-        @before = Time.now      
-        @target = 'ExtendScript'        
-        if(File.exist?(HOST_JS_DEST + "/ps.jsx"))
-          File.delete(HOST_JS_DEST + "/ps.jsx");
-        end
-        FileUtils.cp HOST_JS_SRC, HOST_JS_DEST    
-        File.rename(HOST_JS_DEST + '/ps.js', HOST_JS_DEST + "/ps.jsx");
+        jsx
       when 'html'
         @before = Time.now      
         @target = 'HTML'      

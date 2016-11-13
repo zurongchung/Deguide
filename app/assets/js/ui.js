@@ -27,11 +27,11 @@ var UI = function () {
   }
 
   _createClass(UI, [{
-    key: 'guide_value_listener',
-    value: function guide_value_listener() {
+    key: 'valueFieldListener',
+    value: function valueFieldListener() {
       var _this = this;
 
-      var elemLists = $('input[name="guide_value"]').self;
+      var elemLists = $('input[name="guide_value"]', 'all').self;
 
       var _loop = function _loop(i) {
         elemLists[i].addEventListener('blur', function (e) {
@@ -131,10 +131,13 @@ var UI = function () {
     key: 'clearButtonListener',
     value: function clearButtonListener() {
       $('.clear_btn').click(function (e) {
-        CSLibrary.evalScript('clearSelectedArtboardGuides()', function () {
-          alert('success');
-        });
+        CSLibrary.evalScript('clearSelectedArtboardGuides()', function () {});
       });
+    }
+  }, {
+    key: 'toggleGuidesVisibility',
+    value: function toggleGuidesVisibility() {
+      CSLibrary.evalScript('toggleGuidesVisibility()', function () {});
     }
   }, {
     key: 'quickGuide',
@@ -142,7 +145,7 @@ var UI = function () {
   }, {
     key: 'attachListener',
     value: function attachListener() {
-      this.guide_value_listener();
+      this.valueFieldListener();
       this.clearButtonListener();
     }
   }, {

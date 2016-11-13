@@ -29,8 +29,8 @@ class UI {
   set unit(unit) {
     this.appUnit = unit;
   }
-  guide_value_listener() {
-    const elemLists = $('input[name="guide_value"]').self;
+  valueFieldListener() {
+    const elemLists = $('input[name="guide_value"]', 'all').self;
     for (let i=0; i < elemLists.length; i++) {      
       elemLists[i].addEventListener('blur', e => {
         if (!this.valueIsNaN.test(elemLists[i].value) && elemLists[i].value != '') {
@@ -69,17 +69,20 @@ class UI {
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {
-      CSLibrary.evalScript('clearSelectedArtboardGuides()', ()=>{alert('success')});
+      CSLibrary.evalScript('clearSelectedArtboardGuides()', ()=>{});
     });
+  }
+  toggleGuidesVisibility() {
+    CSLibrary.evalScript('toggleGuidesVisibility()', ()=>{});
   }
   quickGuide() {
   }
   
   attachListener() {
-    this.guide_value_listener();
+    this.valueFieldListener();
     this.clearButtonListener();
   }
-    initialTheme() {
+  initialTheme() {
     let appTheme = new Theme();
     $('body').css('backgroundColor', appTheme.rgbHex);
     // else use default dark theme

@@ -1,12 +1,12 @@
-const $ = identifier => {
+const $ = (identifier, all=undefined) => {
   /******************************
    * Select element with and ID *
    * ****************************/
   let elem = new Object();
   if(/^#/.test(identifier)){
-    elem = document.querySelector(identifier);
+    elem = document.getElementById(identifier);
   }else{
-    elem = document.querySelectorAll(identifier);
+    elem = all === 'all' ? document.querySelectorAll(identifier) : document.querySelector(identifier);
   }
   if(elem == null) {
     alert(`Element => ${identifier}: no such element on this page`);

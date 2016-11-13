@@ -13,7 +13,7 @@ window.onload = function () {
     extensionUI.syncThemeListener();
   });
   CSLibrary.evalScript('units()', function (_rst) {
-    alert('action ' + _rst);
+    //alert('action '+ _rst);
   });
 };
 function getUnit(defaultUnit) {

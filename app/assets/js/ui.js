@@ -131,7 +131,9 @@ var UI = function () {
     key: 'clearButtonListener',
     value: function clearButtonListener() {
       $('.clear_btn').click(function (e) {
-        CSLibrary.evalScript('clearSelectedArtboardGuides()', function () {});
+        CSLibrary.evalScript('app.name', function (_rst) {
+          alert(_rst);
+        });
       });
     }
   }, {

@@ -16,12 +16,12 @@ gulp.task('transform', function() {
     .pipe(babel())
     .pipe(gulp.dest("app/assets/libs"));  
     
-
+/**
   var jsx = gulp.src("app/ES6/host/*.jsx")
   .pipe(babel())
   .pipe(gulp.dest("app/assets/jsx"));
-
-  return [js, jquery, jsx];
+*/
+  return [js, jquery];
 
 });
 

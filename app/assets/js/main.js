@@ -12,8 +12,8 @@ window.onload = function () {
   CSLibrary.addEventListener("com.adobe.csxs.events.ThemeColorChanged", function () {
     extensionUI.syncThemeListener();
   });
-  CSLibrary.evalScript('units()', function (_rst) {
-    //alert('action '+ _rst);
+  CSLibrary.evalScript('app.name', function (_rst) {
+    alert('action ' + _rst);
   });
 };
 function getUnit(defaultUnit) {

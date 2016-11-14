@@ -1,16 +1,16 @@
 'use strict'
 var _ = new Utilities();
-const Utilities = function () {
+var Utilities = function () {
 //====== convenient functions ======
     this.sTID = function (s){return app.stringIDToTypeID(s);};  
     this.cTID = function (c) {return app.charIDToTypeID(c);};
 };
 //====== ps event id and class id ======
-const idclearAllGuides = _.sTID('clearAllGuides');
-const idclearSelectedArtboardGuides = _.sTID('clearSelectedArtboardGuides');
-const idToggleGuides = _.cTID('Tgld'); // menu_item id
+var idclearAllGuides = _.sTID('clearAllGuides');
+var idclearSelectedArtboardGuides = _.sTID('clearSelectedArtboardGuides');
+var idToggleGuides = _.cTID('Tgld'); // menu_item id
 
-const NoDialog = DialogModes.NO;
+var NoDialog = DialogModes.NO;
 var clearAllGuides = function () {
 //====== clear all guides on the document
     app.executeAction(idclearAllGuides, void 0, NoDialog);
@@ -19,6 +19,24 @@ var clearSelectedArtboardGuides = function () {
 //====== clear all guides on the selected artboard on the document  
     app.executeAction(idclearSelectedArtboardGuides, void 0, NoDialog);
 };
+var toggleGuidesVisibility = function() {
+//====== display or hidden guides
+    app.runMenuItem(idToggleGuides);
+};
+/**
+var getMenuID = function () {
+    var menuID = '';
+    var evntId = _.cTID('slct');
+    var idMenu = _.cTID('Mn  ');
+    var idMnIt = _.cTID('MnIt');
+    var desc = new ActionDescriptor();
+    var ref = new ActionReference();
+    ref.putName(idMenu, 'menu');
+    menuID = desc.getClass(idMenu);
+    app.executeAction(eventId, desc, NoDialog);
+    return menuID;
+};
+*/
 var units = function () {
 //======  retrives application default unit
     return app.preferences.rulerUnits.toString();
@@ -37,7 +55,4 @@ var vertical = function (unitValue) {
 };
 var isAnyGuideLine = function () {
     return app.activeDocument.guides.length > 0 ?  true : false;
-};
-var toggleGuidesVisibility = function() {
-    app.runMenuItem(idToggleGuides);
 };

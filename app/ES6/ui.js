@@ -69,7 +69,7 @@ class UI {
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {
-      CSLibrary.evalScript('clearSelectedArtboardGuides()', ()=>{});
+      CSLibrary.evalScript('app.name', (_rst)=>{alert(_rst)});
     });
   }
   toggleGuidesVisibility() {

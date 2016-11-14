@@ -3,7 +3,7 @@
 var Utilities = function (){
     //====== convenient functions ======
         this.sTID = function (s){return app.stringIDToTypeID(s);};
-        this.cTID = function (c) {return app.charIDToTypeID(c);};        
+        this.cTID = function (c) {return app.charIDToTypeID(c);};
 };
 var _ = new Utilities();
 

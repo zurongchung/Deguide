@@ -122,10 +122,7 @@ var UI = function () {
     key: 'clearButtonListener',
     value: function clearButtonListener() {
       $('.clear_btn').click(function (e) {
-        CSLibrary.evalScript('clearAllGuides()', function (_rst) {
-          alert(_rst);
-        });
-        //CSLibrary.evalScript('clearAllGuides()', (_rst)=>{alert(_rst)});
+        CSLibrary.evalScript('clearAllGuides()', function (_rst) {});
       });
     }
   }, {

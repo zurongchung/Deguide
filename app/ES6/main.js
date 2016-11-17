@@ -18,11 +18,20 @@ var _ext = {
     });
   }
 };
-$(document).ready(() => {
+$(document).ready(() => {	
+  /**
+   * Load JSX file into the scripting context of the product. All the jsx files in 
+   * folder [ExtensionRoot]/jsx will be loaded. 
+   */
+  loadJSX();
   _ext.fire();
   _ext.initUnits();
 });
-
+const loadJSX = () => {
+  const csLib = new CSInterface();
+  const extRoot = csLib.getSystemPath(SystemPath.EXTENSION + '/jsx/');
+  csLib.evalScript(`$._ext_ps.evalFiles( ${extRoot} )`);
+}
 var getUnit = function (defaultUnit) {
   switch (defaultUnit) {
     case 'Units.INCHES':

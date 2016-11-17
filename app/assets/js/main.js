@@ -21,10 +21,19 @@ var _ext = {
   }
 };
 $(document).ready(function () {
+  /**
+   * Load JSX file into the scripting context of the product. All the jsx files in 
+   * folder [ExtensionRoot]/jsx will be loaded. 
+   */
+  loadJSX();
   _ext.fire();
   _ext.initUnits();
 });
-
+var loadJSX = function loadJSX() {
+  var csLib = new CSInterface();
+  var extRoot = csLib.getSystemPath(SystemPath.EXTENSION + '/jsx/');
+  csLib.evalScript('$._ext_ps.evalFiles( ' + extRoot + ' )');
+};
 var getUnit = function getUnit(defaultUnit) {
   switch (defaultUnit) {
     case 'Units.INCHES':

@@ -16,7 +16,7 @@ LIB_SRC   = SRC + 'assets/libs/.'
 LIB_DEST   = PREFIX + 'js/libs'
 
 #HOST_JS_SRC  = SRC + 'ES6/host/ps.jsx'
-HOST_JS_SRC  = SRC + 'assets/jsx/ps.js'
+HOST_JS_SRC  = SRC + 'assets/jsx/'
 HOST_JS_DEST = PREFIX + 'jsx'
 
 HTML_SRC  = SRC + 'public/index.html'
@@ -49,11 +49,14 @@ class Rep
   def jsx
     @before = Time.now      
     @target = 'ExtendScript'
-    if File.exist?(HOST_JS_DEST + '/ps.jsx')
-      File.delete(HOST_JS_DEST + '/ps.jsx')
+    jsxFiles = {ps: ['ps.js', 'ps.jsx'], port: ['port.js', 'port.jsx']}
+    jsxFiles.each do |key, jsxFile|
+      if File.exist?(HOST_JS_DEST + '/' + jsxFile[1])
+        File.delete(HOST_JS_DEST + '/' + jsxFile[1])
+      end
+      FileUtils.cp HOST_JS_SRC + jsxFile[0], HOST_JS_DEST
+      File.rename HOST_JS_DEST + '/' + jsxFile[0], HOST_JS_DEST + '/' + jsxFile[1]
     end
-    FileUtils.cp HOST_JS_SRC, HOST_JS_DEST
-    File.rename HOST_JS_DEST + '/ps.js', HOST_JS_DEST + '/ps.jsx'
   end
   def html
     @before = Time.now      

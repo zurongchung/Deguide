@@ -7,7 +7,7 @@ class UI {
     [this.docWidth, this.docHeight] = [0, 0];
     this.theme_class = new Map([
       ['nav', 'ps_light_nav'],
-      ['li.menu_item', ['ps_light_divide', 'ps_light_nav_menu_item']],
+      ['li.menu_item', 'ps_light_divide ps_light_nav_menu_item'],
       ['input[name="guide_value"]', 'ps_light_guide_value'],
       ['.guide_value', 'ps_light_guide_value_input'],
       ['.guide_icon', 'ps_light_guide_icon'],
@@ -30,14 +30,12 @@ class UI {
     this.appUnit = unit;
   }
   valueFieldListener() {
-    const elemLists = $('input[name="guide_value"]', 'all').self;
-    for (let i=0; i < elemLists.length; i++) {      
-      elemLists[i].addEventListener('blur', e => {
-        if (!this.valueIsNaN.test(elemLists[i].value) && elemLists[i].value != '') {
-          elemLists[i].value += this.appUnit;
-        }
-      }, false);
-    }
+    let unit = this.unit;
+    $('input[name="guide_value"]').blur( function() {
+      // not using arrow function because arrow func does't bind Lexical `this`
+      // because jquery need $(this) 
+      $(this)[0].value += unit;
+    });
   }
   createGuides(canvasWidth, canvasHeight) {
     let guideProp = this.getValues();
@@ -69,7 +67,8 @@ class UI {
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {
-      CSLibrary.evalScript('app.name', (_rst)=>{alert(_rst)});
+      CSLibrary.evalScript('clearAllGuides()', (_rst)=>{alert(_rst)});
+      //CSLibrary.evalScript('clearAllGuides()', (_rst)=>{alert(_rst)});
     });
   }
   toggleGuidesVisibility() {
@@ -84,7 +83,7 @@ class UI {
   }
   initialTheme() {
     let appTheme = new Theme();
-    $('body').css('backgroundColor', appTheme.rgbHex);
+    $('body').css('background-color', appTheme.rgbHex);
     // else use default dark theme
     if (appTheme.isLightTheme) {
       this.lightTheme();
@@ -92,7 +91,7 @@ class UI {
   }
   syncThemeListener() {
     let appTheme = new Theme();
-    $('body').css('backgroundColor', appTheme.rgbHex);
+    $('body').css('background-color', appTheme.rgbHex);
     if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) {
       this.lightTheme();
     }else if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) {

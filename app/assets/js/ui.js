@@ -21,7 +21,7 @@ var UI = function () {
     this.docWidth = _ref[0];
     this.docHeight = _ref[1];
 
-    this.theme_class = new Map([['nav', 'ps_light_nav'], ['li.menu_item', ['ps_light_divide', 'ps_light_nav_menu_item']], ['input[name="guide_value"]', 'ps_light_guide_value'], ['.guide_value', 'ps_light_guide_value_input'], ['.guide_icon', 'ps_light_guide_icon'], ['.cls-2', 'ps_light_icon_cls2_fill'], ['.under_border:not(#bottom)', 'ps_light_margin_under_border'], ['#bottom', 'ps_light_margin_under_border_top'], ['.strip', 'ps_light_strip'], ['.hexgon_btn_theme', 'ps_light_hexgon_btn_theme'], ['.hexgon_btn_frame_theme', 'ps_light_hexgon_btn_frame_theme'], ['.text_on_btn', 'ps_light_text_on_btn']]);
+    this.theme_class = new Map([['nav', 'ps_light_nav'], ['li.menu_item', 'ps_light_divide ps_light_nav_menu_item'], ['input[name="guide_value"]', 'ps_light_guide_value'], ['.guide_value', 'ps_light_guide_value_input'], ['.guide_icon', 'ps_light_guide_icon'], ['.cls-2', 'ps_light_icon_cls2_fill'], ['.under_border:not(#bottom)', 'ps_light_margin_under_border'], ['#bottom', 'ps_light_margin_under_border_top'], ['.strip', 'ps_light_strip'], ['.hexgon_btn_theme', 'ps_light_hexgon_btn_theme'], ['.hexgon_btn_frame_theme', 'ps_light_hexgon_btn_frame_theme'], ['.text_on_btn', 'ps_light_text_on_btn']]);
     this.appThemeWasLight = false;
     this.appThemeWasDark = true;
   }
@@ -29,21 +29,12 @@ var UI = function () {
   _createClass(UI, [{
     key: 'valueFieldListener',
     value: function valueFieldListener() {
-      var _this = this;
-
-      var elemLists = $('input[name="guide_value"]', 'all').self;
-
-      var _loop = function _loop(i) {
-        elemLists[i].addEventListener('blur', function (e) {
-          if (!_this.valueIsNaN.test(elemLists[i].value) && elemLists[i].value != '') {
-            elemLists[i].value += _this.appUnit;
-          }
-        }, false);
-      };
-
-      for (var i = 0; i < elemLists.length; i++) {
-        _loop(i);
-      }
+      var unit = this.unit;
+      $('input[name="guide_value"]').blur(function () {
+        // not using arrow function because arrow func does't bind Lexical `this`
+        // because jquery need $(this) 
+        $(this)[0].value += unit;
+      });
     }
   }, {
     key: 'createGuides',
@@ -113,16 +104,16 @@ var UI = function () {
   }, {
     key: 'gen',
     value: function gen() {
-      var _this2 = this;
+      var _this = this;
 
       $('#gen-btn').click(function (e) {
         CSLibrary.evalScript('getDocumentWidth()', function (w) {
           CSLibrary.evalScript('getDocumentHeight()', function (h) {
             var _ref2 = [parseInt(w), parseInt(h)];
-            _this2.docWidth = _ref2[0];
-            _this2.docHeight = _ref2[1];
+            _this.docWidth = _ref2[0];
+            _this.docHeight = _ref2[1];
 
-            _this2.createGuides(_this2.docWidth, _this2.docHeight);
+            _this.createGuides(_this.docWidth, _this.docHeight);
           });
         });
       });
@@ -131,9 +122,10 @@ var UI = function () {
     key: 'clearButtonListener',
     value: function clearButtonListener() {
       $('.clear_btn').click(function (e) {
-        CSLibrary.evalScript('app.name', function (_rst) {
+        CSLibrary.evalScript('clearAllGuides()', function (_rst) {
           alert(_rst);
         });
+        //CSLibrary.evalScript('clearAllGuides()', (_rst)=>{alert(_rst)});
       });
     }
   }, {
@@ -154,7 +146,7 @@ var UI = function () {
     key: 'initialTheme',
     value: function initialTheme() {
       var appTheme = new Theme();
-      $('body').css('backgroundColor', appTheme.rgbHex);
+      $('body').css('background-color', appTheme.rgbHex);
       // else use default dark theme
       if (appTheme.isLightTheme) {
         this.lightTheme();
@@ -164,7 +156,7 @@ var UI = function () {
     key: 'syncThemeListener',
     value: function syncThemeListener() {
       var appTheme = new Theme();
-      $('body').css('backgroundColor', appTheme.rgbHex);
+      $('body').css('background-color', appTheme.rgbHex);
       if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) {
         this.lightTheme();
       } else if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) {

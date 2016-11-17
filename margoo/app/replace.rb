@@ -55,6 +55,16 @@ class Rep
     FileUtils.cp HOST_JS_SRC, HOST_JS_DEST
     File.rename HOST_JS_DEST + '/ps.js', HOST_JS_DEST + '/ps.jsx'
   end
+  def html
+    @before = Time.now      
+    @target = 'HTML'      
+    FileUtils.cp HTML_SRC, HTML_DEST
+  end
+  def manifest
+    @before = Time.now      
+    @target = 'manifest'      
+    FileUtils.cp MANIFEST_SRC, MANIFEST_DEST
+  end
   def cp(who)
     case who
       when 'css'
@@ -66,27 +76,21 @@ class Rep
       when 'jsx'
         jsx
       when 'html'
-        @before = Time.now      
-        @target = 'HTML'      
-        FileUtils.cp HTML_SRC, HTML_DEST
+        html
       when 'man'
-        @before = Time.now      
-        @target = 'manifest'      
-        FileUtils.cp MANIFEST_SRC, MANIFEST_DEST
+        manifest
       when 'hc'
-        @before = Time.now      
-        @target = 'HTML & CSS'      
-        FileUtils.cp HTML_SRC, HTML_DEST
-        FileUtils.cp CSS_SRC, CSS_DEST      
+        html
+        css    
       else
         @before = Time.now      
-        @target = 'all'      
-        FileUtils.cp CSS_SRC, CSS_DEST
-        FileUtils.cp JS_SRC, JS_DEST
-        FileUtils.cp LIB_SRC, LIB_DEST
-        FileUtils.cp MANIFEST_SRC, MANIFEST_DEST        
-        FileUtils.cp HOST_JS_SRC, HOST_JS_DEST
-        FileUtils.cp HTML_SRC, HTML_DEST            
+        @target = 'all' 
+        css
+        js
+        lib
+        jsx
+        manifest
+        html      
     end
     t = Time.now
     p "Transport [#{@target}] finished in [#{t-@before}] seconds at #{t.hour}:#{t.min}:#{t.sec}"

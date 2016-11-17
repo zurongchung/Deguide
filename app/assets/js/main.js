@@ -31,20 +31,6 @@ $(document).ready(function () {
 });
 var loadJSX = function loadJSX() {
   var csLib = new CSInterface();
-  var extRoot = csLib.getSystemPath(SystemPath.EXTENSION + '/jsx/');
-  csLib.evalScript('$._ext_ps.evalFiles( ' + extRoot + ' )');
-};
-var getUnit = function getUnit(defaultUnit) {
-  switch (defaultUnit) {
-    case 'Units.INCHES':
-      return 'in';
-    case 'Units.POINTS':
-      return 'pt';
-    case 'Units.CM':
-      return 'cm';
-    case 'Units.MM':
-      return 'mm';
-    default:
-      return 'px';
-  }
+  var extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
+  csLib.evalScript('$._ext_ps.evalFiles("' + extRoot + '" )');
 };

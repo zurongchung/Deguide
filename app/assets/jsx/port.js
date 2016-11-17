@@ -1,3 +1,4 @@
+'use strict';
 if (typeof($) === 'undefined') $ = {};
 $._ext_ps = {
   evalFile: function(path) {

@@ -29,20 +29,6 @@ $(document).ready(() => {
 });
 const loadJSX = () => {
   const csLib = new CSInterface();
-  const extRoot = csLib.getSystemPath(SystemPath.EXTENSION + '/jsx/');
-  csLib.evalScript(`$._ext_ps.evalFiles( ${extRoot} )`);
-}
-var getUnit = function (defaultUnit) {
-  switch (defaultUnit) {
-    case 'Units.INCHES':
-    return 'in';
-    case 'Units.POINTS':
-    return 'pt';
-    case 'Units.CM':
-    return 'cm';
-    case 'Units.MM':
-    return 'mm';
-    default:
-    return 'px';
-  }
+  const extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
+  csLib.evalScript(`$._ext_ps.evalFiles("${extRoot}" )`);
 }

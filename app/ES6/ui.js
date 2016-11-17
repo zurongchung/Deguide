@@ -67,7 +67,7 @@ class UI {
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {
-      CSLibrary.evalScript('clearAllGuides()', (_rst)=>{});
+      CSLibrary.evalScript('Deguide.clearAllGuides()', (_rst)=>{});
     });
   }
   toggleGuidesVisibility() {

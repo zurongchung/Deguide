@@ -49,7 +49,7 @@ class Rep
   def jsx
     @before = Time.now      
     @target = 'ExtendScript'
-    jsxFiles = {ps: ['ps.js', 'ps.jsx'], port: ['port.js', 'port.jsx']}
+    jsxFiles = {ps: ['ps.js', 'ps.jsx'], port: ['port.js', 'port.jsx'], obj: ['objects.js', 'objects.jsx']}
     jsxFiles.each do |key, jsxFile|
       if File.exist?(HOST_JS_DEST + '/' + jsxFile[1])
         File.delete(HOST_JS_DEST + '/' + jsxFile[1])

@@ -1,3 +1,8 @@
+const loadJSX = () => {
+  const csLib = new CSInterface();
+  const extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
+  csLib.evalScript(`$._ext_ps.evalFiles("${extRoot}" )`);
+}
 var _ext = {
   fire: function () {
     /**
@@ -13,8 +18,8 @@ var _ext = {
     });
   },
   initUnits: function() {
-    CSLibrary.evalScript('units()', _rst => {
-      //alert('action '+ _rst);
+    CSLibrary.evalScript('Deguide.unitType()', _rst => {
+      alert('action '+ _rst);
     });
   }
 };
@@ -27,8 +32,3 @@ $(document).ready(() => {
   _ext.fire();
   _ext.initUnits();
 });
-const loadJSX = () => {
-  const csLib = new CSInterface();
-  const extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
-  csLib.evalScript(`$._ext_ps.evalFiles("${extRoot}" )`);
-}

@@ -37,48 +37,31 @@ class UI {
       $(this)[0].value += unit;
     });
   }
-  createGuides(canvasWidth, canvasHeight) {
-    let guideProp = this.getValues();
-    let guide = new DeGuide(canvasWidth, canvasHeight, ...guideProp);
-    let rows = guide.coordinatesHorizontalGuides;
-    let columns = guide.coordinatesVerticleGuides;
-
-    if (typeof rows != 'undefined') {
-      for (const dy of rows) {
-        CSLibrary.evalScript(`horizontal(${dy})`, () => console.log('h +1'));        
-
-      }
-    }
-    if (typeof columns != 'undefined') {
-      for (const dx of columns) {
-        CSLibrary.evalScript(`vertical(${dx})`, () => console.log('v +1'));
-      }
-    }
-  }
   gen() {
-    $('#gen-btn').click(e => {
-      CSLibrary.evalScript('getDocumentWidth()', w => {
-        CSLibrary.evalScript('getDocumentHeight()', h => {
-          [this.docWidth, this.docHeight] = [parseInt(w), parseInt(h)];
-          this.createGuides(this.docWidth, this.docHeight);
-        });
-      });
+    $('.gen_btn').click(e => {
+      CSLibrary.evalScript('Deguide.Presets.fibonacci()', ()=>{});
     });
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {
-      CSLibrary.evalScript('Deguide.clearAllGuides()', (_rst)=>{});
+      CSLibrary.evalScript('Deguide.clearAll()', (_rst)=>{});
     });
   }
-  toggleGuidesVisibility() {
-    CSLibrary.evalScript('toggleGuidesVisibility()', ()=>{});
+  toggleVisibilityListener() {
+    $('.logo_link').click(e => {
+      CSLibrary.evalScript('Deguide.toggleVisibility()', ()=>{});
+    });
   }
-  quickGuide() {
+  setBorderListener() {
+    $('.one_click_border').click(e => {
+      CSLibrary.evalScript('Deguide.setBorder()', ()=>{});
+    });
   }
-  
   attachListener() {
     this.valueFieldListener();
+    this.gen();
     this.clearButtonListener();
+    this.toggleVisibilityListener();
   }
   initialTheme() {
     let appTheme = new Theme();

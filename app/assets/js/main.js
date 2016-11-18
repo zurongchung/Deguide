@@ -1,5 +1,10 @@
 'use strict';
 
+var loadJSX = function loadJSX() {
+  var csLib = new CSInterface();
+  var extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
+  csLib.evalScript('$._ext_ps.evalFiles("' + extRoot + '" )');
+};
 var _ext = {
   fire: function fire() {
     /**
@@ -15,8 +20,8 @@ var _ext = {
     });
   },
   initUnits: function initUnits() {
-    CSLibrary.evalScript('units()', function (_rst) {
-      //alert('action '+ _rst);
+    CSLibrary.evalScript('Deguide.unitType()', function (_rst) {
+      alert('action ' + _rst);
     });
   }
 };
@@ -29,8 +34,3 @@ $(document).ready(function () {
   _ext.fire();
   _ext.initUnits();
 });
-var loadJSX = function loadJSX() {
-  var csLib = new CSInterface();
-  var extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
-  csLib.evalScript('$._ext_ps.evalFiles("' + extRoot + '" )');
-};

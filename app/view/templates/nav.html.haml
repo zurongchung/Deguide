@@ -22,13 +22,13 @@
   %div(id="guide_tool" class="menu_container")
     %ul
       - for position, angle in @quick_border do
-        %li(class="set_guide menu_item")
+        %li(class="set_border menu_item")
           %a(class="one_click_border switch_panel")
             %div{:class => "svg_container"}
               =icon_for_toolSet_border position, angle
 
       - for direction, setIcon in @quick_center do
-        %li(class="set_guide menu_item")
+        %li(class="set_border menu_item")
           %a(class="one_click_border switch_panel")
             %div{:class => "svg_container"}
               =icon_for_toolSet_center direction, setIcon

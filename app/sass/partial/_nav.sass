@@ -96,7 +96,7 @@ $tool_name_list: 'left', 'center', 'right', 'top', 'center', 'bottom'
       @extend %roll_in_hint
       content: nth($menu_item_list, $i)
 @for $i from 1 through 6
-  li.set_guide:nth-child(#{$i})
+  li.set_border:nth-child(#{$i})
     &::after
       @extend %roll_in_hint
       content: nth($tool_name_list, $i)
@@ -119,7 +119,7 @@ $order: 1 3 4 6 2 5
     display: flex
     flex-direction: column
   @for $i from 1 through 6
-    li.set_guide:nth-child(#{$i})
+    li.set_border:nth-child(#{$i})
       cursor: pointer
       flex: 0 0 auto
       order: nth($order, $i)
@@ -162,7 +162,7 @@ li.menu_item:hover
       @extend %falling_box_animation
 %drop_down_animation
   +animation(1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown)  
-li.set_guide:hover
+li.set_border:hover
   path.anim_guide
     fill: $accent
     @extend %drop_down_animation

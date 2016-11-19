@@ -5,4 +5,3 @@ var NoDialog = DialogModes.NO;
 var idclearAllGuides = _.sTID('clearAllGuides');
 var idclearSelectedArtboardGuides = _.sTID('clearSelectedArtboardGuides');
 var idToggleGuides = _.cTID('Tgld'); // menu_item id
-

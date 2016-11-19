@@ -53,13 +53,15 @@ class UI {
     });
   }
   setBorderListener() {
-    $('.one_click_border').click(e => {
-      CSLibrary.evalScript('Deguide.setBorder()', ()=>{});
+    $('.set_border').click(function() {
+      let order = parseInt($(this).css('order'));
+      CSLibrary.evalScript(`Deguide.test()`, ()=>{});
     });
   }
   attachListener() {
-    this.valueFieldListener();
     this.gen();
+    this.setBorderListener();
+    this.valueFieldListener();
     this.clearButtonListener();
     this.toggleVisibilityListener();
   }

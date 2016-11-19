@@ -58,15 +58,17 @@ var UI = function () {
   }, {
     key: 'setBorderListener',
     value: function setBorderListener() {
-      $('.one_click_border').click(function (e) {
-        CSLibrary.evalScript('Deguide.setBorder()', function () {});
+      $('.set_border').click(function () {
+        var order = parseInt($(this).css('order'));
+        CSLibrary.evalScript('Deguide.test()', function () {});
       });
     }
   }, {
     key: 'attachListener',
     value: function attachListener() {
-      this.valueFieldListener();
       this.gen();
+      this.setBorderListener();
+      this.valueFieldListener();
       this.clearButtonListener();
       this.toggleVisibilityListener();
     }

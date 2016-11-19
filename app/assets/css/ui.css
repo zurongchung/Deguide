@@ -1088,7 +1088,7 @@ div.guide_icon:hover g#columns path:nth-child(5), div.guide_icon:hover g#rows pa
   height: 38px;
 }
 
-li.divide:nth-child(1)::after, li.divide:nth-child(2)::after, li.divide:nth-child(3)::after, li.set_guide:nth-child(1)::after, li.set_guide:nth-child(2)::after, li.set_guide:nth-child(3)::after, li.set_guide:nth-child(4)::after, li.set_guide:nth-child(5)::after, li.set_guide:nth-child(6)::after {
+li.divide:nth-child(1)::after, li.divide:nth-child(2)::after, li.divide:nth-child(3)::after, li.set_border:nth-child(1)::after, li.set_border:nth-child(2)::after, li.set_border:nth-child(3)::after, li.set_border:nth-child(4)::after, li.set_border:nth-child(5)::after, li.set_border:nth-child(6)::after {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1173,27 +1173,27 @@ li.divide:nth-child(3)::after {
   content: "modify";
 }
 
-li.set_guide:nth-child(1)::after {
+li.set_border:nth-child(1)::after {
   content: "left";
 }
 
-li.set_guide:nth-child(2)::after {
+li.set_border:nth-child(2)::after {
   content: "center";
 }
 
-li.set_guide:nth-child(3)::after {
+li.set_border:nth-child(3)::after {
   content: "right";
 }
 
-li.set_guide:nth-child(4)::after {
+li.set_border:nth-child(4)::after {
   content: "top";
 }
 
-li.set_guide:nth-child(5)::after {
+li.set_border:nth-child(5)::after {
   content: "center";
 }
 
-li.set_guide:nth-child(6)::after {
+li.set_border:nth-child(6)::after {
   content: "bottom";
 }
 
@@ -1211,37 +1211,37 @@ a.switch_panel {
   flex-direction: column;
 }
 
-#guide_tool li.set_guide:nth-child(1) {
+#guide_tool li.set_border:nth-child(1) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 1;
 }
 
-#guide_tool li.set_guide:nth-child(2) {
+#guide_tool li.set_border:nth-child(2) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 3;
 }
 
-#guide_tool li.set_guide:nth-child(3) {
+#guide_tool li.set_border:nth-child(3) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 4;
 }
 
-#guide_tool li.set_guide:nth-child(4) {
+#guide_tool li.set_border:nth-child(4) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 6;
 }
 
-#guide_tool li.set_guide:nth-child(5) {
+#guide_tool li.set_border:nth-child(5) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 2;
 }
 
-#guide_tool li.set_guide:nth-child(6) {
+#guide_tool li.set_border:nth-child(6) {
   cursor: pointer;
   flex: 0 0 auto;
   order: 5;
@@ -1292,12 +1292,12 @@ li.menu_item:hover {
   background-color: #1f1f1f;
 }
 
-li.set_guide:hover path.anim_guide {
+li.set_border:hover path.anim_guide {
   -webkit-animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
   animation: 1.5s cubic-bezier(0.15, -0.5, 0.55, 1.5) 0s 1 normal none running dropDown;
 }
 
-li.set_guide:hover path.anim_guide {
+li.set_border:hover path.anim_guide {
   fill: #009dff;
 }
 

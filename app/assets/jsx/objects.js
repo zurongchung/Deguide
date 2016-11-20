@@ -11,19 +11,20 @@ $.Deguide = function() {
         this.version = '1.00.5';
         this.h       = Direction.HORIZONTAL;
         this.v       = Direction.VERTICAL;
-        this.docWidth = function() { return app.activeDocument.width; };
-        this.docHeight= function() { return app.activeDocument.height; };
+        this.docWidth = parseInt(app.activeDocument.width);
+        this.docHeight= parseInt(app.activeDocument.height);
         this.hasAny   = function() { return app.activeDocument.guides.length > 0 ?  true : false; };
+        this.preset   = this.Preset(); 
     };
     return Deguide;
 }();
 
 
-$.Deguide.prototype.addGuides = function(orientation, move) {
+$.Deguide.prototype.addGuide = function(orientation, move) {
     app.activeDocument.guides.add(orientation, move + this.unitType() );
 };
 $.Deguide.prototype.clearAll = function() {
-    if (!this.hasAny()) return;    
+    if (!this.hasAny()) return;
     app.executeAction(idclearAllGuides, void 0, NoDialog); 
 };
 $.Deguide.prototype.clearSelectedArtboard= function() {
@@ -53,9 +54,35 @@ $.Deguide.prototype.unitType = function() {
         return 'px';
     }
 };
-$.Deguide.prototype.Presets = { 
-    fibonacci: function() {
-        var boundary = parseInt(this.docWidth()), pos=[], n_next, pre=8, next=13;
+$.Deguide.prototype.canvasBorder = function(order) { 
+    var orientation, move;
+    switch (order)  {
+        case 1: // left
+            orientation = this.v; move = 0;
+        break;
+        case 2: // vertical center
+            orientation = this.v; move = this.docWidth /2;
+        break;
+        case 3: // right
+            orientation = this.v; move = this.docWidth;
+        break;
+        case 4: // top
+            orientation = this.h; move = 0;
+        break;
+        case 5: // horizontal center
+            orientation = this.h; move = this.docHeight /2;
+        break;
+        default:
+            orientation = this.h; move = this.docHeight;
+    }
+    this.addGuide(orientation, move);
+};
+$.Deguide.prototype.Preset = function() {
+    var _this = this;
+    var preset = {};
+    preset.fibonacci = function(){
+        var boundary = _this.docWidth;
+        var pos=[], n_next, pre=8, next=13;
         (function(){
         for (;(next+pre) < boundary;) {
             n_next = next + pre;
@@ -67,18 +94,17 @@ $.Deguide.prototype.Presets = {
         // remove the last one guide line 
         // if the space between it and the boundary is
         // less then the space between it and the one before it
-        if ((boundary - pos[pos.length-1]) < (pos[pos.length-1] - pos[pos.length-2])) {
+        if ((boundary - pos[pos.length-1]) < (pos[pos.length-1] - pos[pos.length-2]))
             pos.pop();
-        }
         })();
         try{
             for (var p=0; p < pos.length; p++) {
-            app.activeDocument.guides.add(this.v, pos[p] + this.unitType());
-        }
+                _this.addGuide(_this.v, pos[p]);
+            }
         }catch(e) { console.log('Exception: ' +e); }
-    },
+    };
+    return preset;
 };
-$.Deguide.prototype.test = function() { alert('Presets') };
 /**
  * External usage
  * Without keyword 'var'. Not limited in `file` scope

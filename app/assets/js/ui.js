@@ -38,7 +38,7 @@ var UI = function () {
     key: 'gen',
     value: function gen() {
       $('.gen_btn').click(function (e) {
-        CSLibrary.evalScript('Deguide.Presets.fibonacci()', function () {});
+        CSLibrary.evalScript('Deguide.preset.fibonacci()', function () {});
       });
     }
   }, {
@@ -60,7 +60,7 @@ var UI = function () {
     value: function setBorderListener() {
       $('.set_border').click(function () {
         var order = parseInt($(this).css('order'));
-        CSLibrary.evalScript('Deguide.test()', function () {});
+        CSLibrary.evalScript('Deguide.canvasBorder(' + order + ')', function () {});
       });
     }
   }, {

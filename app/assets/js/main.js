@@ -3,7 +3,7 @@
 var loadJSX = function loadJSX() {
   var csLib = new CSInterface();
   var extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
-  csLib.evalScript('$._ext_ps.evalFiles("' + extRoot + '" )');
+  csLib.evalScript('$._ext_ps.evalFiles("' + extRoot + '")');
 };
 var _ext = {
   fire: function fire() {

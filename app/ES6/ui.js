@@ -39,7 +39,7 @@ class UI {
   }
   gen() {
     $('.gen_btn').click(e => {
-      CSLibrary.evalScript('Deguide.Presets.fibonacci()', ()=>{});
+      CSLibrary.evalScript('Deguide.preset.fibonacci()', ()=>{});
     });
   }
   clearButtonListener() {
@@ -55,7 +55,7 @@ class UI {
   setBorderListener() {
     $('.set_border').click(function() {
       let order = parseInt($(this).css('order'));
-      CSLibrary.evalScript(`Deguide.test()`, ()=>{});
+      CSLibrary.evalScript(`Deguide.canvasBorder(${order})`, ()=>{});
     });
   }
   attachListener() {

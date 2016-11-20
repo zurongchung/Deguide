@@ -1,7 +1,7 @@
 const loadJSX = () => {
   const csLib = new CSInterface();
   const extRoot = csLib.getSystemPath(SystemPath.EXTENSION) + '/jsx/';
-  csLib.evalScript(`$._ext_ps.evalFiles("${extRoot}" )`);
+  csLib.evalScript(`$._ext_ps.evalFiles("${extRoot}")`);
 }
 var _ext = {
   fire: function () {

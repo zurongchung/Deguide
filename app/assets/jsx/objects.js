@@ -19,7 +19,6 @@ $.Deguide = function() {
     return Deguide;
 }();
 
-
 $.Deguide.prototype.addGuide = function(orientation, move) {
     app.activeDocument.guides.add(orientation, move + this.unitType() );
 };
@@ -79,14 +78,23 @@ $.Deguide.prototype.canvasBorder = function(order) {
 };
 $.Deguide.prototype.Preset = function() {
     var _this = this;
-    var preset = {};
-    preset.fibonacci = function(){
+    var preset = {a: function(){preset.fibonacci('left')}};
+    // use matrix for this subject if no way to change Ruler origin
+    preset.fibonacci = function( to ){
+        var initialPoint = Origin.origin( to );
         var boundary = _this.docWidth;
-        var pos=[], n_next, pre=8, next=13;
+        var pos=[], n_next, pre=0, next=1;
         (function(){
         for (;(next+pre) < boundary;) {
             n_next = next + pre;
-            pos.push(n_next);
+            /**  
+             * @ Reversing
+             * using Rotation Matrice formular
+             */
+            var move;
+            if(initialPoint === Origin.right) 
+                move = boundary + Math.cos(Math.PI) *n_next;
+            pos.push(move);
             pre  = next;
             next = n_next;                
         }
@@ -94,16 +102,23 @@ $.Deguide.prototype.Preset = function() {
         // remove the last one guide line 
         // if the space between it and the boundary is
         // less then the space between it and the one before it
-        if ((boundary - pos[pos.length-1]) < (pos[pos.length-1] - pos[pos.length-2]))
+        if ((boundary - pos[pos.length-1])   < (pos[pos.length-1] - pos[pos.length-2]) ||
+            pos[pos.length-1] < (pos[pos.length-2] - pos[pos.length-1]))
             pos.pop();
+        
         })();
         try{
-            for (var p=0; p < pos.length; p++) {
+            for (var p= 0; p < pos.length; p++)
                 _this.addGuide(_this.v, pos[p]);
-            }
+            
         }catch(e) { console.log('Exception: ' +e); }
     };
     return preset;
+};
+$.Deguide.prototype.test = function() {
+    app.runMenuItem(_.cTID('Axis'));
+    var artboard = app.activeDocument.artboards;
+    alert(artboard);
 };
 /**
  * External usage

@@ -38,7 +38,8 @@ var UI = function () {
     key: 'gen',
     value: function gen() {
       $('.gen_btn').click(function (e) {
-        CSLibrary.evalScript('Deguide.preset.fibonacci()', function () {});
+        var to = 'right';
+        CSLibrary.evalScript('Deguide.preset.a()', function () {});
       });
     }
   }, {
@@ -52,7 +53,7 @@ var UI = function () {
     key: 'toggleVisibilityListener',
     value: function toggleVisibilityListener() {
       $('.logo_link').click(function (e) {
-        CSLibrary.evalScript('Deguide.toggleVisibility()', function () {});
+        CSLibrary.evalScript('Deguide.test()', function () {});
       });
     }
   }, {

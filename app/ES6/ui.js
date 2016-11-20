@@ -39,7 +39,8 @@ class UI {
   }
   gen() {
     $('.gen_btn').click(e => {
-      CSLibrary.evalScript('Deguide.preset.fibonacci()', ()=>{});
+      var to = 'right';
+      CSLibrary.evalScript(`Deguide.preset.a()`, ()=>{});
     });
   }
   clearButtonListener() {
@@ -49,7 +50,7 @@ class UI {
   }
   toggleVisibilityListener() {
     $('.logo_link').click(e => {
-      CSLibrary.evalScript('Deguide.toggleVisibility()', ()=>{});
+      CSLibrary.evalScript('Deguide.test()', ()=>{});
     });
   }
   setBorderListener() {

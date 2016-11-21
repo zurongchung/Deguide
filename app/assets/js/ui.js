@@ -32,11 +32,15 @@ var UI = function () {
   _createClass(UI, [{
     key: 'valueFieldListener',
     value: function valueFieldListener() {
-      var unit = this.unit;
       $('input[name="guide_value"]').blur(function () {
+        var _this = this;
+
         // not using arrow function because arrow func does't bind Lexical `this`
-        // because jquery need $(this) 
-        $(this)[0].value += unit;
+        // because jquery need $(this)
+        csi_el('Deguide.unitType()', function (_unit) {
+          var value = $(_this)[0].value;
+          if (!_this.valueIsNum.test(value)) value += _unit; // --- . .   . . --- .
+        });
       });
     }
   }, {
@@ -57,8 +61,10 @@ var UI = function () {
   }, {
     key: 'toggleVisibilityListener',
     value: function toggleVisibilityListener() {
+      var _this2 = this;
+
       $('.logo_link').click(function (e) {
-        csi_el('Deguide.test()');
+        /*csi_el( 'Deguide.test()' );*/_this2.unit;
       });
     }
   }, {
@@ -165,7 +171,9 @@ var UI = function () {
   }, {
     key: 'unit',
     get: function get() {
-      return this.appUnit;
+      csi_el('Deguide.unitType()', function (_t) {
+        alert(_t);
+      });
     },
     set: function set(unit) {
       this.appUnit = unit;

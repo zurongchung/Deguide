@@ -23,19 +23,21 @@ class UI {
       ['.text_on_btn', 'ps_light_text_on_btn'],
     ]);
   }
-
   get unit() {
-    return this.appUnit;
+    csi_el( 'Deguide.unitType()', _t => { alert(_t) } );
   }
   set unit(unit) {
     this.appUnit = unit;
   }
   valueFieldListener() {
-    let unit = this.unit;
     $('input[name="guide_value"]').blur( function() {
       // not using arrow function because arrow func does't bind Lexical `this`
-      // because jquery need $(this) 
-      $(this)[0].value += unit;
+      // because jquery need $(this)
+      csi_el( 'Deguide.unitType()', _unit => {
+        let value = $(this)[0].value; 
+        if ( !this.valueIsNum.test( value ) )
+          value += _unit; // --- . .   . . --- .
+      } );
     });
   }
   gen() {
@@ -44,11 +46,10 @@ class UI {
       csi_el( `Deguide.preset.fibonacci('${to}')` ); });
   }
   clearButtonListener() {
-    $('.clear_btn').click(e => {
-      csi_el( 'Deguide.clearAll()' ); });
+    $('.clear_btn').click(e => { csi_el( 'Deguide.clearAll()' ); });
   }
   toggleVisibilityListener() {
-    $('.logo_link').click(e => {  csi_el( 'Deguide.test()' ); });
+    $('.logo_link').click(e => {  /*csi_el( 'Deguide.test()' );*/ this.unit; });
   }
   setBorderListener() {
     $('.set_border').click(function() {

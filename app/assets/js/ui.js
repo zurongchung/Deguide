@@ -7,6 +7,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CSLibrary = new CSInterface();
+var csi_el = function csi_el(_ins) {
+  var _cab = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+
+  CSLibrary.evalScript(_ins, _cab);
+};
 
 var UI = function () {
   function UI() {
@@ -19,9 +24,9 @@ var UI = function () {
     this.docWidth = _ref[0];
     this.docHeight = _ref[1];
 
-    this.theme_class = new Map([['nav', 'ps_light_nav'], ['li.menu_item', 'ps_light_divide ps_light_nav_menu_item'], ['input[name="guide_value"]', 'ps_light_guide_value'], ['.guide_value', 'ps_light_guide_value_input'], ['.guide_icon', 'ps_light_guide_icon'], ['.cls-2', 'ps_light_icon_cls2_fill'], ['.under_border:not(#bottom)', 'ps_light_margin_under_border'], ['#bottom', 'ps_light_margin_under_border_top'], ['.strip', 'ps_light_strip'], ['.hexgon_btn_theme', 'ps_light_hexgon_btn_theme'], ['.hexgon_btn_frame_theme', 'ps_light_hexgon_btn_frame_theme'], ['.text_on_btn', 'ps_light_text_on_btn']]);
-    this.appThemeWasLight = false;
     this.appThemeWasDark = true;
+    this.appThemeWasLight = false;
+    this.theme_class = new Map([['nav', 'ps_light_nav'], ['li.menu_item', 'ps_light_divide ps_light_nav_menu_item'], ['input[name="guide_value"]', 'ps_light_guide_value'], ['.guide_value', 'ps_light_guide_value_input'], ['.guide_icon', 'ps_light_guide_icon'], ['.cls-2', 'ps_light_icon_cls2_fill'], ['.under_border:not(#bottom)', 'ps_light_margin_under_border'], ['#bottom', 'ps_light_margin_under_border_top'], ['.strip', 'ps_light_strip'], ['.hexgon_btn_theme', 'ps_light_hexgon_btn_theme'], ['.hexgon_btn_frame_theme', 'ps_light_hexgon_btn_frame_theme'], ['.text_on_btn', 'ps_light_text_on_btn']]);
   }
 
   _createClass(UI, [{
@@ -38,22 +43,22 @@ var UI = function () {
     key: 'gen',
     value: function gen() {
       $('.gen_btn').click(function (e) {
-        var to = 'right';
-        CSLibrary.evalScript('Deguide.preset.a()', function () {});
+        var to = 'bottom';
+        csi_el('Deguide.preset.fibonacci(\' ' + to + ' \')');
       });
     }
   }, {
     key: 'clearButtonListener',
     value: function clearButtonListener() {
       $('.clear_btn').click(function (e) {
-        CSLibrary.evalScript('Deguide.clearAll()', function (_rst) {});
+        csi_el('Deguide.clearAll()');
       });
     }
   }, {
     key: 'toggleVisibilityListener',
     value: function toggleVisibilityListener() {
       $('.logo_link').click(function (e) {
-        CSLibrary.evalScript('Deguide.test()', function () {});
+        csi_el('Deguide.test()');
       });
     }
   }, {
@@ -61,7 +66,7 @@ var UI = function () {
     value: function setBorderListener() {
       $('.set_border').click(function () {
         var order = parseInt($(this).css('order'));
-        CSLibrary.evalScript('Deguide.canvasBorder(' + order + ')', function () {});
+        csi_el('Deguide.canvasBorder(' + order + ')');
       });
     }
   }, {
@@ -79,20 +84,15 @@ var UI = function () {
       var appTheme = new Theme();
       $('body').css('background-color', appTheme.rgbHex);
       // else use default dark theme
-      if (appTheme.isLightTheme) {
-        this.lightTheme();
-      }
+      if (appTheme.isLightTheme) this.lightTheme();
     }
   }, {
     key: 'syncThemeListener',
     value: function syncThemeListener() {
       var appTheme = new Theme();
       $('body').css('background-color', appTheme.rgbHex);
-      if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) {
-        this.lightTheme();
-      } else if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) {
-        this.darkTheme();
-      }
+      if (!this.appThemeWasLight && this.appThemeWasDark && appTheme.isLightTheme) this.lightTheme();
+      if (!this.appThemeWasDark && this.appThemeWasLight && !appTheme.isLightTheme) this.darkTheme();
     }
   }, {
     key: 'lightTheme',

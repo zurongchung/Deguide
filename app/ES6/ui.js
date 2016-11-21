@@ -40,8 +40,8 @@ class UI {
   }
   gen() {
     $('.gen_btn').click(e => {
-      var to = 'bottom';
-      csi_el( 'Deguide.preset.fibonacci(\' ' + to + ' \')' ); });
+      var to = 'left';
+      csi_el( `Deguide.preset.fibonacci('${to}')` ); });
   }
   clearButtonListener() {
     $('.clear_btn').click(e => {

@@ -43,8 +43,8 @@ var UI = function () {
     key: 'gen',
     value: function gen() {
       $('.gen_btn').click(function (e) {
-        var to = 'bottom';
-        csi_el('Deguide.preset.fibonacci(\' ' + to + ' \')');
+        var to = 'left';
+        csi_el('Deguide.preset.fibonacci(\'' + to + '\')');
       });
     }
   }, {

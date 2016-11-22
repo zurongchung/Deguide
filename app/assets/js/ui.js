@@ -18,8 +18,8 @@ var UI = function () {
     _classCallCheck(this, UI);
 
     this.appUnit = 'px';
-    this.valueIsNaN = /[^\d]/;
-    this.valueIsNum = /\d/;
+    this.valueContainNaN = /[^\d]/;
+    this.valueMustBeNum = /\d/;
     var _ref = [0, 0];
     this.docWidth = _ref[0];
     this.docHeight = _ref[1];
@@ -32,14 +32,13 @@ var UI = function () {
   _createClass(UI, [{
     key: 'valueFieldListener',
     value: function valueFieldListener() {
+      var _this = this;
       $('input[name="guide_value"]').blur(function () {
-        var _this = this;
-
         // not using arrow function because arrow func does't bind Lexical `this`
         // because jquery need $(this)
+        var $this = $(this)[0];
         csi_el('Deguide.unitType()', function (_unit) {
-          var value = $(_this)[0].value;
-          if (!_this.valueIsNum.test(value)) value += _unit; // --- . .   . . --- .
+          if (_this.valueMustBeNum.test($this.value) && !_this.valueContainNaN.test($this.value)) $this.value += _unit;
         });
       });
     }

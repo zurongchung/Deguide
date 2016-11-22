@@ -3,8 +3,8 @@ const csi_el    = ( _ins, _cab = ()=>{} ) => { CSLibrary.evalScript( _ins, _cab 
 class UI {
   constructor() {
     this.appUnit                    =           'px';    
-    this.valueIsNaN                 =        /[^\d]/;
-    this.valueIsNum                 =           /\d/;
+    this.valueContainNaN            =        /[^\d]/;
+    this.valueMustBeNum             =           /\d/;
     [this.docWidth, this.docHeight] =         [0, 0];
     this.appThemeWasDark            =           true;
     this.appThemeWasLight           =          false;    
@@ -30,13 +30,14 @@ class UI {
     this.appUnit = unit;
   }
   valueFieldListener() {
+    const _this = this;
     $('input[name="guide_value"]').blur( function() {
       // not using arrow function because arrow func does't bind Lexical `this`
       // because jquery need $(this)
+      let $this = $(this)[0]; 
       csi_el( 'Deguide.unitType()', _unit => {
-        let value = $(this)[0].value; 
-        if ( !this.valueIsNum.test( value ) )
-          value += _unit; // --- . .   . . --- .
+        if ( _this.valueMustBeNum.test( $this.value ) && !_this.valueContainNaN.test($this.value) )
+          $this.value += _unit;
       } );
     });
   }

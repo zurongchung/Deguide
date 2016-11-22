@@ -1,8 +1,9 @@
-var gulp = require("gulp");
-var babel = require("gulp-babel");
-var sass = require('gulp-sass');
-var somaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
+var gulp    = require("gulp");
+var babel   = require("gulp-babel");
+var sass    = require('gulp-sass');
+var somaps  = require('gulp-sourcemaps');
+var gutil   = require('gulp-util');
+var ts      = require('gulp-typescript');
 
 gulp.task('transform', function() {
 /**

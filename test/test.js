@@ -1,4 +1,5 @@
     // load Unit.js module
+    var ui = require('app/assets/js/ui');
     var test = require('unit.js');
     describe("tests", function() {
         it('will work', function() {

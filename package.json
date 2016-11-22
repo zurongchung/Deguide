@@ -4,7 +4,8 @@
   "description": "A photoshop HTML5/CSS/Js extension.",
   "main": "main.js",
   "scripts": {
-    "build": "babel ES6 -d js"
+    "build": "babel ES6 -d js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

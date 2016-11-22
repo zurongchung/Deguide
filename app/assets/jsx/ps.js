@@ -22,7 +22,6 @@ var Origin = {
  * */ 
 Origin.origin = function ( to ) {
   to = ( typeof to !== undefined ) ? to : 'right';
-  alert( 'to: ' + to);
   switch ( to.toLowerCase() ) {
     case  'right'   :    return   Origin.LEFT;
     case   'left'   :    return  Origin.RIGHT;

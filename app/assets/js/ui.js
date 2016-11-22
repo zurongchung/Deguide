@@ -17,7 +17,6 @@ var UI = function () {
   function UI() {
     _classCallCheck(this, UI);
 
-    this.appUnit = 'px';
     this.valueContainNaN = /[^\d]/;
     this.valueMustBeNum = /\d/;
     var _ref = [0, 0];
@@ -30,8 +29,8 @@ var UI = function () {
   }
 
   _createClass(UI, [{
-    key: 'valueFieldListener',
-    value: function valueFieldListener() {
+    key: 'inputListener',
+    value: function inputListener() {
       var _this = this;
       $('input[name="guide_value"]').blur(function () {
         // not using arrow function because arrow func does't bind Lexical `this`
@@ -60,10 +59,8 @@ var UI = function () {
   }, {
     key: 'toggleVisibilityListener',
     value: function toggleVisibilityListener() {
-      var _this2 = this;
-
       $('.logo_link').click(function (e) {
-        /*csi_el( 'Deguide.test()' );*/_this2.unit;
+        csi_el('Deguide.test()');
       });
     }
   }, {
@@ -79,7 +76,7 @@ var UI = function () {
     value: function attachListener() {
       this.gen();
       this.setBorderListener();
-      this.valueFieldListener();
+      this.inputListener();
       this.clearButtonListener();
       this.toggleVisibilityListener();
     }
@@ -166,16 +163,6 @@ var UI = function () {
       console.log('using dark theme');
       this.appThemeWasLight = false;
       this.appThemeWasDark = true;
-    }
-  }, {
-    key: 'unit',
-    get: function get() {
-      csi_el('Deguide.unitType()', function (_t) {
-        alert(_t);
-      });
-    },
-    set: function set(unit) {
-      this.appUnit = unit;
     }
   }]);
 

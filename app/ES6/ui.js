@@ -2,7 +2,6 @@ const CSLibrary = new CSInterface();
 const csi_el    = ( _ins, _cab = ()=>{} ) => { CSLibrary.evalScript( _ins, _cab ); };
 class UI {
   constructor() {
-    this.appUnit                    =           'px';    
     this.valueContainNaN            =        /[^\d]/;
     this.valueMustBeNum             =           /\d/;
     [this.docWidth, this.docHeight] =         [0, 0];
@@ -23,13 +22,7 @@ class UI {
       ['.text_on_btn', 'ps_light_text_on_btn'],
     ]);
   }
-  get unit() {
-    csi_el( 'Deguide.unitType()', _t => { alert(_t) } );
-  }
-  set unit(unit) {
-    this.appUnit = unit;
-  }
-  valueFieldListener() {
+  inputListener() {
     const _this = this;
     $('input[name="guide_value"]').blur( function() {
       // not using arrow function because arrow func does't bind Lexical `this`
@@ -37,8 +30,7 @@ class UI {
       let $this = $(this)[0]; 
       csi_el( 'Deguide.unitType()', _unit => {
         if ( _this.valueMustBeNum.test( $this.value ) && !_this.valueContainNaN.test($this.value) )
-          $this.value += _unit;
-      } );
+          $this.value += _unit; } );
     });
   }
   gen() {
@@ -50,7 +42,7 @@ class UI {
     $('.clear_btn').click(e => { csi_el( 'Deguide.clearAll()' ); });
   }
   toggleVisibilityListener() {
-    $('.logo_link').click(e => {  /*csi_el( 'Deguide.test()' );*/ this.unit; });
+    $('.logo_link').click(e => {  csi_el( 'Deguide.test()' ); });
   }
   setBorderListener() {
     $('.set_border').click(function() {
@@ -60,7 +52,7 @@ class UI {
   attachListener() {
     this.gen();
     this.setBorderListener();
-    this.valueFieldListener();
+    this.inputListener();
     this.clearButtonListener();
     this.toggleVisibilityListener();
   }

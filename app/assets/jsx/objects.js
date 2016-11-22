@@ -115,9 +115,8 @@ $.Deguide.prototype.Preset 									= function() {
 	return preset;
 };
 $.Deguide.prototype.test = function() {
-    app.runMenuItem(_.cTID('Axis'));
-    var artboard = app.activeDocument.artboards;
-    alert(artboard);
+    var artboard = app.activeDocument.activeLayer;
+    alert( artboard.name + ': ' + artboard.bounds);
 };
 /**
  * External usage
